@@ -141,4 +141,5 @@ IL2CPP游戏的修改可以参考[这里](https://www.52pojie.cn/thread-618515-1
 
 ## 抓内存
 
-Cheat Engine有一个叫做[Dissect Mono](https://wiki.cheatengine.org/index.php?title=Mono)的功能，可以帮助黑客攻击游戏内存。这个[视频系列](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7)讲解了如何使用Cheat Engine，非常有帮助。
+Cheat Engine有一个叫做[Dissect Mono](https://wiki.cheatengine.org/index.php?title=Mono)的功能，可以帮助黑客攻击游戏内存。这个[视频系列](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7)讲解了如何使用Cheat Engine，非常有帮助。<br>
+如果你有一台ROOT了的安卓手机，可以利用`GG修改器`也就是[GameGuardian](https://gameguardian.net/forum/files/category/5-official-downloads/)来对内存进行抓取或修改。<br>
