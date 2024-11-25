@@ -102,8 +102,8 @@ C#（和UnityScript）文件会被编译成Assembly-CSharp.dll（和Assembly-Uni
 [Telerik JustAssembly](https://www.telerik.com/justassembly) | 反编译并比较.NET程序集。支持二进制代码差异和方法差异比较。
 [Cpp2IL](https://github.com/SamboyCoding/Cpp2IL) | 一个正在开发的工具，用于逆向Unity的IL2CPP工具链。
 [Il2CppDumper](https://github.com/Perfare/Il2CppDumper) | Unity IL2CPP逆向工程工具。
-[dnSpy](https://github.com/dnSpy/dnSpy)![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | dnSpy是一个调试器和.NET程序集编辑器。即使没有源代码，也可以编辑和调试程序集文件。**已不再维护，建议使用``dnSpyEx``。**
-[MegaDumper](https://github.com/CodeCracker-Tools/MegaDumper)![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | 用于转储本地和.NET程序集。
+[dnSpy](https://github.com/dnSpy/dnSpy) <br/> ![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | dnSpy是一个调试器和.NET程序集编辑器。即使没有源代码，也可以编辑和调试程序集文件。<br/> **已不再维护，建议使用``dnSpyEx``。**
+[MegaDumper](https://github.com/CodeCracker-Tools/MegaDumper)  <br/> ![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | 用于转储本地和.NET程序集。
 
 Il2CppDumper更多的是为了通过元文件找到代码所在的地址，再通过IDA等工具解析修改。
 IL2CPP游戏的修改可以参考[这里](https://www.52pojie.cn/thread-618515-1-1.html)
@@ -118,9 +118,9 @@ IL2CPP游戏的修改可以参考[这里](https://www.52pojie.cn/thread-618515-1
 [Unity Assets Bundle Extractor](https://github.com/SeriousCache/UABE) | UABE是一个针对Unity 3.4+/4/5/2017-2021.3版本的.assets和AssetBundle文件编辑器，可以创建独立的mod安装包。
 [QuickBMS](https://aluigi.altervista.org/quickbms.htm) 配合[此脚本](https://aluigi.altervista.org/bms/unity.bms)或[WebPlayer脚本](https://aluigi.altervista.org/bms/unity3d_webplayer.bms) | 一款通用的基于脚本的文件提取器和重新导入工具。QuickBMS支持众多游戏和文件格式、压缩、加密、混淆等算法。
 [DevXUnityUnpacker](https://devxdevelopment.com/Unpacker) | 一款付费工具，具有友好的图形界面，旨在通过输入构建的游戏/应用程序恢复Unity项目，还带有预览功能（例如图像、十六进制、文本等）。
-[uTinyRipper](https://github.com/mafaca/UtinyRipper)![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | uTinyRipper是一个用于从序列化文件（CAB-*, *.assets, *.sharedAssets等）和资源包（*.unity3d, *.assetbundle等）中提取资源并将它们转换为原生引擎格式的工具。**建议使用``AssetRipper``。**
-[Unity Studio / AssetStudio](https://github.com/RaduMC/AssetStudio)![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | AssetStudio是一个独立的工具，用于浏览、提取和导出资产。
-[Unity Assets Explorer](https://zenhax.com/viewtopic.php?t=36)![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | Unity Assets Explorer用于查看Assets文件的内容（Unity 3D引擎）。支持提取所有文件、提取单个文件（通过右键菜单）、将tex文件转换为DDS格式（提取时）、将修改过的DDS图像导入到资源包中。
+[uTinyRipper](https://github.com/mafaca/UtinyRipper) <br/> ![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | uTinyRipper是一个用于从序列化文件（CAB-*, *.assets, *.sharedAssets等）和资源包（*.unity3d, *.assetbundle等）中提取资源并将它们转换为原生引擎格式的工具。<br/> **建议使用``AssetRipper``。**
+[Unity Studio / AssetStudio](https://github.com/RaduMC/AssetStudio) <br/> ![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | AssetStudio是一个独立的工具，用于浏览、提取和导出资产。
+[Unity Assets Explorer](https://zenhax.com/viewtopic.php?t=36) <br/> ![不再维护](https://img.shields.io/badge/No%20Longer%20Maintained-red.svg) | Unity Assets Explorer用于查看Assets文件的内容（Unity 3D引擎）。支持提取所有文件、提取单个文件（通过右键菜单）、将tex文件转换为DDS格式（提取时）、将修改过的DDS图像导入到资源包中。
 
 > **不要使用UnityEX**，它很可能是病毒。
 
@@ -132,10 +132,8 @@ IL2CPP游戏的修改可以参考[这里](https://www.52pojie.cn/thread-618515-1
 
 工具 | 教程
 --- | ---
-[Ninja Ripper](https://ninjaripper.com/) | 从游戏中提取（捕捉）3D场景并在3D编辑器（Blender、3D Max、Noesis等）中查看。<br/> [旧的指南](http://cgig.ru/en/2012/10/ho-to-use-ninja-ripper/)帮助使用Ninja Ripper。<br/> 官方[YouTube频道](https://www.youtube.com/channel/UCgT-ET20KlC4AcECNtW9gyw)可以提供最新的视频教程。
-[RenderDoc](https://renderdoc.org/) | [教程](https://www.youtube.com/watch?v=yPLxCm3SyPU)教你如何使用RenderDoc
-
-。
+[Ninja Ripper](https://ninjaripper.com/) | 从游戏中提取（捕捉）3D场景并在3D编辑器（Blender、3D Max、Noesis等）中查看。<br/> 使用[旧指南](http://cgig.ru/en/2012/10/ho-to-use-ninja-ripper/)来帮助使用Ninja Ripper。<br/> 官方[YouTube频道](https://www.youtube.com/channel/UCgT-ET20KlC4AcECNtW9gyw)可以提供最新的视频教程。
+[RenderDoc](https://renderdoc.org/) | [教程](https://www.youtube.com/watch?v=yPLxCm3SyPU)教你如何使用RenderDoc。
 [NVIDIA纹理工具导出器](https://developer.nvidia.com/nvidia-texture-tools-exporter) | NVIDIA纹理工具导出器允许用户直接从图像源创建高度压缩的纹理文件，这些文件在磁盘和内存中都非常小。<br/> **可以作为独立软件使用或作为Adobe Photoshop插件。**
 [Intel®图形性能分析工具](https://www.intel.com/content/www/us/en/developer/tools/graphics-performance-analyzers/overview.html) | 通过快速识别性能问题，改善游戏性能。<br/> [教程](https://forum.xentax.com/viewtopic.php?t=12262)介绍如何使用Intel图形性能分析工具提取图形资源。
 [Gimp插件](https://code.google.com/archive/p/gimp-dds/downloads) | 这是GIMP 2.8.x版本的插件，允许你加载和保存Direct Draw Surface (DDS) 格式的图像。
