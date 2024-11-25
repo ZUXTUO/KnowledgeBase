@@ -1,4 +1,4 @@
-# 软盘img文件转CDROM的iso文件工具
+# 将软盘img文件转CDROM的iso文件工具
 在`Ubuntu 20.04`上测试成功。<br>
 可以将原本需要软盘引导的img虚拟软盘文件转成可以通过CDROM引导的iso文件。<br>
 将`floppy.img`放在`img2iso.sh`同目录下，然后执行`img2iso.sh`，在`dist`文件夹里就会生成对应的iso文件。<br>
