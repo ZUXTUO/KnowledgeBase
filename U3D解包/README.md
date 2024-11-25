@@ -9,7 +9,7 @@
 1. [Unity游戏文件夹结构](#unity游戏文件夹结构)
 2. [提取和编辑代码](#提取和编辑代码)
 3. [提取资源](#提取资源)
-4. [内存黑客](#内存黑客)
+4. [抓内存](#抓内存)
 
 
 ## Unity游戏文件夹结构（Mono）
@@ -139,6 +139,6 @@ IL2CPP游戏的修改可以参考[这里](https://www.52pojie.cn/thread-618515-1
 [Gimp插件](https://code.google.com/archive/p/gimp-dds/downloads) | 这是GIMP 2.8.x版本的插件，允许你加载和保存Direct Draw Surface (DDS) 格式的图像。
 [3D Ripper DX](http://www.deep-shadows.com/hax/3DRipperDX.htm) | 此软件不支持64位二进制文件。
 
-## 内存黑客
+## 抓内存
 
 Cheat Engine有一个叫做[Dissect Mono](https://wiki.cheatengine.org/index.php?title=Mono)的功能，可以帮助黑客攻击游戏内存。这个[视频系列](https://www.youtube.com/playlist?list=PLNffuWEygffbue0tvx7IusDmfAthqmgS7)讲解了如何使用Cheat Engine，非常有帮助。
