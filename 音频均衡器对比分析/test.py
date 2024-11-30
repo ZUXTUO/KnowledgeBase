@@ -76,10 +76,10 @@ def main(eq_file, audio_file_C, output_file_D):
     # 合并左右声道
     audio_D = np.stack([left_channel_d, right_channel_d], axis=0)
 
-    # 保存生成的 D 音频
+    # 保存生成的音频
     save_audio(audio_D, output_file_D, sr_C)
 
-    print(f"音频 D 已保存到 {output_file_D}")
+    print(f"音频已保存到 {output_file_D}")
 
 # 生成输出文件名，去除文件扩展名并加上 "_he1.wav"
 def generate_output_filename(input_file):

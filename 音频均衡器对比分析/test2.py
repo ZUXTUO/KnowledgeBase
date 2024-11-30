@@ -86,22 +86,23 @@ def generate_output_filename(input_file):
 def separate_vocals(input_file):
     """使用 Spleeter 分离人声"""
     separator = Separator('spleeter:2stems')  # 2stems 模型: 人声 + 音乐伴奏
-    output_dir = os.path.join(os.path.dirname(input_file), 'separated')
-    os.makedirs(output_dir, exist_ok=True)
+    output_dir = os.path.join(os.path.dirname(input_file), 'separated')  # 输出目录: 存储分离后的音频文件
+    os.makedirs(output_dir, exist_ok=True)  # 创建输出目录（如果不存在）
+
+    # 打印输出目录，方便调试
+    print(f"分离后的文件输出目录: {output_dir}")
     
-    # Print the output directory for debugging
-    print(f"Output directory for separated files: {output_dir}")
-    
+    # 使用 Spleeter 进行分离并将结果保存到输出目录
     separator.separate_to_file(input_file, output_dir)
     
-    # Extract base name and form the full path for vocals and accompaniment
+    # 提取文件基础名称并构建人声和伴奏文件的完整路径
     base_name = os.path.basename(input_file).split('.')[0]
-    vocal_file = os.path.join(output_dir, base_name, 'vocals.wav')
-    accompaniment_file = os.path.join(output_dir, base_name, 'accompaniment.wav')
+    vocal_file = os.path.join(output_dir, base_name, 'vocals.wav')  # 人声文件路径
+    accompaniment_file = os.path.join(output_dir, base_name, 'accompaniment.wav')  # 伴奏文件路径
     
-    # Print paths for debugging
-    print(f"Vocal file path: {vocal_file}")
-    print(f"Accompaniment file path: {accompaniment_file}")
+    # 打印文件路径，方便调试
+    print(f"人声文件路径: {vocal_file}")
+    print(f"伴奏文件路径: {accompaniment_file}")
     
     return vocal_file, accompaniment_file
 
@@ -159,7 +160,7 @@ def main(eq_file, audio_file_C, output_file_D):
     
     # 保存输出音频文件
     save_audio(audio_D, output_file_D, sr)
-    print(f"音频 D 已保存到 {output_file_D}")
+    print(f"音频已保存到 {output_file_D}")
 
 
 if __name__ == "__main__":
