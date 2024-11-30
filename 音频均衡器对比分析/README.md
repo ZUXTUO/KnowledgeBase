@@ -30,3 +30,21 @@ python3 test.py eq_settings.json 音频.mp3
 
 ## 声明
 最终你能听到的效果依然取决于你的耳机或者外放等，本项目仅仅是娱乐性质！
+
+# 进阶部分
+
+## 使用方法
+需要事先安装`separator`
+```
+pip install separator
+```
+然后下载对应的模型：https://github.com/deezer/spleeter/releases/tag/v1.4.0<br>
+下载`2stems.tar.gz`<br>
+解压放置在`pretrained_models/2stems`<br>
+然后执行python文件处理音频：
+```
+python3 test2.py eq_settings.json 音频.mp3
+```
+
+## 原理
+通过separator简单分析出人声，略微增强人声后，添加到输出的wav音频文件里，组成三声道音频。同时稍微优化下低频和高频部分。
