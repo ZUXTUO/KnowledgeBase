@@ -2,192 +2,312 @@ import struct
 import os
 import subprocess
 import shutil
+import zlib
+import hashlib
+from datetime import datetime
 
-# 辅助函数：从文件的特定偏移位置读取字节
-def read_bytes(file_path, offset, size):
-    """从文件的指定偏移位置读取字节数据。"""
-    try:
-        with open(file_path, "rb") as file:
-            file.seek(offset)
-            return file.read(size)
-    except Exception as e:
-        print(f"读取文件 {file_path} 时发生错误，偏移位置 {offset}: {e}")
-        return None
+class SevenZipRepair:
+    def __init__(self, file_path):
+        self.file_path = file_path
+        self.backup_path = None
+        self.log_file = f"{file_path}.repair.log"
+        self._init_log()
 
-# 辅助函数：向文件的特定偏移位置写入字节数据
-def write_bytes(file_path, offset, data):
-    """将数据写入文件的指定偏移位置。"""
-    try:
-        with open(file_path, "r+b") as file:
-            file.seek(offset)
-            file.write(data)
-    except Exception as e:
-        print(f"写入文件 {file_path} 时发生错误，偏移位置 {offset}: {e}")
+    def _init_log(self):
+        """初始化日志文件"""
+        with open(self.log_file, "w") as f:
+            f.write(f"7z Archive Repair Log - {datetime.now()}\n")
+            f.write("="*50 + "\n")
 
-# 备份文件
-def backup_file(file_path):
-    """备份文件到指定的备份文件路径。"""
-    backup_path = file_path + ".backup"
-    try:
-        shutil.copy2(file_path, backup_path)  # 复制文件及其元数据
-        print(f"文件已备份至 {backup_path}")
-        return backup_path
-    except Exception as e:
-        print(f"备份文件时发生错误: {e}")
-        return None
+    def _log(self, message, level="INFO"):
+        """记录日志到文件和屏幕"""
+        log_entry = f"[{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}] [{level}] {message}\n"
+        print(log_entry.strip())
+        with open(self.log_file, "a") as f:
+            f.write(log_entry)
 
-# 检查并修复档案的起始头部（Start Header）是否损坏
-def check_and_fix_start_header(file_path):
-    """检查7z档案的起始头部，并在必要时修复它。"""
-    header = read_bytes(file_path, 0, 32)
-    if header[:6] != b'\x37\x7A\xBC\xAF\x27\x1C':
-        print("签名无效或缺失，尝试修复...")
-        good_start_header = b'\x37\x7A\xBC\xAF\x27\x1C\x00\x04' + b'\x00' * 26
-        write_bytes(file_path, 0, good_start_header)
-        print("起始头部已修复。")
-    else:
-        print("起始头部有效。")
-
-# 检查并修复档案的结束头部（End Header），如果损坏或缺失
-def check_and_fix_end_header(file_path):
-    """检查并修复7z档案的结束头部。"""
-    expected_end_footer = b'\xDA\x01\x15\x06\x01\x00\x20\x00\x00\x00\x00\x00'
-
-    file_size = os.path.getsize(file_path)
-    if file_size < 32:
-        print("文件太小，无法构成有效的7z档案。")
-        return
-
-    with open(file_path, "rb") as file:
-        file.seek(-32, os.SEEK_END)
-        end_header = file.read(32)
-
-    # 检查尾部是否与预期尾部数据匹配，或者通过传统的尾部签名检查
-    if end_header[:4] == b'\x17' and end_header[4:6] == b'\x06\x8D':
-        print("结束头部有效（通过签名匹配）。")
-    elif end_header.endswith(expected_end_footer):
-        print("结束头部有效（通过尾部数据匹配）。")
-    else:
-        print("结束头部无效，尝试修复...")
-        # 尾部修复
-        fix_end_header(file_path, expected_end_footer)
-
-# 修复结束头部的尾部数据，确保符合指定的格式
-def fix_end_header(file_path, expected_end_footer):
-    """修复7z档案的尾部数据，使其符合指定的格式。"""
-    # 获取当前文件的最后64字节
-    with open(file_path, "rb") as file:
-        file.seek(-64, os.SEEK_END)
-        end_data = file.read(64)
-
-    # 查找尾部是否包含了部分匹配的内容
-    found_pos = end_data.find(b'\xDA\x01\x15')
-
-    if found_pos != -1:
-        # 如果发现部分匹配，修复缺失的部分
-        print(f"尾部发现部分匹配数据，修复为完整数据...")
-        new_end_data = end_data[:found_pos + 3] + expected_end_footer[3:]
-
-        # 将修复后的尾部数据写回文件
-        with open(file_path, "r+b") as file:
-            file.seek(-64 + found_pos, os.SEEK_END)
-            file.write(new_end_data[found_pos:])
-        print("尾部已修复。")
-    else:
-        # 如果未发现部分匹配，直接写入完整的尾部数据
-        print("尾部数据无效，直接写入完整的尾部数据...")
-        with open(file_path, "r+b") as file:
-            file.seek(-len(expected_end_footer), os.SEEK_END)
-            file.write(expected_end_footer)
-        print("尾部已修复为预期格式。")
-
-# 恢复档案缺失的部分（例如，由于截断导致的部分缺失）
-def recover_missing_parts(file_path):
-    """通过修复文件大小来尝试恢复档案缺失的部分。"""
-    start_header = read_bytes(file_path, 0, 32)
-    archive_size = struct.unpack("<I", start_header[20:24])[0]
-    actual_size = os.path.getsize(file_path)
-    if actual_size < archive_size:
-        print(f"档案大小小于预期，尝试调整文件大小至 {archive_size} 字节。")
-        with open(file_path, "ab") as file:
-            file.write(b'\x00' * (archive_size - actual_size))  # 用零字节填充
-        print(f"文件大小已调整为 {archive_size} 字节。")
-
-# 使用7-Zip命令行工具验证档案的完整性
-def verify_archive(file_path):
-    """使用7-Zip命令行工具验证档案的完整性。"""
-    try:
-        result = subprocess.run(['7z', 't', file_path], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-        if result.returncode == 0:
-            print("档案有效并且可以提取。")
-            return True
-        else:
-            print(f"档案已损坏，错误: {result.stderr.decode()}")
+    def backup_file(self):
+        """创建安全备份"""
+        self.backup_path = self.file_path + ".backup"
+        try:
+            self._log(f"开始备份文件到 {self.backup_path}")
+            shutil.copy2(self.file_path, self.backup_path)
+            
+            # 验证备份完整性
+            orig_hash = self._file_hash(self.file_path)
+            backup_hash = self._file_hash(self.backup_path)
+            if orig_hash == backup_hash:
+                self._log("备份验证成功，哈希值: " + orig_hash)
+                return True
+            raise ValueError("备份文件哈希不匹配")
+        except Exception as e:
+            self._log(f"备份失败: {str(e)}", "ERROR")
+            self.backup_path = None
             return False
-    except Exception as e:
-        print(f"验证档案时发生错误: {e}")
+
+    def _file_hash(self, path):
+        """计算文件哈希"""
+        sha = hashlib.sha256()
+        with open(path, 'rb') as f:
+            while True:
+                data = f.read(65536)
+                if not data:
+                    break
+                sha.update(data)
+        return sha.hexdigest()
+
+    def _detect_ThSoft(self, header):
+        """检测第三方压缩软件特征"""
+        # 检测特征1：特定版本号组合
+        if header[6:8] == b'\x00\x03':  # 非标准版本号
+            return True
+        
+        # 检测特征2：特定CRC填充模式
+        if header[8:12] == b'\x00'*4:  # 无效CRC
+            return True
+        
+        # 检测特征3：保留字段使用
+        if header[28:32] != b'\x00'*4:  # 保留字段非零
+            return True
+            
         return False
 
-# 提取并显示档案的元数据（如文件名、大小、CRC等）
-def extract_metadata(file_path):
-    """提取并输出7z档案的元数据。"""
-    try:
-        with open(file_path, "rb") as file:
-            file.seek(0, os.SEEK_END)
-            file_size = file.tell()
-            print(f"档案文件大小: {file_size} 字节")
+    def check_and_fix_start_header(self):
+        """增强版起始头修复"""
+        header = self._read_bytes(0, 32)
+        if not header:
+            self._log("无法读取起始头", "ERROR")
+            return False
 
-            # 提取档案的起始部分来检查签名
-            file.seek(0)
-            header = file.read(32)
-            signature = header[:6]
-            print(f"文件签名: {signature}")
+        # 检测第三方压缩软件特征
+        if self._detect_ThSoft(header):
+            self._log("检测到可能是由第三方压缩软件压缩的7z文件", "WARNING")
 
-            # 获取档案的CRC校验值
-            crc_offset = 28  # 假设CRC偏移量为28
-            file.seek(crc_offset)
-            crc = struct.unpack("<I", file.read(4))[0]
-            print(f"CRC校验值: {crc:#010x}")
+        repair_steps = [
+            self._fix_signature,
+            self._fix_header_crc,
+            self._dynamic_end_header_fix
+        ]
 
-    except Exception as e:
-        print(f"提取元数据时发生错误: {e}")
+        for step in repair_steps:
+            if step(header):
+                if self.verify_archive():
+                    return True
+        return False
 
-# 主要的修复流程，结合了各种步骤来修复档案
-def repair_7z_archive(file_path):
-    """修复7z档案的主函数。"""
-    # 在修复之前先备份原文件
-    backup_path = backup_file(file_path)
-    if not backup_path:
-        print("无法备份文件，终止修复过程。")
-        return
+    def _fix_signature(self, header):
+        """修复签名和版本号"""
+        if header[:6] != b'\x37\x7A\xBC\xAF\x27\x1C':
+            self._log("起始头签名无效，尝试修复...")
+            new_header = bytearray(header)
+            new_header[0:6] = b'\x37\x7A\xBC\xAF\x27\x1C'
+            new_header[6:8] = b'\x00\x04'  # 强制标准版本号
+            self._write_bytes(0, bytes(new_header))
+            self._log("签名已修复，写入新头: " + str(new_header[:8]))
+            return True
+        return False
 
-    print("开始7z档案修复过程...")
+    def _fix_header_crc(self, header):
+        """修复CRC校验"""
+        self._log("尝试修复起始头CRC...")
+        crc_data = header[12:32]
+        new_crc = zlib.crc32(crc_data, 0) & 0xFFFFFFFF
+        self._write_bytes(8, struct.pack('<I', new_crc))
+        self._log(f"更新CRC为: {new_crc:#010x}")
+        return True
 
-    # 步骤1: 提取并显示元数据
-    extract_metadata(file_path)
+    def _dynamic_end_header_fix(self, header):
+        """动态定位结束头"""
+        self._log("开始动态定位结束头...")
+        end_pos = self._find_end_header()
+        if end_pos:
+            start_header_size = 32
+            end_header_offset = end_pos - start_header_size
+            self._log(f"发现结束头在位置: {end_pos}")
+            
+            # 更新起始头中的偏移量
+            new_offset = struct.pack('<Q', end_header_offset)
+            self._write_bytes(12, new_offset)
+            self._log(f"更新结束头偏移量为: {end_header_offset}")
+            return True
+        return False
 
-    # 步骤2: 检查并修复起始头部
-    check_and_fix_start_header(file_path)
+    def _find_end_header(self):
+        """智能查找结束头"""
+        signatures = [
+            b'\x17\x06\x8D\xAD',
+            b'\x01\x04',
+            b'\xDA\x01\x15'
+        ]
+        chunk_size = 4096
+        file_size = os.path.getsize(self.file_path)
+        
+        self._log(f"扫描结束头，文件大小: {file_size} 字节")
+        with open(self.file_path, 'rb') as f:
+            for offset in range(max(0, file_size-10240), file_size, chunk_size):
+                f.seek(offset)
+                data = f.read(chunk_size)
+                for sig in signatures:
+                    pos = data.find(sig)
+                    if pos != -1:
+                        found = offset + pos
+                        self._log(f"找到候选结束头在: {found} (签名: {sig.hex()})")
+                        if self._validate_end_header(found):
+                            return found
+        return None
 
-    # 步骤3: 检查并修复结束头部
-    check_and_fix_end_header(file_path)
+    def _validate_end_header(self, position):
+        """验证结束头有效性"""
+        end_header = self._read_bytes(position, 32)
+        if not end_header:
+            return False
+            
+        # 基本结构验证
+        if len(end_header) < 12:
+            return False
+            
+        # 检查结束头CRC
+        header_crc = struct.unpack('<I', self._read_bytes(0x1C, 4))[0]
+        current_crc = zlib.crc32(end_header, 0) & 0xFFFFFFFF
+        if header_crc != current_crc:
+            self._log(f"结束头CRC不匹配: 头中{header_crc:#x} vs 计算{current_crc:#x}")
+            return False
+            
+        return True
 
-    # 步骤4: 恢复缺失的部分（通过修复文件大小）
-    recover_missing_parts(file_path)
+    def recover_missing_parts(self):
+        """智能文件大小修复"""
+        header = self._read_bytes(0, 32)
+        if not header:
+            return False
 
-    # 步骤5: 验证修复后的档案
-    if not verify_archive(file_path):
-        print("修复后的档案无法打开，正在还原备份...")
-        shutil.copy2(backup_path, file_path)  # 如果修复失败，恢复备份文件
-        print(f"已将文件还原为备份文件 {backup_path}")
-    else:
-        print("7z档案修复完成并验证成功。")
+        try:
+            end_header_offset = struct.unpack('<Q', header[12:20])[0]
+            end_header_length = struct.unpack('<Q', header[20:28])[0]
+            expected_size = 32 + end_header_offset + end_header_length
+        except:
+            self._log("解析起始头字段失败", "ERROR")
+            return False
 
-# 示例用法：修复一个档案文件
+        actual_size = os.path.getsize(self.file_path)
+        self._log(f"当前大小: {actual_size}, 预期大小: {expected_size}")
+
+        if actual_size == expected_size:
+            self._log("文件大小正确，无需调整")
+            return True
+
+        try:
+            with open(self.file_path, 'r+b') as f:
+                if actual_size < expected_size:
+                    self._log(f"填充 {expected_size - actual_size} 个零字节")
+                    f.seek(expected_size-1)
+                    f.write(b'\x00')
+                else:
+                    self._log(f"截断 {actual_size - expected_size} 字节")
+                    f.truncate(expected_size)
+            return True
+        except Exception as e:
+            self._log(f"调整大小失败: {str(e)}", "ERROR")
+            return False
+
+    def _read_bytes(self, offset, size):
+        """带日志的安全读取"""
+        try:
+            with open(self.file_path, 'rb') as f:
+                f.seek(offset)
+                data = f.read(size)
+                self._log(f"读取 {len(data)} 字节 @{offset}")
+                return data
+        except Exception as e:
+            self._log(f"读取失败 @{offset}: {str(e)}", "ERROR")
+            return None
+
+    def _write_bytes(self, offset, data):
+        """带日志的安全写入"""
+        try:
+            with open(self.file_path, 'r+b') as f:
+                f.seek(offset)
+                f.write(data)
+                self._log(f"写入 {len(data)} 字节 @{offset}")
+                return True
+        except Exception as e:
+            self._log(f"写入失败 @{offset}: {str(e)}", "ERROR")
+            return False
+
+    def verify_archive(self):
+        """增强版验证"""
+        self._log("开始7z完整性验证...")
+        try:
+            result = subprocess.run(
+                ['7z', 't', self.file_path],
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                timeout=30
+            )
+            
+            log_msg = [
+                "验证结果:",
+                f"退出码: {result.returncode}",
+                "标准输出:",
+                result.stdout.decode(errors='ignore'),
+                "标准错误:",
+                result.stderr.decode(errors='ignore')
+            ]
+            self._log('\n'.join(log_msg))
+            
+            return result.returncode == 0
+        except Exception as e:
+            self._log(f"验证异常: {str(e)}", "ERROR")
+            return False
+
+    def repair(self):
+        """主修复流程"""
+        if not self.backup_file():
+            return False
+
+        repair_steps = [
+            ("起始头修复", self.check_and_fix_start_header),
+            ("文件大小修复", self.recover_missing_parts),
+            ("结束头修复", self.check_and_fix_start_header)  # 复用起始头修复逻辑
+        ]
+
+        success = False
+        for step_name, step_func in repair_steps:
+            self._log(f"执行修复步骤: {step_name}")
+            if step_func():
+                self._log(f"{step_name} 成功")
+                if self.verify_archive():
+                    success = True
+                    break
+            else:
+                self._log(f"{step_name} 失败")
+
+        if not success:
+            self._log("所有修复尝试失败，开始还原...")
+            self._restore_backup()
+            return False
+        return True
+
+    def _restore_backup(self):
+        """从备份恢复"""
+        if self.backup_path:
+            try:
+                self._log("开始还原备份...")
+                shutil.copy2(self.backup_path, self.file_path)
+                self._log("备份还原成功")
+                return True
+            except Exception as e:
+                self._log(f"还原失败: {str(e)}", "ERROR")
+        return False
+
 if __name__ == "__main__":
     import argparse
-    parser = argparse.ArgumentParser(description="修复损坏的7z档案。")
-    parser.add_argument("file_path", help="需要修复的7z档案的路径。")
+    parser = argparse.ArgumentParser(description="7z档案修复工具")
+    parser.add_argument("file_path", help="需要修复的7z文件路径")
     args = parser.parse_args()
 
-    repair_7z_archive(args.file_path)
+    repair = SevenZipRepair(args.file_path)
+    if repair.repair():
+        print("修复成功！详细日志见:", repair.log_file)
+    else:
+        print("修复失败，请检查日志:", repair.log_file)
