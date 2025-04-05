@@ -1,0 +1,7 @@
+torch
+torchvision
+pillow
+numpy
+psutil
+markupsafe==2.0.1
+flask

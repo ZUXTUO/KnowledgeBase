@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .upload-container {
+            border: 2px dashed #ccc;
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        #preview {
+            max-width: 300px;
+            max-height: 300px;
+            margin: 20px auto;
+            display: none;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            display: none;
+        }
+        .like { background-color: #d4edda; color: #155724; }
+        .verylike { background-color: #cce5ff; color: #004085; }
+        .hate { background-color: #f8d7da; color: #721c24; }
+        .progress {
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .progress-bar {
+            height: 100%;
+            border-radius: 4px;
+            background-color: #007bff;
+            width: 0%;
+            transition: width 0.3s;
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Classification</h1>
+    <p>Upload an image to classify it as hate, like or verylike</p>
+    
+    <div class="upload-container">
+        <input type="file" id="fileInput" accept="image/*">
+        <p>or drag and drop image here</p>
+        <img id="preview" alt="Preview">
+    </div>
+    
+    <div id="result"></div>
+    
+    <script>
+        const fileInput = document.getElementById('fileInput');
+        const preview = document.getElementById('preview');
+        const resultDiv = document.getElementById('result');
+        
+        // Handle file selection
+        fileInput.addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                handleFile(file);
+            }
+        });
+        
+        // Handle drag and drop
+        document.addEventListener('dragover', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector('.upload-container').style.borderColor = '#007bff';
+        });
+        
+        document.addEventListener('dragleave', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector('.upload-container').style.borderColor = '#ccc';
+        });
+        
+        document.addEventListener('drop', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            document.querySelector('.upload-container').style.borderColor = '#ccc';
+            
+            const file = e.dataTransfer.files[0];
+            if (file && file.type.match('image.*')) {
+                fileInput.files = e.dataTransfer.files;
+                handleFile(file);
+            }
+        });
+        
+        function handleFile(file) {
+            // Show preview
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'block';
+                
+                // Clear previous result
+                resultDiv.style.display = 'none';
+                resultDiv.innerHTML = '';
+                
+                // Send to server for prediction
+                predictImage(file);
+            };
+            reader.readAsDataURL(file);
+        }
+        
+        function predictImage(file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            
+            fetch('/predict', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    showResult(`Error: ${data.error}`, 'error');
+                    return;
+                }
+                
+                // Display result
+                let html = `
+                    <h3>Prediction: <span class="${data.class}">${data.class} (${(data.confidence * 100).toFixed(2)}%)</span></h3>
+                    <p>Probabilities:</p>
+                `;
+                
+                // Sort probabilities from high to low
+                const sortedProbs = Object.entries(data.probabilities)
+                    .sort((a, b) => b[1] - a[1]);
+                
+                sortedProbs.forEach(([cls, prob]) => {
+                    const percent = (prob * 100).toFixed(2);
+                    html += `
+                        <div>
+                            <p>${cls}: ${percent}%</p>
+                            <div class="progress">
+                                <div class="progress-bar ${cls}" style="width: ${percent}%"></div>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                showResult(html, data.class);
+            })
+            .catch(error => {
+                showResult(`Error: ${error.message}`, 'error');
+            });
+        }
+        
+        function showResult(content, resultClass) {
+            resultDiv.innerHTML = content;
+            resultDiv.className = resultClass;
+            resultDiv.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
