@@ -7,62 +7,90 @@ import os
 from PIL import Image
 import psutil
 import time
-import shutil
+import hashlib
 from collections import defaultdict
+
+def get_file_hash(filepath):
+    """计算文件的MD5哈希值"""
+    hash_md5 = hashlib.md5()
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def remove_duplicate_files(data_path):
+    """根据优先级移除重复文件（包括同一文件夹内的重复）"""
+    # 定义文件夹优先级
+    priority_order = ['verylike', 'hate', 'like']
+    
+    # 收集所有文件及其哈希
+    file_dict = defaultdict(list)
+    duplicates_removed = 0
+    
+    # 首先处理同一文件夹内的重复
+    for class_name in os.listdir(data_path):
+        class_path = os.path.join(data_path, class_name)
+        if not os.path.isdir(class_path):
+            continue
+            
+        # 记录当前文件夹内已看到的哈希
+        seen_hashes = set()
+        
+        for filename in os.listdir(class_path):
+            filepath = os.path.join(class_path, filename)
+            if not os.path.isfile(filepath):
+                continue
+                
+            try:
+                file_hash = get_file_hash(filepath)
+                
+                # 检查是否在当前文件夹内重复
+                if file_hash in seen_hashes:
+                    os.remove(filepath)
+                    duplicates_removed += 1
+                    print(f"Removed intra-folder duplicate: {filepath}")
+                    continue
+                
+                seen_hashes.add(file_hash)
+                file_dict[file_hash].append((class_name, filepath))
+                
+            except Exception as e:
+                print(f"Error processing {filepath}: {e}")
+                continue
+    
+    # 然后处理跨文件夹的重复
+    for file_hash, files in file_dict.items():
+        if len(files) > 1:
+            # 按优先级排序文件
+            files_sorted = sorted(files, key=lambda x: priority_order.index(x[0]))
+            
+            # 保留优先级最高的文件，删除其他
+            keep_class, keep_file = files_sorted[0]
+            for class_name, filepath in files_sorted[1:]:
+                try:
+                    os.remove(filepath)
+                    duplicates_removed += 1
+                    print(f"Removed cross-folder duplicate: {filepath} (kept {keep_file})")
+                except Exception as e:
+                    print(f"Error removing {filepath}: {e}")
+    
+    if duplicates_removed > 0:
+        print(f"\nRemoved total {duplicates_removed} duplicate files.")
+    else:
+        print("\nNo duplicate files found.")
 
 # 配置参数
 BATCH_SIZE = 16
 IMG_SIZE = 224
-NUM_EPOCHS = 20
+NUM_EPOCHS = 15
 LEARNING_RATE = 1e-4
 DATA_PATH = "data"
 MODEL_SAVE_PATH = "model/best_model.pth"
 NUM_CLASSES = 3
 
-# 优先级顺序
-PRIORITY_ORDER = ['verylike', 'hate', 'like']
-
-def remove_duplicate_files(data_path, priority_order):
-    """
-    根据优先级删除重复文件
-    priority_order: 优先级从高到低的文件夹列表
-    """
-    # 收集所有文件
-    file_dict = defaultdict(list)
-    
-    # 遍历所有类别文件夹
-    for class_name in os.listdir(data_path):
-        class_path = os.path.join(data_path, class_name)
-        if os.path.isdir(class_path):
-            for filename in os.listdir(class_path):
-                file_dict[filename].append(class_name)
-    
-    # 处理重复文件
-    duplicates_removed = 0
-    for filename, classes in file_dict.items():
-        if len(classes) > 1:
-            # 按照优先级排序
-            sorted_classes = sorted(classes, 
-                                   key=lambda x: priority_order.index(x) 
-                                   if x in priority_order else len(priority_order))
-            
-            # 保留最高优先级的，删除其他的
-            keep_class = sorted_classes[0]
-            for class_name in sorted_classes[1:]:
-                file_path = os.path.join(data_path, class_name, filename)
-                if os.path.exists(file_path):
-                    os.remove(file_path)
-                    duplicates_removed += 1
-                    print(f"Removed duplicate file: {file_path} (kept in {keep_class})")
-    
-    if duplicates_removed > 0:
-        print(f"\nTotal duplicates removed: {duplicates_removed}")
-    else:
-        print("\nNo duplicate files found.")
-
-# 在加载数据前先处理重复文件
+# 首先处理重复文件
 print("Checking for duplicate files...")
-remove_duplicate_files(DATA_PATH, PRIORITY_ORDER)
+remove_duplicate_files(DATA_PATH)
 
 # 设备设置
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -71,14 +99,14 @@ if device.type == 'cuda':
     print(f"GPU Name: {torch.cuda.get_device_name(0)}")
     print(f"CUDA Version: {torch.version.cuda}")
 
-# 简化图像预处理
+# 图像预处理
 train_transform = transforms.Compose([
-    transforms.Resize(256),  # 先缩放到稍大尺寸
+    transforms.Resize(256),
     transforms.RandomCrop(IMG_SIZE),
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                        std=[0.229, 0.224, 0.225])
+                       std=[0.229, 0.224, 0.225])
 ])
 
 val_transform = transforms.Compose([
@@ -86,7 +114,7 @@ val_transform = transforms.Compose([
     transforms.CenterCrop(IMG_SIZE),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                        std=[0.229, 0.224, 0.225])
+                       std=[0.229, 0.224, 0.225])
 ])
 
 # 数据集加载
@@ -95,18 +123,16 @@ try:
     print(f"\nDataset loaded successfully. Total samples: {len(full_dataset)}")
     print(f"Class names: {full_dataset.classes}")
     
-    # 划分数据集
     train_size = int(0.8 * len(full_dataset))
     val_size = len(full_dataset) - train_size
     train_dataset, val_dataset = random_split(full_dataset, [train_size, val_size])
     val_dataset.dataset.transform = val_transform
     
-    # 数据加载器（减少num_workers）
     train_loader = DataLoader(
         train_dataset,
         batch_size=BATCH_SIZE,
         shuffle=True,
-        num_workers=2,  # 减少worker数量
+        num_workers=2,
         pin_memory=True
     )
     val_loader = DataLoader(
@@ -117,7 +143,6 @@ try:
     )
     
     print(f"Train batches: {len(train_loader)}, Val batches: {len(val_loader)}")
-    print(f"First batch check passed: {next(iter(train_loader))[0].shape}")  # 检查第一个batch
 
 except Exception as e:
     print(f"\nError loading dataset: {e}")
@@ -130,26 +155,40 @@ try:
     model.classifier[1] = nn.Linear(num_ftrs, NUM_CLASSES)
     model = model.to(device)
     
-    # 打印模型信息
-    print("\nModel Summary:")
-    print(f"Total params: {sum(p.numel() for p in model.parameters())/1e6:.2f}M")
+    # 定义损失函数
+    criterion = nn.CrossEntropyLoss()
     
-    # 测试前向传播
-    test_input = torch.randn(2, 3, IMG_SIZE, IMG_SIZE).to(device)
-    print(f"Test forward pass output shape: {model(test_input).shape}")
+    # 加载已有模型
+    start_epoch = 0
+    best_acc = 0.0
+    if os.path.exists(MODEL_SAVE_PATH):
+        checkpoint = torch.load(MODEL_SAVE_PATH, map_location=device, weights_only=True)
+        model.load_state_dict(checkpoint['model_state_dict'])
+        best_acc = checkpoint.get('best_acc', 0.0)
+        print(f"\nLoaded existing model with best acc: {best_acc:.4f}")
     
+    print(f"\nTotal params: {sum(p.numel() for p in model.parameters())/1e6:.2f}M")
+
 except Exception as e:
     print(f"\nError initializing model: {e}")
     exit()
 
 # 训练准备
-criterion = nn.CrossEntropyLoss()
 optimizer = optim.Adam(model.parameters(), lr=LEARNING_RATE)
 scheduler = optim.lr_scheduler.ReduceLROnPlateau(
     optimizer, mode='max', factor=0.5, patience=3
 )
 
-# 训练监控函数
+# 加载优化器状态
+if os.path.exists(MODEL_SAVE_PATH):
+    checkpoint = torch.load(MODEL_SAVE_PATH, map_location=device, weights_only=True)
+    optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
+    if 'scheduler_state_dict' in checkpoint:
+        scheduler.load_state_dict(checkpoint['scheduler_state_dict'])
+    start_epoch = checkpoint.get('epoch', 0) + 1
+    print(f"Resuming training from epoch {start_epoch}")
+
+# 训练监控
 def print_system_stats():
     if device.type == 'cuda':
         mem = torch.cuda.memory_allocated(device)/1e9
@@ -158,14 +197,11 @@ def print_system_stats():
 
 # 训练循环
 print("\nStarting training...")
-best_acc = 0.0
-
-for epoch in range(NUM_EPOCHS):
+for epoch in range(start_epoch, start_epoch + NUM_EPOCHS):
     start_time = time.time()
     model.train()
     running_loss = 0.0
     
-    # 训练阶段
     for batch_idx, (inputs, labels) in enumerate(train_loader):
         batch_start = time.time()
         
@@ -181,11 +217,10 @@ for epoch in range(NUM_EPOCHS):
             
             running_loss += loss.item() * inputs.size(0)
             
-            # 打印batch进度
             if batch_idx % 10 == 0:
                 batch_time = time.time() - batch_start
-                print(f"Epoch {epoch+1}/{NUM_EPOCHS} | Batch {batch_idx}/{len(train_loader)} "
-                      f"| Loss: {loss.item():.4f} | Time: {batch_time:.2f}s")
+                print(f"Epoch {epoch+1}/{start_epoch + NUM_EPOCHS} | Batch {batch_idx}/{len(train_loader)} "
+                     f"| Loss: {loss.item():.4f} | Time: {batch_time:.2f}s")
                 print_system_stats()
                 
         except Exception as e:
@@ -215,10 +250,9 @@ for epoch in range(NUM_EPOCHS):
     epoch_train_loss = running_loss / len(train_dataset)
     epoch_val_loss = val_loss / len(val_dataset)
     
-    # 学习率调整
     scheduler.step(epoch_acc)
     
-    # 保存最佳模型
+    # 保存模型
     if epoch_acc > best_acc:
         print("\n当前模型状态可以保存\n")
         best_acc = epoch_acc
@@ -226,12 +260,12 @@ for epoch in range(NUM_EPOCHS):
             'epoch': epoch,
             'model_state_dict': model.state_dict(),
             'optimizer_state_dict': optimizer.state_dict(),
+            'scheduler_state_dict': scheduler.state_dict(),
             'best_acc': best_acc,
         }, MODEL_SAVE_PATH)
     else:
         print("\n当前模型状态不可以保存！\n")
-    
-    # 打印epoch总结
+
     print(f"\nEpoch {epoch+1} Summary:")
     print(f"Time: {epoch_time:.2f}s | Train Loss: {epoch_train_loss:.4f}")
     print(f"Val Loss: {epoch_val_loss:.4f} | Acc: {epoch_acc:.4f}")

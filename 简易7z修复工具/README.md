@@ -23,7 +23,7 @@ sudo apt install p7zip-full
 ![image](exp_1.png)
 
 
-# 使用方式：<br>
+# Windows的二进制文件的使用方式：<br>
 
 ```
 7z_Repair.exe test.7z
