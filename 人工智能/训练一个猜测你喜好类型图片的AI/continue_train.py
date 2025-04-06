@@ -7,6 +7,77 @@ import os
 from PIL import Image
 import psutil
 import time
+import hashlib
+from collections import defaultdict
+
+def get_file_hash(filepath):
+    """计算文件的MD5哈希值"""
+    hash_md5 = hashlib.md5()
+    with open(filepath, "rb") as f:
+        for chunk in iter(lambda: f.read(4096), b""):
+            hash_md5.update(chunk)
+    return hash_md5.hexdigest()
+
+def remove_duplicate_files(data_path):
+    """根据优先级移除重复文件（包括同一文件夹内的重复）"""
+    # 定义文件夹优先级
+    priority_order = ['verylike', 'hate', 'like']
+    
+    # 收集所有文件及其哈希
+    file_dict = defaultdict(list)
+    duplicates_removed = 0
+    
+    # 首先处理同一文件夹内的重复
+    for class_name in os.listdir(data_path):
+        class_path = os.path.join(data_path, class_name)
+        if not os.path.isdir(class_path):
+            continue
+            
+        # 记录当前文件夹内已看到的哈希
+        seen_hashes = set()
+        
+        for filename in os.listdir(class_path):
+            filepath = os.path.join(class_path, filename)
+            if not os.path.isfile(filepath):
+                continue
+                
+            try:
+                file_hash = get_file_hash(filepath)
+                
+                # 检查是否在当前文件夹内重复
+                if file_hash in seen_hashes:
+                    os.remove(filepath)
+                    duplicates_removed += 1
+                    print(f"Removed intra-folder duplicate: {filepath}")
+                    continue
+                
+                seen_hashes.add(file_hash)
+                file_dict[file_hash].append((class_name, filepath))
+                
+            except Exception as e:
+                print(f"Error processing {filepath}: {e}")
+                continue
+    
+    # 然后处理跨文件夹的重复
+    for file_hash, files in file_dict.items():
+        if len(files) > 1:
+            # 按优先级排序文件
+            files_sorted = sorted(files, key=lambda x: priority_order.index(x[0]))
+            
+            # 保留优先级最高的文件，删除其他
+            keep_class, keep_file = files_sorted[0]
+            for class_name, filepath in files_sorted[1:]:
+                try:
+                    os.remove(filepath)
+                    duplicates_removed += 1
+                    print(f"Removed cross-folder duplicate: {filepath} (kept {keep_file})")
+                except Exception as e:
+                    print(f"Error removing {filepath}: {e}")
+    
+    if duplicates_removed > 0:
+        print(f"\nRemoved total {duplicates_removed} duplicate files.")
+    else:
+        print("\nNo duplicate files found.")
 
 # 配置参数
 BATCH_SIZE = 16
@@ -16,6 +87,10 @@ LEARNING_RATE = 1e-4
 DATA_PATH = "data"
 MODEL_SAVE_PATH = "model/best_model.pth"
 NUM_CLASSES = 3
+
+# 首先处理重复文件
+print("Checking for duplicate files...")
+remove_duplicate_files(DATA_PATH)
 
 # 设备设置
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -31,7 +106,7 @@ train_transform = transforms.Compose([
     transforms.RandomHorizontalFlip(),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                        std=[0.229, 0.224, 0.225])
+                       std=[0.229, 0.224, 0.225])
 ])
 
 val_transform = transforms.Compose([
@@ -39,7 +114,7 @@ val_transform = transforms.Compose([
     transforms.CenterCrop(IMG_SIZE),
     transforms.ToTensor(),
     transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                        std=[0.229, 0.224, 0.225])
+                       std=[0.229, 0.224, 0.225])
 ])
 
 # 数据集加载
@@ -80,14 +155,13 @@ try:
     model.classifier[1] = nn.Linear(num_ftrs, NUM_CLASSES)
     model = model.to(device)
     
-    # 定义损失函数（新增）
+    # 定义损失函数
     criterion = nn.CrossEntropyLoss()
     
     # 加载已有模型
     start_epoch = 0
     best_acc = 0.0
     if os.path.exists(MODEL_SAVE_PATH):
-        # 修复安全警告（新增weights_only=True）
         checkpoint = torch.load(MODEL_SAVE_PATH, map_location=device, weights_only=True)
         model.load_state_dict(checkpoint['model_state_dict'])
         best_acc = checkpoint.get('best_acc', 0.0)
@@ -137,7 +211,7 @@ for epoch in range(start_epoch, start_epoch + NUM_EPOCHS):
             
             optimizer.zero_grad()
             outputs = model(inputs)
-            loss = criterion(outputs, labels)  # 现在criterion已定义
+            loss = criterion(outputs, labels)
             loss.backward()
             optimizer.step()
             
@@ -146,7 +220,7 @@ for epoch in range(start_epoch, start_epoch + NUM_EPOCHS):
             if batch_idx % 10 == 0:
                 batch_time = time.time() - batch_start
                 print(f"Epoch {epoch+1}/{start_epoch + NUM_EPOCHS} | Batch {batch_idx}/{len(train_loader)} "
-                      f"| Loss: {loss.item():.4f} | Time: {batch_time:.2f}s")
+                     f"| Loss: {loss.item():.4f} | Time: {batch_time:.2f}s")
                 print_system_stats()
                 
         except Exception as e:
