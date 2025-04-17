@@ -1,0 +1,12 @@
+D:\unityProject\XML\bin\Release\netstandard2.0\System.Security.Cryptography.Xml.deps.json
+D:\unityProject\XML\bin\Release\netstandard2.0\System.Security.Cryptography.Xml.dll
+D:\unityProject\XML\bin\Release\netstandard2.0\System.Security.Cryptography.Xml.pdb
+D:\unityProject\XML\bin\Release\netstandard2.0\SR\System.Security.Cryptography.Xml.resources.dll
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.csproj.AssemblyReference.cache
+D:\unityProject\XML\obj\Release\netstandard2.0\FxResources.System.Security.Cryptography.Xml.SR.resources
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.csproj.GenerateResource.cache
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.GeneratedMSBuildEditorConfig.editorconfig
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.csproj.CoreCompileInputs.cache
+D:\unityProject\XML\obj\Release\netstandard2.0\SR\System.Security.Cryptography.Xml.resources.dll
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.dll
+D:\unityProject\XML\obj\Release\netstandard2.0\System.Security.Cryptography.Xml.pdb
