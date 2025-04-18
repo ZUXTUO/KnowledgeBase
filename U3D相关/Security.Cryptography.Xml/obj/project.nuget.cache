@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "5o7kJ0DJEhE=",
+  "dgSpecHash": "NMgIvOC7/gI=",
   "success": true,
-  "projectFilePath": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml.csproj",
+  "projectFilePath": "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.bcl.cryptography\\9.0.4\\microsoft.bcl.cryptography.9.0.4.nupkg.sha512",
     "C:\\Users\\admin\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

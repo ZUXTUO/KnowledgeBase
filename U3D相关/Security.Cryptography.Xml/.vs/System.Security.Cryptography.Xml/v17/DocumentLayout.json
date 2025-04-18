@@ -1,24 +1,24 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "D:\\unityProject\\XML\\",
+  "WorkspaceRootPath": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\unityproject\\xml\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\python\\knowledgebase\\u3d\u76F8\u5173\\security.cryptography.xml\\properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|solutionrelative:properties\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\unityproject\\xml\\system\\hexconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\python\\knowledgebase\\u3d\u76F8\u5173\\security.cryptography.xml\\system\\hexconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|solutionrelative:system\\hexconverter.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\unityproject\\xml\\system.security.cryptography.xml\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\python\\knowledgebase\\u3d\u76F8\u5173\\security.cryptography.xml\\system.security.cryptography.xml\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|solutionrelative:system.security.cryptography.xml\\utils.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\unityproject\\xml\\system.security.cryptography.xml\\encryptedxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|d:\\python\\knowledgebase\\u3d\u76F8\u5173\\security.cryptography.xml\\system.security.cryptography.xml\\encryptedxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2C9AFF35-A5DB-C679-F06B-0BBEFF5FF586}|System.Security.Cryptography.Xml.csproj|solutionrelative:system.security.cryptography.xml\\encryptedxml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -35,27 +35,25 @@
               "$type": "Document",
               "DocumentIndex": 3,
               "Title": "Utils.cs",
-              "DocumentMoniker": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml\\Utils.cs",
+              "DocumentMoniker": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml\\Utils.cs",
               "RelativeDocumentMoniker": "System.Security.Cryptography.Xml\\Utils.cs",
-              "ToolTip": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml\\Utils.cs",
+              "ToolTip": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml\\Utils.cs",
               "RelativeToolTip": "System.Security.Cryptography.Xml\\Utils.cs",
               "ViewState": "AgIAAEsCAAAAAAAAAAAQwHoCAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T03:31:37.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T03:31:37.405Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "EncryptedXml.cs",
-              "DocumentMoniker": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml\\EncryptedXml.cs",
+              "DocumentMoniker": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml\\EncryptedXml.cs",
               "RelativeDocumentMoniker": "System.Security.Cryptography.Xml\\EncryptedXml.cs",
-              "ToolTip": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml\\EncryptedXml.cs",
+              "ToolTip": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml\\EncryptedXml.cs",
               "RelativeToolTip": "System.Security.Cryptography.Xml\\EncryptedXml.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T03:31:23.734Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T03:31:23.734Z"
             },
             {
               "$type": "Document",
@@ -65,31 +63,29 @@
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Preview\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAHcJAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2025-04-17T03:19:44.294Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T03:19:44.294Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
               "Title": "HexConverter.cs",
-              "DocumentMoniker": "D:\\unityProject\\XML\\System\\HexConverter.cs",
+              "DocumentMoniker": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System\\HexConverter.cs",
               "RelativeDocumentMoniker": "System\\HexConverter.cs",
-              "ToolTip": "D:\\unityProject\\XML\\System\\HexConverter.cs",
+              "ToolTip": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\System\\HexConverter.cs",
               "RelativeToolTip": "System\\HexConverter.cs",
               "ViewState": "AgIAAA0AAAAAAAAAAAA0wA0AAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-17T03:19:04.706Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-04-17T03:19:04.706Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "AssemblyInfo.cs",
-              "DocumentMoniker": "D:\\unityProject\\XML\\Properties\\AssemblyInfo.cs",
+              "DocumentMoniker": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\Properties\\AssemblyInfo.cs",
               "RelativeDocumentMoniker": "Properties\\AssemblyInfo.cs",
-              "ToolTip": "D:\\unityProject\\XML\\Properties\\AssemblyInfo.cs",
+              "ToolTip": "D:\\Python\\KnowledgeBase\\U3D\u76F8\u5173\\Security.Cryptography.Xml\\Properties\\AssemblyInfo.cs",
               "RelativeToolTip": "Properties\\AssemblyInfo.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAtAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-04-17T03:18:52.051Z",
               "EditorCaption": ""

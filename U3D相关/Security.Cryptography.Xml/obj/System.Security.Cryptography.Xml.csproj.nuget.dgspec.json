@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\unityProject\\XML\\System.Security.Cryptography.Xml.csproj": {}
+    "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml.csproj": {}
   },
   "projects": {
-    "D:\\unityProject\\XML\\System.Security.Cryptography.Xml.csproj": {
+    "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml.csproj",
+        "projectUniqueName": "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml.csproj",
         "projectName": "System.Security.Cryptography.Xml",
-        "projectPath": "D:\\unityProject\\XML\\System.Security.Cryptography.Xml.csproj",
+        "projectPath": "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\System.Security.Cryptography.Xml.csproj",
         "packagesPath": "C:\\Users\\admin\\.nuget\\packages\\",
-        "outputPath": "D:\\unityProject\\XML\\obj\\",
+        "outputPath": "D:\\Python\\KnowledgeBase\\U3D相关\\Security.Cryptography.Xml\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
