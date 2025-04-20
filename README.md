@@ -15,3 +15,10 @@ Unity游戏解包工具：AssetRipper：https://github.com/AssetRipper/AssetRipp
 图像超分项目：Real-ESRGAN：https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan<br>
 带GUI的图像超分项目：Real-ESRGAN-GUI：https://github.com/TransparentLC/realesrgan-gui<br>
 精简浏览器内核项目：miniblink49：https://github.com/weolar/miniblink49<br>
+本地网盘工具推荐（java）：https://github.com/KOHGYLW/kiftd<br>
+
+<br><br>
+AI项目：<br>
+本地大模型RWKV：https://github.com/josStorer/RWKV-Runner<br>
+本地多模态（语音/视频对话，推荐-o 2.6）：https://github.com/OpenBMB/MiniCPM-o<br>
+本地推理QwQ-32B：https://github.com/QwenLM/QwQ<br>
