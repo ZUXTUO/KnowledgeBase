@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>修改图片内容并下载</title>
+    <style>
+        body {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+        .container {
+            position: relative;
+            width: 800px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+        }
+        .bg-image {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            background: url('img/bg.jpg') no-repeat center center;
+            background-size: cover;
+        }
+        .person-image {
+            position: absolute;
+            top: 157px;
+            left: 400px;
+            width: 150px;
+            height: 160px;
+            background: url('img/person.jpg') no-repeat center center;
+            background-size: contain;
+            pointer-events: all;
+            cursor: pointer;
+        }
+        .text-input {
+            position: absolute;
+            top: 215px;
+            left: 235px;
+            transform: translateX(-50%);
+            padding: 5px;
+            font-size: 20px;
+            color: white;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            width: 30%;
+            z-index: 10;
+            color: black;
+            font-weight: bold;
+        }
+        .text-input2 {
+            position: absolute;
+            top: 320px;
+            left: 235px;
+            transform: translateX(-50%);
+            padding: 5px;
+            font-size: 12px;
+            color: white;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            width: 30%;
+            z-index: 10;
+            color: black;
+            font-weight: bold;
+        }
+        .upload-btn {
+            margin-top: 20px;
+        }
+        .download-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 20px;
+            left: 20%;
+            transform: translateX(-50%);
+        }
+        .download-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="bg-image" id="image-container">
+            <div class="person-image" id="person-container"></div>
+            <input type="text" class="text-input" id="text1" placeholder="输入你的名字">
+            <input type="text" class="text-input2" id="text2" placeholder="输入你的编号">
+        </div>
+    </div>
+    <input type="file" class="upload-btn" id="image-upload" accept="image/*" style="display: none;">
+    <br>
+    <button class="download-btn" id="download">下载修改后的图片</button>
+
+    <script>
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const imageContainer = document.getElementById('image-container');
+        const personContainer = document.getElementById('person-container');
+        const imageUpload = document.getElementById('image-upload');
+        const downloadBtn = document.getElementById('download');
+        
+        let bgImage = new Image();
+        bgImage.src = 'img/bg.jpg';
+        bgImage.onload = function() {};
+
+        personContainer.addEventListener('click', function() {
+            imageUpload.click();
+        });
+
+        imageUpload.addEventListener('change', function (e) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                personContainer.style.backgroundImage = `url(${event.target.result})`;
+            };
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        downloadBtn.addEventListener('click', function () {
+            // 检查是否输入文字
+            if (!text1.value.trim() || !text2.value.trim()) {
+                alert('请输入名字和编号');
+                return;
+            }
+
+            // 检查是否上传了图片
+            const personImageUrl = personContainer.style.backgroundImage.slice(5, -2);
+            if (!personImageUrl) {
+                alert('请上传人物图片');
+                return;
+            }
+
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 400;
+
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+
+            ctx.font = '20px "Microsoft YaHei"';
+            ctx.fillStyle = 'black';
+            ctx.fillText(text1.value, 145, 240);
+
+            ctx.font = '15px "Microsoft YaHei"';
+            ctx.fillText(text2.value, 145, 335);
+
+            const personImage = new Image();
+            personImage.src = personImageUrl;
+            personImage.onload = function() {
+                ctx.drawImage(personImage, 400, 157, 150, 160);
+
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'work_card.png';
+                link.click();
+            };
+        });
+    </script>
+</body>
+</html>
