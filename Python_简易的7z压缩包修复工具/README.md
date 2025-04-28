@@ -21,7 +21,6 @@ sudo apt install p7zip-full
 ```
 
 ![image](exp_1.png)
-![image](exp_2.png)
 
 
 # Windows的二进制文件的使用方式：<br>
