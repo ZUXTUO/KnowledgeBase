@@ -22,3 +22,5 @@ AI项目：<br>
 本地大模型RWKV：https://github.com/josStorer/RWKV-Runner<br>
 本地多模态（语音/视频对话，推荐-o 2.6）：https://github.com/OpenBMB/MiniCPM-o<br>
 本地推理QwQ-32B：https://github.com/QwenLM/QwQ<br>
+6G显存也能跑的图生视频：https://github.com/lllyasviel/FramePack.git<br>
+声色克隆：https://github.com/RVC-Boss/GPT-SoVITS<br>
