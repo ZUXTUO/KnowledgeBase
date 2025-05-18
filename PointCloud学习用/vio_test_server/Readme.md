@@ -10,3 +10,5 @@ use colmap-3.6
 <br><br>
 ./VIO_Localization_Server-x86_64.AppImage index database.db ./sparse/ VocIndex.bin ../vocab/vocab_tree_flickr100K_words1M.bin
 <br><br>
+
+[点此进入项目](https://github.com/ZUXTUO/VIO_Runner.git)
