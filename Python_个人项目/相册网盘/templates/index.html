@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片库</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1>图片库</h1>
+        <div class="tags-collapsible-container">
+            <div class="tags-container" id="tagsContainer">
+                <a href="{{ url_for('index') }}" class="{{ 'active' if current_page_type == 'all' and not current_tag_name else '' }}">所有图片</a>
+                <a href="{{ url_for('featured_gallery') }}" class="{{ 'active' if current_page_type == 'featured' else '' }}">精选图片</a>
+                {% for tag in all_tags %}
+                    <a href="{{ url_for('tag_gallery', tag_name=tag) }}" class="{{ 'active' if current_tag_name == tag else '' }}">{{ tag }}</a>
+                {% endfor %}
+            </div>
+            <button id="toggleTagsButton" class="toggle-tags-button">展开标签</button>
+        </div>
+        {% if current_tag_name %}
+            <h2>标签: {{ current_tag_name }} ({{ total_images_count }} 张图片)</h2>
+        {% elif current_page_type == 'featured' %}
+            <h2>精选图片 ({{ total_images_count }} 张)</h2>
+        {% else %}
+            <h2>所有图片 ({{ total_images_count }} 张)</h2>
+        {% endif %}
+
+        <div class="header-actions">
+            <form id="uploadForm" class="upload-form" enctype="multipart/form-data">
+                <input type="file" id="imageUpload" name="image" accept="image/*" required>
+                <button type="submit">上传图片</button>
+            </form>
+            <button id="manageTagsButton" class="manage-tags-button">管理标签</button>
+        </div>
+    </header>
+
+    <main>
+        <div class="gallery">
+            {% for image in images %}
+            <a href="{{ url_for('image_detail', image_id=image.id) }}" class="gallery-item" data-image-id="{{ image.id }}" tabindex="0">
+                <img src="{{ url_for('get_image_data', image_id=image.id) }}" alt="{{ image.filename }}">
+                <div class="gallery-item-info">
+                    <p class="image-filename">{{ image.filename }}</p>
+                    <p class="image-score">评分: {{ image.score }}/5</p>
+                    <p class="image-tags-display">标签: {{ image.tags_string if image.tags_string else '无标签' }}</p>
+                </div>
+            </a>
+            {% else %}
+            <p>没有找到图片。</p>
+            {% endfor %}
+        </div>
+
+        {% if total_pages > 1 %}
+        <nav class="pagination">
+            {% if current_page > 1 %}
+                {% if current_tag_name %}
+                <a href="{{ url_for('tag_gallery', tag_name=current_tag_name, page=current_page-1) }}" class="pagination-nav-button">上一页</a>
+                {% elif current_page_type == 'featured' %}
+                <a href="{{ url_for('featured_gallery', page=current_page-1) }}" class="pagination-nav-button">上一页</a>
+                {% else %}
+                <a href="{{ url_for('index', page=current_page-1) }}" class="pagination-nav-button">上一页</a>
+                {% endif %}
+            {% endif %}
+            
+            <div class="page-numbers">
+                {# Display current page and a few pages around it #}
+                {% set start_page = (current_page - 2) if (current_page - 2) > 0 else 1 %}
+                {% set end_page = (current_page + 2) if (current_page + 2) <= total_pages else total_pages %}
+
+                {% if start_page > 1 %}
+                    {% if current_tag_name %}
+                        <a href="{{ url_for('tag_gallery', tag_name=current_tag_name, page=1) }}">1</a>
+                    {% elif current_page_type == 'featured' %}
+                        <a href="{{ url_for('featured_gallery', page=1) }}">1</a>
+                    {% else %}
+                        <a href="{{ url_for('index', page=1) }}">1</a>
+                    {% endif %}
+                    {% if start_page > 2 %}
+                        <span>...</span>
+                    {% endif %}
+                {% endif %}
+
+                {% for p in range(start_page, end_page + 1) %}
+                    {% if current_tag_name %}
+                        <a href="{{ url_for('tag_gallery', tag_name=current_tag_name, page=p) }}" class="{{ 'active' if p == current_page else '' }}">{{ p }}</a>
+                    {% elif current_page_type == 'featured' %}
+                        <a href="{{ url_for('featured_gallery', page=p) }}" class="{{ 'active' if p == current_page else '' }}">{{ p }}</a>
+                    {% else %}
+                        <a href="{{ url_for('index', page=p) }}" class="{{ 'active' if p == current_page else '' }}">{{ p }}</a>
+                    {% endif %}
+                {% endfor %}
+
+                {% if end_page < total_pages %}
+                    {% if end_page < total_pages - 1 %}
+                        <span>...</span>
+                    {% endif %}
+                    {% if current_tag_name %}
+                        <a href="{{ url_for('tag_gallery', tag_name=current_tag_name, page=total_pages) }}">{{ total_pages }}</a>
+                    {% elif current_page_type == 'featured' %}
+                        <a href="{{ url_for('featured_gallery', page=total_pages) }}">{{ total_pages }}</a>
+                    {% else %}
+                        <a href="{{ url_for('index', page=total_pages) }}">{{ total_pages }}</a>
+                    {% endif %}
+                {% endif %}
+            </div>
+
+            <div class="pagination-jump">
+                <input type="number" id="pageJumpInput" min="1" max="{{ total_pages }}" value="{{ current_page }}">
+                <button id="pageJumpButton">跳转</button>
+            </div>
+            
+            {% if current_page < total_pages %}
+                {% if current_tag_name %}
+                <a href="{{ url_for('tag_gallery', tag_name=current_tag_name, page=current_page+1) }}" class="pagination-nav-button">下一页</a>
+                {% elif current_page_type == 'featured' %}
+                <a href="{{ url_for('featured_gallery', page=current_page+1) }}" class="pagination-nav-button">下一页</a>
+                {% else %}
+                <a href="{{ url_for('index', page=current_page+1) }}" class="pagination-nav-button">下一页</a>
+                {% endif %}
+            {% endif %}
+        </nav>
+        {% endif %}
+    </main>
+
+    <div id="manageTagsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeManageTagsModal">&times;</span>
+            <h2>管理标签</h2>
+            <div class="add-tag-section">
+                <input type="text" id="newTagInput" placeholder="新标签名称">
+                <button id="addNewTagButton">添加标签</button>
+            </div>
+            <div id="allTagsList" class="all-tags-list"></div>
+            <p id="manageTagsMessage" class="modal-message"></p>
+        </div>
+    </div>
+
+    <div id="customConfirmDialog" class="modal custom-confirm-dialog-modal">
+        <div class="modal-content">
+            <p id="confirmMessage"></p>
+            <div class="confirm-buttons">
+                <button id="confirmYes">是</button>
+                <button id="confirmNo">否</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
