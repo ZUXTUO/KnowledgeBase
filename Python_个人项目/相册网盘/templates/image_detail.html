@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ image.filename }} - 图片详情</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <h1><a href="{{ url_for('index') }}" class="back-to-gallery">&larr; 返回图库</a></h1>
+    </header>
+
+    <main class="image-detail-page">
+        <div class="image-viewer-container">
+            {% if prev_image_id %}
+            <a href="{{ url_for('image_detail', image_id=prev_image_id) }}" class="nav-arrow prev-arrow">&lt;</a>
+            {% endif %}
+
+            <div class="image-display-area">
+                <img id="detailImage" src="{{ url_for('get_image_data', image_id=image.id) }}" alt="{{ image.filename }}">
+            </div>
+
+            {% if next_image_id %}
+            <a href="{{ url_for('image_detail', image_id=next_image_id) }}" class="nav-arrow next-arrow">&gt;</a>
+            {% endif %}
+        </div>
+
+        <div class="image-detail-info">
+            <h3 id="detailFilename">{{ image.filename }}</h3>
+            <div class="score-edit">
+                <label>评分 (0-5):</label>
+                <div id="detailRatingStars" class="star-score">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+                <input type="hidden" id="detailRating" name="score" value="{{ image.score }}">
+            </div>
+            <div class="tags-display-area">
+                <label>标签:</label>
+                <div id="detailTagsDisplay" class="selected-tags-container">
+                    {% if image.tags %}
+                        {% for tag in image.tags.split(',') %}
+                            {% if tag.strip() %}
+                                <span class="tag-pill">{{ tag.strip() }}</span>
+                            {% endif %}
+                        {% endfor %}
+                    {% else %}
+                        <span class="no-tags">无标签</span>
+                    {% endif %}
+                </div>
+                <button id="editTagsButton" class="manage-tags-button">编辑标签</button>
+            </div>
+            <button id="deleteImageButton" class="delete-button">删除图片</button>
+            <p id="detailMessage" class="modal-message"></p>
+        </div>
+    </main>
+
+    <div id="editTagsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>编辑标签</h2>
+            <div class="tags-edit">
+                <div id="modalSelectedTags" class="selected-tags-container"></div>
+                <input type="text" id="modalTagInput" placeholder="添加新标签或选择现有标签">
+                <div id="modalTagSuggestions" class="tag-suggestions"></div>
+                <input type="hidden" id="modalTags" name="tags">
+            </div>
+            <p id="editTagsMessage" class="modal-message"></p>
+        </div>
+    </div>
+
+    <div id="manageTagsModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeManageTagsModal">&times;</span>
+            <h2>管理标签</h2>
+            <div class="add-tag-section">
+                <input type="text" id="newTagInput" placeholder="新标签名称">
+                <button id="addNewTagButton">添加标签</button>
+            </div>
+            <div id="allTagsList" class="all-tags-list"></div>
+            <p id="manageTagsMessage" class="modal-message"></p>
+        </div>
+    </div>
+
+    <div id="customConfirmDialog" class="modal custom-confirm-dialog-modal">
+        <div class="modal-content">
+            <p id="confirmMessage"></p>
+            <div class="confirm-buttons">
+                <button id="confirmYes">是</button>
+                <button id="confirmNo">否</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const currentImageId = {{ image.id }};
+        const prevImageId = {{ prev_image_id | tojson }};
+        const nextImageId = {{ next_image_id | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='image_detail.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

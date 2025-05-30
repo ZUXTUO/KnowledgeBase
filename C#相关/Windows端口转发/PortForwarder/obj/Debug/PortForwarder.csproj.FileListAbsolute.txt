@@ -1,0 +1,12 @@
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\bin\Debug\PortForwarder.exe.config
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\bin\Debug\PortForwarder.exe
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\bin\Debug\PortForwarder.pdb
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.csproj.AssemblyReference.cache
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.AddPortForward.resources
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.DeletePortForward.resources
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.MainForm.resources
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.Properties.Resources.resources
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.csproj.GenerateResource.cache
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.csproj.CoreCompileInputs.cache
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.exe
+C:\Users\Olsc\Desktop\Windows-Port-Forwarder-master\PortForwarder\obj\Debug\PortForwarder.pdb
