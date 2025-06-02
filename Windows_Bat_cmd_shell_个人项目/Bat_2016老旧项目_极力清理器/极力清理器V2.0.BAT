@@ -2,7 +2,7 @@ taskkill /f /im batunpacker.exe>>nul
 @echo off
 mode con cols=10 lines=10
 setlocal enabledelayedexpansion
-title æžåŠ›æ¸…ç†å™¨å†…æµ‹ç‰ˆV2.0
+title ¼«Á¦ÇåÀíÆ÷ÄÚ²â°æV2.0
 chcp 936
 %1 start "" mshta vbscript:createobject("shell.application").shellexecute("""%~0""","::",,"runas",1)(window.close)&exit>nul
 cls
@@ -24,7 +24,7 @@ for /F "tokens=1,2 delims=#" %%a in ('"prompt #$H#$E# & echo on & for %%b in (1)
   set "DEL=%%a"
 )
 :varxitong
-if "%PROCESSOR_ARCHITECTURE%"=="x86" (set xitongweishu=32ä½) else (set xitongweishu=64ä½)
+if "%PROCESSOR_ARCHITECTURE%"=="x86" (set xitongweishu=32Î») else (set xitongweishu=64Î»)
 wmic os get Caption /value | findstr "Windows *" > %temp%\Temp.JLQL.tmp
 set /p information=<%temp%\Temp.JLQL.tmp
 for /f "tokens=2" %%i in ("%information%") do set sys1=%%i
@@ -33,66 +33,66 @@ for /f "tokens=4" %%k in ("%information%") do set sys3=%%k
 set systemen=%sys1% %sys2% %sys3%
 goto maxice
 :maxice
-title æžåŠ›æ¸…ç†å™¨å†…æµ‹ç‰ˆV2.0
+title ¼«Á¦ÇåÀíÆ÷ÄÚ²â°æV2.0
 cls
 color 0f
 mode con cols=45 lines=37
 echo -------------------------------------------
 call :ColorText 0f "------------"
-call :ColorText 0b "æ¬¢è¿Žä½¿ç”¨æžåŠ›æ¸…ç†å™¨"
+call :ColorText 0b "»¶Ó­Ê¹ÓÃ¼«Á¦ÇåÀíÆ÷"
 call :ColorText 0f "-------------"
 echo.
 call :ColorText 0f "------"
-call :ColorText 0c "æœ¬ç¨‹åºåªé€‚ç”¨äºŽç³»ç»Ÿç›˜ä¸ºCç›˜çš„ç”µè„‘"
+call :ColorText 0c "±¾³ÌÐòÖ»ÊÊÓÃÓÚÏµÍ³ÅÌÎªCÅÌµÄµçÄÔ"
 call :ColorText 0f "------"
 echo.
 echo -------------------------------------------
-echo â˜… æœ¬æ¸…ç†å™¨æŽ¨èçš„ä½¿ç”¨æƒ…å†µæ˜¯ç”µè„‘æžå…¶å¡é¡¿æˆ–é•¿æœŸæ²¡æœ‰æ¸…ç†åžƒåœ¾ï¼Œè€Œç”µè„‘é‡Œåˆä¿ç•™æœ‰é‡è¦æ–‡ä»¶ä¸å¸Œæœ›é‡è£…çš„æ—¶å€™ã€‚
-echo â˜… è¯·æ³¨æ„æœ¬æ¸…ç†å™¨ä»…èƒ½å¯¹æ­¤ç±»æƒ…å†µè¿›è¡Œç¼“è§£ï¼Œåº”å¤‡ä»½çš„æ–‡ä»¶è¿˜æ˜¯å¸Œæœ›èƒ½è¿›è¡Œå¤‡ä»½ã€‚æœ¬æ¸…ç†å™¨ä¹Ÿä¸èƒ½å–ä»£é‡è£…ç³»ç»Ÿã€‚
-echo â˜… å¦‚æžœåœ¨æ¸…ç†è¿‡ç¨‹ä¸­é‡åˆ°æ€æ¯’è½¯ä»¶æŠ¥æ¯’å±žæ­£å¸¸çŽ°è±¡ï¼Œç¨å¾®å†™è¿‡è½¯ä»¶çš„åŸºæœ¬éƒ½æ‡‚ã€‚
-echo â˜… æ¸…ç†è¿‡ç¨‹ä¸­å°½å¯èƒ½ä¸è¦è¿›è¡Œå…¶ä»–å·¥ä½œï¼Œè¾“å…¥æ³•å¯èƒ½ä¼šæš‚æ—¶æ— æ³•åˆ‡æ¢ï¼ˆæ¯•ç«Ÿè¦æ¸…ç†ç¼“å­˜ï¼‰ï¼Œå±žäºŽæ­£å¸¸çŽ°è±¡ã€‚
-echo â˜… æœ¬ç¨‹åºä¸å¤ªæŽ¨èæ—¥å¸¸ä½¿ç”¨ï¼Œæ›´å€¾å‘äºŽæ€¥ç”¨æƒ…å†µã€‚
-echo â˜… æŽ¨èæ¸…ç†åŽé‡å¯ã€‚
-echo â˜… æœ¬ç¨‹åºå­˜åœ¨å¼ºåˆ¶æŒ‡ä»¤ï¼Œå»ºè®®å…³é—­æ€æ¯’è½¯ä»¶ã€‚
-echo â˜… æœ¬ç¨‹åºå°†å°½æœ€å¤§å¯èƒ½ä¿æŠ¤æ‚¨çš„ç”µè„‘ï¼Œä¸ä¼šæºå¸¦ä»»ä½•ç—…æ¯’
-echo â˜… è¯·å‹¿å°†æœ¬ç¨‹åºç”¨äºŽä»»ä½•å•†ä¸šç”¨é€”ï¼ï¼ï¼ï¼
+echo ¡ï ±¾ÇåÀíÆ÷ÍÆ¼öµÄÊ¹ÓÃÇé¿öÊÇµçÄÔ¼«Æä¿¨¶Ù»ò³¤ÆÚÃ»ÓÐÇåÀíÀ¬»ø£¬¶øµçÄÔÀïÓÖ±£ÁôÓÐÖØÒªÎÄ¼þ²»Ï£ÍûÖØ×°µÄÊ±ºò¡£
+echo ¡ï Çë×¢Òâ±¾ÇåÀíÆ÷½öÄÜ¶Ô´ËÀàÇé¿ö½øÐÐ»º½â£¬Ó¦±¸·ÝµÄÎÄ¼þ»¹ÊÇÏ£ÍûÄÜ½øÐÐ±¸·Ý¡£±¾ÇåÀíÆ÷Ò²²»ÄÜÈ¡´úÖØ×°ÏµÍ³¡£
+echo ¡ï Èç¹ûÔÚÇåÀí¹ý³ÌÖÐÓöµ½É±¶¾Èí¼þ±¨¶¾ÊôÕý³£ÏÖÏó£¬ÉÔÎ¢Ð´¹ýÈí¼þµÄ»ù±¾¶¼¶®¡£
+echo ¡ï ÇåÀí¹ý³ÌÖÐ¾¡¿ÉÄÜ²»Òª½øÐÐÆäËû¹¤×÷£¬ÊäÈë·¨¿ÉÄÜ»áÔÝÊ±ÎÞ·¨ÇÐ»»£¨±Ï¾¹ÒªÇåÀí»º´æ£©£¬ÊôÓÚÕý³£ÏÖÏó¡£
+echo ¡ï ±¾³ÌÐò²»Ì«ÍÆ¼öÈÕ³£Ê¹ÓÃ£¬¸üÇãÏòÓÚ¼±ÓÃÇé¿ö¡£
+echo ¡ï ÍÆ¼öÇåÀíºóÖØÆô¡£
+echo ¡ï ±¾³ÌÐò´æÔÚÇ¿ÖÆÖ¸Áî£¬½¨Òé¹Ø±ÕÉ±¶¾Èí¼þ¡£
+echo ¡ï ±¾³ÌÐò½«¾¡×î´ó¿ÉÄÜ±£»¤ÄúµÄµçÄÔ£¬²»»áÐ¯´øÈÎºÎ²¡¶¾
+echo ¡ï ÇëÎð½«±¾³ÌÐòÓÃÓÚÈÎºÎÉÌÒµÓÃÍ¾£¡£¡£¡£¡
 echo -------------------------------------------
-echo â— å½“å‰ç‰ˆæœ¬ï¼šV2.0  æ›´æ–°æ—¶é—´ï¼š2020/8/17
-call :ColorText 0f "â— æ‚¨çš„ç³»ç»Ÿï¼š"
+echo ¡ñ µ±Ç°°æ±¾£ºV2.0  ¸üÐÂÊ±¼ä£º2020/8/17
+call :ColorText 0f "¡ñ ÄúµÄÏµÍ³£º"
 call :ColorText 0a "%systemen% %xitongweishu%"
 echo.
 echo -------------------------------------------
 echo ---------------Made by Olsc----------------
 echo ----------BiliBili UID:204831965-----------
 echo -------------------------------------------
-echo â—† å¿«é€Ÿæ¸…ç†è¯·è¾“å…¥1    ----------------------
-echo â—† æžåŠ›æ¸…ç†è¯·è¾“å…¥2    ----------------------
-echo â—† è¶…çº§æ¸…ç†è¯·è¾“å…¥3    ----------------------
-echo â—† æžåŠ›å·¥å…·ç®±è¯·è¾“å…¥4    --------------------
+echo ¡ô ¿ìËÙÇåÀíÇëÊäÈë1    ----------------------
+echo ¡ô ¼«Á¦ÇåÀíÇëÊäÈë2    ----------------------
+echo ¡ô ³¬¼¶ÇåÀíÇëÊäÈë3    ----------------------
+echo ¡ô ¼«Á¦¹¤¾ßÏäÇëÊäÈë4    --------------------
 echo -------------------------------------------
 echo.
 set choice=
-set /p choice=åœ¨æ­¤è¾“å…¥æŒ‡ä»¤åŽæŒ‰ä¸‹å›žè½¦ ^>
+set /p choice=ÔÚ´ËÊäÈëÖ¸Áîºó°´ÏÂ»Ø³µ ^>
 if "%choice%"=="" goto maxice
 if /i '%choice%'=='1' goto kuaisuqingli123
 if /i '%choice%'=='2' goto jiliqingli
 if /i '%choice%'=='3' goto Taskkill
 if /i '%choice%'=='4' goto tools520
-if /i '%choice%'=='ä½ å¥½' goto nihao
+if /i '%choice%'=='ÄãºÃ' goto nihao
 :wufashibei0
 cls
-echo æ— æ³•è¯†åˆ«æ‚¨çš„æŒ‡ä»¤ï¼
+echo ÎÞ·¨Ê¶±ðÄúµÄÖ¸Áî£¡
 pause
 goto maxice
 :nihao
 cls
-echo ä½ å¥½ï¼
+echo ÄãºÃ£¡
 pause
 goto maxice
 :chasha
 cls
-title å·²è¿›è¡Œ 0%
-echo æ­£åœ¨è¿›è¡Œç—…æ¯’æŸ¥æ€...
+title ÒÑ½øÐÐ 0%
+echo ÕýÔÚ½øÐÐ²¡¶¾²éÉ±...
 echo.
 net stop "McAfee.com VirusScan Online Realtime Engine"
 net stop "McAfee Agent"
@@ -133,7 +133,7 @@ net stop "Trend ServerProtect "
 dir /s/a-d/b dir /s/a-d/b %pf%\*SuCH0ST*.*
 del /s /f /q %pf%\SuCH0ST.EXE 
 cls
-Rem æ— æ¡ä»¶ç¦æ­¢è‡ªåŠ¨è¿è¡Œç‰¹æ€§é˜²èŒƒç—…æ¯’
+Rem ÎÞÌõ¼þ½ûÖ¹×Ô¶¯ÔËÐÐÌØÐÔ·À·¶²¡¶¾
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveAutoRun /t REG_BINARY /d ffffff03 /f>nul 2>nul
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000df /f>nul 2>nul
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000df /f>nul 2>nul
@@ -142,45 +142,45 @@ reg add "HKEY_USERS\S-1-5-18\Software\Microsoft\Windows\CurrentVersion\Policies\
 reg add "HKEY_USERS\S-1-5-19\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000df /f>nul 2>nul
 reg add "HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveTypeAutoRun /t REG_DWORD /d 0x000000df /f>nul 2>nul
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL" /v CheckedValue /t REG_DWORD /d 0x00000001 /f>nul 2>nul
-rem ä¿®å¤ç£ç›˜æ‰“å¼€å…³è”
+rem ÐÞ¸´´ÅÅÌ´ò¿ª¹ØÁª
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2" /f>nul 2>nul
-rem æ€é™¤Uç›˜ç—…æ¯’è¿›ç¨‹
+rem É±³ýUÅÌ²¡¶¾½ø³Ì
 taskkill /F /IM ctfmon.exe /IM ctfmon.exe /IM SVOHOST.exe /IM AdobeR.exe /IM ravmone.exe /IM wincfgs.exe /IM doc.exe /IM rose.exe /IM sxs.exe /IM autorun.exe /IM KB20060111.exe>nul 2>nul
-rem å…ç–«è‡ªåŠ¨è¿è¡Œ
-echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-attrib -s -h -r "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-attrib -s -h -r "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-rem echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 2>nul
-rem echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 
+rem ÃâÒß×Ô¶¯ÔËÐÐ
+echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+attrib -s -h -r "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+attrib -s -h -r "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+rem echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 2>nul
+rem echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 
 cls
-Echo æ­£åœ¨å…ç–«ï¼å¯èƒ½éœ€è¦ä¸€å°ä¼šæ—¶é—´ï¼Œè¯·ç¨å€™â€¦â€¦
+Echo ÕýÔÚÃâÒß£¡¿ÉÄÜÐèÒªÒ»Ð¡»áÊ±¼ä£¬ÇëÉÔºò¡­¡­
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do echo Y|cacls %%a:\autorun.inf /C /P everyone:F>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do attrib -s -h -r %%a:\Autorun.inf>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do del /A /F /S /Q %%a:\Autorun.inf>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do md %%a:\Autorun.inf\>nul 2>nul
-for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do md %%a:\Autorun.inf\ç—…æ¯’å…ç–«ç›®å½•ä¸è¦åˆ é™¤ï¼..\>nul 2>nul
+for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do md %%a:\Autorun.inf\²¡¶¾ÃâÒßÄ¿Â¼²»ÒªÉ¾³ý£¡..\>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do attrib +s +h +r %%a:\Autorun.inf>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do echo Y|cacls %%a:\autorun.inf /C /P everyone:R>nul 2>nul
-rem æ€é™¤Uç›˜ç—…æ¯’è¿›ç¨‹
+rem É±³ýUÅÌ²¡¶¾½ø³Ì
 taskkill /F /IM ctfmon.exe /IM ctfmon.exe /IM SVOHOST.exe /IM AdobeR.exe /IM ravmone.exe /IM wincfgs.exe /IM doc.exe /IM rose.exe /IM sxs.exe /IM autorun.exe /IM KB20060111.exe>nul 2>nul
-rem å…ç–«è‡ªåŠ¨è¿è¡Œ
-echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-attrib -s -h -r "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-attrib -s -h -r "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-rem echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 2>nul
-rem echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 2>nul
-rem æ¸…é™¤è‡ªåŠ¨åŠ è½½é”®å€¼
+rem ÃâÒß×Ô¶¯ÔËÐÐ
+echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+attrib -s -h -r "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+attrib -s -h -r "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+rem echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 2>nul
+rem echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 2>nul
+rem Çå³ý×Ô¶¯¼ÓÔØ¼üÖµ
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v SoundMam /f>nul 2>nul
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v wincfgs /f>nul 2>nul
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Windows" /v Load /f>nul 2>nul
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows NT\CurrentVersion\Windows" /v Load /f>nul 2>nul
-rem æ¸…é™¤å–œæ¬¢åˆ©ç”¨å›žæ”¶ç«™çš„ç§»åŠ¨ç£ç›˜è‡ªåŠ¨è¿è¡Œç—…æ¯’
+rem Çå³ýÏ²»¶ÀûÓÃ»ØÊÕÕ¾µÄÒÆ¶¯´ÅÅÌ×Ô¶¯ÔËÐÐ²¡¶¾
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do echo Y|cacls "%%a:\Recycler\*.exe" /C /P everyone:F>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do echo Y|cacls "%%a:\Recycler\*.pif" /C /P everyone:F>nul 2>nul
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do echo Y|cacls "%%a:\Recycler\*.com" /C /P everyone:F>nul 2>nul
@@ -198,329 +198,329 @@ for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do del /A /F /S /Q 
 for %%a in (c,d,e,f,g,h,i,j,k,l,m,n,o,p,q,r,s,t,u,v,w,x,y,z) do del /A /F /S /Q "%%a:\Recycler\*.pif">nul 2>nul
 cls
 Echo.
-Echo å½“å‰ç³»ç»Ÿçš„æ‰€æœ‰ç£ç›˜å·²ç»æˆåŠŸåœ°è¿›è¡Œäº†è‡ªåŠ¨è¿è¡Œç—…æ¯’å…ç–«ï¼
+Echo µ±Ç°ÏµÍ³µÄËùÓÐ´ÅÅÌÒÑ¾­³É¹¦µØ½øÐÐÁË×Ô¶¯ÔËÐÐ²¡¶¾ÃâÒß£¡
 cls
-echo å¼€å§‹ç®€å•æ€æ¯’...
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹1
+echo ¿ªÊ¼¼òµ¥É±¶¾...
+echo ÒÑ½øÐÐ°Ù·ÖÖ®1
 dir /s/a-d/b dir /s/a-d/b %pf%\myset1234.exe
 del /s /f /q %pf%myset1234.EXE 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹2
+echo ÒÑ½øÐÐ°Ù·ÖÖ®2
 dir /s/a-d/b %pf%\down.EXE
 del /S /F /Q %pf%\down.EXE 
 dir /s/a-d/b %pf%\OEM.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹3
+echo ÒÑ½øÐÐ°Ù·ÖÖ®3
 del /S /F /Q %pf%\OEM.EXE 
 dir /s/a-d/b %pf%\boot.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹4
+echo ÒÑ½øÐÐ°Ù·ÖÖ®4
 del /S /F /Q %pf%\down.EXE
 dir /s/a-d/b %pf%\*systen.EXE
 del /S /F /Q %pf%\systen.EXE 
 dir /s/a-d/b %pf%\expl0rer.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹5
+echo ÒÑ½øÐÐ°Ù·ÖÖ®5
 del /S /F /Q %pf%\expl0rer.EXE 
 dir /s/a-d/b %pf%\*fun.EXE
 del /S /F /Q %pf%\fun.EXE 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹6
+echo ÒÑ½øÐÐ°Ù·ÖÖ®6
 dir /s/a-d/b %pf%\*Aboutagirl.EXE
 del /S /F /Q %pf%\Aboutagirl.EXE
 dir /s/a-d/b %pf%\*Absr.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹7
+echo ÒÑ½øÐÐ°Ù·ÖÖ®7
 del /S /F /Q %pf%\Absr.EXE
 dir /s/a-d/b %pf%\*Aplica32*.*
 del /S /F /Q %pf%\Aplica32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹8
+echo ÒÑ½øÐÐ°Ù·ÖÖ®8
 dir /s/a-d/b %pf%\*Avcinsol*.*
 del /S /F /Q %pf%\Avcinsol.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹9
+echo ÒÑ½øÐÐ°Ù·ÖÖ®9
 dir /s/a-d/b %pf%\*Avp.EXE
 del /S /F /Q %pf%\Avp.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹10
-dir /s/a-d/b %pf%\*é«˜æ¸…ç”µå½±.url
+echo ÒÑ½øÐÐ°Ù·ÖÖ®10
+dir /s/a-d/b %pf%\*¸ßÇåµçÓ°.url
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹11
-del /S /F /Q %pf%\*é«˜æ¸…ç”µå½±.url 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®11
+del /S /F /Q %pf%\*¸ßÇåµçÓ°.url 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹12
-dir /s/a-d/b %pf%\*ç½‘å€å¯¼èˆª.url
+echo ÒÑ½øÐÐ°Ù·ÖÖ®12
+dir /s/a-d/b %pf%\*ÍøÖ·µ¼º½.url
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹13
-del /S /F /Q %pf%\*ç½‘å€å¯¼èˆª.url
+echo ÒÑ½øÐÐ°Ù·ÖÖ®13
+del /S /F /Q %pf%\*ÍøÖ·µ¼º½.url
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹14
-dir /s/a-d/b %pf%\*ç¾Žå¥³å›¾ç‰‡.url
+echo ÒÑ½øÐÐ°Ù·ÖÖ®14
+dir /s/a-d/b %pf%\*ÃÀÅ®Í¼Æ¬.url
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹15
-del /S /F /Q %pf%\*ç¾Žå¥³å›¾ç‰‡.url 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®15
+del /S /F /Q %pf%\*ÃÀÅ®Í¼Æ¬.url 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹16
+echo ÒÑ½øÐÐ°Ù·ÖÖ®16
 dir /s/a-d/b %pf%\*Internet Explorer.lnk*.*
 del /S /F /Q %pf%\*Internet Explorer.lnk
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹17
-dir /s/a-d/b %pf%\*çƒ­é—¨ç”µè§†å‰§.url
-del /S /F /Q %pf%\*çƒ­é—¨ç”µè§†å‰§.url 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®17
+dir /s/a-d/b %pf%\*ÈÈÃÅµçÊÓ¾ç.url
+del /S /F /Q %pf%\*ÈÈÃÅµçÊÓ¾ç.url 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹18
+echo ÒÑ½øÐÐ°Ù·ÖÖ®18
 dir /s/a-d/b %pf%\*uexplorertran.EXE
 del /S /F /Q %pf%\*uexplorertran.EXE 
 dir /s/a-d/b %pf%\*Avp32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹19
-dir /s/a-d/b %pf%\*å¸®5æ·˜*.*
+echo ÒÑ½øÐÐ°Ù·ÖÖ®19
+dir /s/a-d/b %pf%\*°ï5ÌÔ*.*
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹20
+echo ÒÑ½øÐÐ°Ù·ÖÖ®20
 del /S /F /Q %pf%\Avp32.EXE
-del /S /F /Q %pf%\å¸®5æ·˜*.EXE
+del /S /F /Q %pf%\°ï5ÌÔ*.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹21
+echo ÒÑ½øÐÐ°Ù·ÖÖ®21
 dir /s/a-d/b %pf%\*Avpm.EXE
 del /S /F /Q %pf%\*Avpm.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹22
-dir /s/a-d/b %pf%\*å¤šå½©ä¾¿ç­¾.EXE
-del /S /F /Q %pf%\*å¤šå½©ä¾¿ç­¾.EXE
+echo ÒÑ½øÐÐ°Ù·ÖÖ®22
+dir /s/a-d/b %pf%\*¶à²Ê±ãÇ©.EXE
+del /S /F /Q %pf%\*¶à²Ê±ãÇ©.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹23
+echo ÒÑ½øÐÐ°Ù·ÖÖ®23
 dir /s/a-d/b %pf%\*Avserve.EXE
 del /S /F /Q %pf%\*Avserve*.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹24
+echo ÒÑ½øÐÐ°Ù·ÖÖ®24
 dir /s/a-d/b %pf%\*Bbeagle.EXE
 del /S /F /Q %pf%\Bbeagle.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹25
+echo ÒÑ½øÐÐ°Ù·ÖÖ®25
 dir /s/a-d/b %pf%\*Brainspy.EXE
 del /S /F /Q %pf%\*Brainspy*.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹26
+echo ÒÑ½øÐÐ°Ù·ÖÖ®26
 dir /s/a-d/b %pf%\*Cfiadmin.EXE
 del /S /F /Q %pf%\*Cfiadmin.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹27
+echo ÒÑ½øÐÐ°Ù·ÖÖ®27
 dir /s/a-d/b %pf%\*Cfiaudit.EXE
 del /S /F /Q %pf%\*Cfiaudit.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹28
+echo ÒÑ½øÐÐ°Ù·ÖÖ®28
 dir /s/a-d/b %pf%\*Cfinet32.EXE
 del /S /F /Q %pf%\Cfinet32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹29
+echo ÒÑ½øÐÐ°Ù·ÖÖ®29
 dir /s/a-d/b %pf%\*Checkdll.EXE
 del /S /F /Q %pf%\Checkdll.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹30
+echo ÒÑ½øÐÐ°Ù·ÖÖ®30
 dir /s/a-d/b %pf%\*Cmctl32.EXE
 del /S /F /Q %pf%\Cmctl32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹31
+echo ÒÑ½øÐÐ°Ù·ÖÖ®31
 dir /s/a-d/b %pf%\*Command.EXE
 del /S /F /Q %pf%\Command.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹32
+echo ÒÑ½øÐÐ°Ù·ÖÖ®32
 dir /s/a-d/b %pf%\*Diagcfg.EXE
 del /S /F /Q %pf%\Diagcfg.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹33
+echo ÒÑ½øÐÐ°Ù·ÖÖ®33
 dir /s/a-d/b %pf%\*Dvldr32.EXE
 del /S /F /Q %pf%\Dvldr32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹34
+echo ÒÑ½øÐÐ°Ù·ÖÖ®34
 dir /s/a-d/b %pf%\*Winmsg32.EXE
 del /S /F /Q %pf%\Winmsg32.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹35
+echo ÒÑ½øÐÐ°Ù·ÖÖ®35
 dir /s/a-d/b %pf%\*Expiorer.EXE
 del /S /F /Q %pf%\Expiorer.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹36
+echo ÒÑ½øÐÐ°Ù·ÖÖ®36
 dir /s/a-d/b %pf%\*Rundll.EXE
 del /S /F /Q %pf%\Rundll.EXE
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹37
+echo ÒÑ½øÐÐ°Ù·ÖÖ®37
 dir /s/a-d/b %pf%\*Runouce*.*
 dir /s/a-d/b %pf%\*Runouce.EXE
 del /S /F /Q %pf%\Runouce.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹38
+echo ÒÑ½øÐÐ°Ù·ÖÖ®38
 dir /s/a-d/b %pf%\*Intel.EXE
 del /S /F /Q %pf%\Intel.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹39
+echo ÒÑ½øÐÐ°Ù·ÖÖ®39
 dir /s/a-d/b %pf%\*Intemet.EXE
 del /S /F /Q %pf%\Intemet.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹40
+echo ÒÑ½øÐÐ°Ù·ÖÖ®40
 dir /s/a-d/b %pf%\*Keme132.EXE
 del /S /F /Q %pf%\Keme132.exe
 dir /s/a-d/b %pf%\*Km132.EXE
 del /S /F /Q %pf%\Km132.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹41
+echo ÒÑ½øÐÐ°Ù·ÖÖ®41
 dir /s/a-d/b %pf%\*Msblast.EXE
 del /S /F /Q %pf%\Msblast.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹42
+echo ÒÑ½øÐÐ°Ù·ÖÖ®42
 dir /s/a-d/b %pf%\*Netspy.EXE
 del /S /F /Q %pf%\Netspy.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹43
+echo ÒÑ½øÐÐ°Ù·ÖÖ®43
 dir /s/a-d/b %pf%\*Winmgm32.EXE
 del /S /F /Q %pf%\Winmgm32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹44
+echo ÒÑ½øÐÐ°Ù·ÖÖ®44
 dir /s/a-d/b %pf%\*Wilogon32.EXE
 del /S /F /Q %pf%\Wilogon32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹45
-dir /s/a-d/b %pf%\*å¤–æŒ‚*.* 
-dir /s/a-d/b %pf%\*å¤–æŒ‚*.* 
-dir /s/a-d/b %pf%\*åˆ·æžª*.* 
-dir /s/a-d/b %pf%\*åˆ·æžª*.* 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®45
+dir /s/a-d/b %pf%\*Íâ¹Ò*.* 
+dir /s/a-d/b %pf%\*Íâ¹Ò*.* 
+dir /s/a-d/b %pf%\*Ë¢Ç¹*.* 
+dir /s/a-d/b %pf%\*Ë¢Ç¹*.* 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹46
-dir /s/a-d/b %pf%\*åˆ·èµž*.* 
-dir /s/a-d/b %pf%\*åˆ·èµž*.* 
-dir /s/a-d/b %pf%\*åˆ·é‡‘å¸*.* 
-dir /s/a-d/b %pf%\*åˆ·é‡‘å¸*.* 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®46
+dir /s/a-d/b %pf%\*Ë¢ÔÞ*.* 
+dir /s/a-d/b %pf%\*Ë¢ÔÞ*.* 
+dir /s/a-d/b %pf%\*Ë¢½ð±Ò*.* 
+dir /s/a-d/b %pf%\*Ë¢½ð±Ò*.* 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹47
-dir /s/a-d/b %pf%\*åˆ·Qå¸*.* 
-dir /s/a-d/b %pf%\*åˆ·Qå¸*.* 
-dir /s/a-d/b %pf%\*å”°Qå¸*.* 
-dir /s/a-d/b %pf%\*å”°Qå¸*.* 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®47
+dir /s/a-d/b %pf%\*Ë¢Q±Ò*.* 
+dir /s/a-d/b %pf%\*Ë¢Q±Ò*.* 
+dir /s/a-d/b %pf%\*à§Q±Ò*.* 
+dir /s/a-d/b %pf%\*à§Q±Ò*.* 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹48
-del /A /S /F /Q %pf%\*è¾…åŠ©*.* 
-del /A /S /F /Q %pf%\*è¾…åŠ©*.* 
-del /A /S /F /Q %pf%\*å¤–æŒ‚*.* 
-del /A /S /F /Q %pf%\*å¤–æŒ‚*.* 
-del /A /S /F /Q %pf%\*åˆ·æžª*.* 
-del /A /S /F /Q %pf%\*åˆ·æžª*.* 
-del /A /S /F /Q %pf%\*åˆ·èµž*.* 
-del /A /S /F /Q %pf%\*åˆ·èµž*.* 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®48
+del /A /S /F /Q %pf%\*¸¨Öú*.* 
+del /A /S /F /Q %pf%\*¸¨Öú*.* 
+del /A /S /F /Q %pf%\*Íâ¹Ò*.* 
+del /A /S /F /Q %pf%\*Íâ¹Ò*.* 
+del /A /S /F /Q %pf%\*Ë¢Ç¹*.* 
+del /A /S /F /Q %pf%\*Ë¢Ç¹*.* 
+del /A /S /F /Q %pf%\*Ë¢ÔÞ*.* 
+del /A /S /F /Q %pf%\*Ë¢ÔÞ*.* 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹49
-del /a /s /f /q %pf%\*åˆ·é‡‘å¸*.* 
-del /a /s /f /q %pf%\*åˆ·é‡‘å¸*.* 
-del /a /s /f /q %pf%\*åˆ·Qå¸*.* 
-del /a /s /f /q %pf%\*åˆ·Qå¸*.* 
-del /a /s /f /q %pf%\*å”°Qå¸*.* 
-del /a /s /f /q %pf%\*å”°Qå¸*.* 
+echo ÒÑ½øÐÐ°Ù·ÖÖ®49
+del /a /s /f /q %pf%\*Ë¢½ð±Ò*.* 
+del /a /s /f /q %pf%\*Ë¢½ð±Ò*.* 
+del /a /s /f /q %pf%\*Ë¢Q±Ò*.* 
+del /a /s /f /q %pf%\*Ë¢Q±Ò*.* 
+del /a /s /f /q %pf%\*à§Q±Ò*.* 
+del /a /s /f /q %pf%\*à§Q±Ò*.* 
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹50
+echo ÒÑ½øÐÐ°Ù·ÖÖ®50
 dir /s/a-d/b %pf%\Msblast.exe
 dir /s/a-d/b %pf%\Mschv.exe
 dir /s/a-d/b %pf%\Avpcc.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹51
+echo ÒÑ½øÐÐ°Ù·ÖÖ®51
 dir /s/a-d/b %pf%\Msgsrv36.exe
 dir /s/a-d/b %pf%\_Msgsvc.exe
 dir /s/a-d/b %pf%\Avserve.exe
 dir /s/a-d/b %pf%\Msgsvr16.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹52
+echo ÒÑ½øÐÐ°Ù·ÖÖ®52
 dir /s/a-d/b %pf%\Bbeagle.exe
 dir /s/a-d/b %pf%\Msie5.exe
 dir /s/a-d/b %pf%\Brainspy.exe
 dir /s/a-d/b %pf%\Msstart.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹53
+echo ÒÑ½øÐÐ°Ù·ÖÖ®53
 dir /s/a-d/b %pf%\Cfiadmin.exe
 dir /s/a-d/b %pf%\Mstesk.exe
 dir /s/a-d/b %pf%\Cfiaudit.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹54
+echo ÒÑ½øÐÐ°Ù·ÖÖ®54
 dir /s/a-d/b %pf%\Netip.exe
 dir /s/a-d/b %pf%\Cfinet32.exe
 dir /s/a-d/b %pf%\Netspy.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹55
+echo ÒÑ½øÐÐ°Ù·ÖÖ®55
 dir /s/a-d/b %pf%\Checkdll.exe
 dir /s/a-d/b %pf%\Notpa.exe
 dir /s/a-d/b %pf%\Cmctl32.exe
 dir /s/a-d/b %pf%\Odbc.exe
 dir /s/a-d/b %pf%\Command.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹56
+echo ÒÑ½øÐÐ°Ù·ÖÖ®56
 dir /s/a-d/b %pf%\Pcfwallicon.exe
 dir /s/a-d/b %pf%\Diagcfg.exe
 dir /s/a-d/b %pf%\Pcx.exe
 dir /s/a-d/b %pf%\Dkbdll.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹57
+echo ÒÑ½øÐÐ°Ù·ÖÖ®57
 dir /s/a-d/b %pf%\Pw32.exe
 dir /s/a-d/b %pf%\Dllclient.exe
 dir /s/a-d/b %pf%\Dvldr32.exe
 dir /s/a-d/b %pf%\Regscan.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹58
+echo ÒÑ½øÐÐ°Ù·ÖÖ®58
 dir /s/a-d/b %pf%\Esafe.exe
 dir /s/a-d/b %pf%\Tftp.exe
 dir /s/a-d/b %pf%\Expiorer.exe
 dir /s/a-d/b %pf%\Thing.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹59
+echo ÒÑ½øÐÐ°Ù·ÖÖ®59
 dir /s/a-d/b %pf%\Feweb.exe
 dir /s/a-d/b %pf%\User.exe
 dir /s/a-d/b %pf%\Flcss.exe
 dir /s/a-d/b %pf%\Vp32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹60
+echo ÒÑ½øÐÐ°Ù·ÖÖ®60
 dir /s/a-d/b %pf%\Frw.exe
 dir /s/a-d/b %pf%\Vpcc.exe
 dir /s/a-d/b %pf%\Icload95.exe
 dir /s/a-d/b %pf%\Vpm.exe
 dir /s/a-d/b %pf%\Icloadnt.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹61
+echo ÒÑ½øÐÐ°Ù·ÖÖ®61
 dir /s/a-d/b %pf%\Vsecomr.exe
 dir /s/a-d/b %pf%\Vsecomr.exe
 dir /s/a-d/b %pf%\Server.exe
 dir /s/a-d/b %pf%\Icsupp95.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹62
+echo ÒÑ½øÐÐ°Ù·ÖÖ®62
 dir /s/a-d/b %pf%\Service.exe
 dir /s/a-d/b %pf%\Rpcsrv.exe
 dir /s/a-d/b %pf%\Sockets.exe
 dir /s/a-d/b %pf%\Rundll.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹63
+echo ÒÑ½øÐÐ°Ù·ÖÖ®63
 dir /s/a-d/b %pf%\Something.exe
 dir /s/a-d/b %pf%\Spfw.exe
 dir /s/a-d/b %pf%\Runouce.exe
 dir /s/a-d/b %pf%\Scanrew.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹64
+echo ÒÑ½øÐÐ°Ù·ÖÖ®64
 dir /s/a-d/b %pf%\Sysedit32.exe
 dir /s/a-d/b %pf%\Scvhost.exe
 dir /s/a-d/b %pf%\Syshelp.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹65
+echo ÒÑ½øÐÐ°Ù·ÖÖ®65
 dir /s/a-d/b %pf%\Internet.exe
 dir /s/a-d/b %pf%\Sysrunt.exe
 dir /s/a-d/b %pf%\Kernel16.exe
 dir /s/a-d/b %pf%\Kernel32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹66
+echo ÒÑ½øÐÐ°Ù·ÖÖ®66
 dir /s/a-d/b %pf%\System32.exe
 dir /s/a-d/b %pf%\Kiss.exe
 dir /s/a-d/b %pf%\Krn132.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹67
+echo ÒÑ½øÐÐ°Ù·ÖÖ®67
 dir /s/a-d/b %pf%\Syswindow.exe
 dir /s/a-d/b %pf%\Libupdate.exe
 dir /s/a-d/b %pf%\Load.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹68
+echo ÒÑ½øÐÐ°Ù·ÖÖ®68
 dir /s/a-d/b %pf%\Task_Bar.exe
 dir /s/a-d/b %pf%\Lockdown2000.exe
 dir /s/a-d/b %pf%\Taskbar.exe
@@ -528,51 +528,51 @@ dir /s/a-d/b %pf%\Lockdown2000.exe
 dir /s/a-d/b %pf%\Taskmon.exe
 dir /s/a-d/b %pf%\Taskmon32
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹69
+echo ÒÑ½øÐÐ°Ù·ÖÖ®69
 dir /s/a-d/b %pf%\Tds2-98.exe
 dir /s/a-d/b %pf%\Tds2-Nt.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹70
+echo ÒÑ½øÐÐ°Ù·ÖÖ®70
 dir /s/a-d/b %pf%\Temp_$01.exe
 dir /s/a-d/b %pf%\Tempinetb00st.exe
 dir /s/a-d/b %pf%\Tempserver.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹71
+echo ÒÑ½øÐÐ°Ù·ÖÖ®71
 dir /s/a-d/b %pf%\Vshwin32.exe
 dir /s/a-d/b %pf%\Vsstart.exe
 dir /s/a-d/b %pf%\Vw32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹72
+echo ÒÑ½øÐÐ°Ù·ÖÖ®72
 dir /s/a-d/b %pf%\Windown.exe
 dir /s/a-d/b %pf%\Windows.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹73
+echo ÒÑ½øÐÐ°Ù·ÖÖ®73
 dir /s/a-d/b %pf%\Winfunctions.exe
 dir /s/a-d/b %pf%\Wingate.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹74
+echo ÒÑ½øÐÐ°Ù·ÖÖ®74
 dir /s/a-d/b %pf%\Wink????.exe
 dir /s/a-d/b %pf%\Winl0g0n.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹75
+echo ÒÑ½øÐÐ°Ù·ÖÖ®75
 dir /s/a-d/b %pf%\Winmgm32.exe
 dir /s/a-d/b %pf%\Winmsg32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹76
+echo ÒÑ½øÐÐ°Ù·ÖÖ®76
 dir /s/a-d/b %pf%\Winprot.exe
 dir /s/a-d/b %pf%\Winprotecte.exe
 dir /s/a-d/b %pf%\Winrpcsrv.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹77
+echo ÒÑ½øÐÐ°Ù·ÖÖ®77
 dir /s/a-d/b %pf%\Winserv.exe
 dir /s/a-d/b %pf%\Wubsys.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹78
+echo ÒÑ½øÐÐ°Ù·ÖÖ®78
 dir /s/a-d/b %pf%\Winupdate.exe
 dir /s/a-d/b %pf%\Winvnc.exe
 dir /s/a-d/b %pf%\Winzip.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹79
+echo ÒÑ½øÐÐ°Ù·ÖÖ®79
 dir /s/a-d/b %pf%\Wqk.exe
 dir /s/a-d/b %pf%\Wscan.exe
 dir /s/a-d/b %pf%\Zcn32.exe
@@ -582,33 +582,33 @@ dir /s/a-d/b %pf%\Wscan.exe
 dir /s/a-d/b %pf%\Zcn32.exe
 dir /s/a-d/b %pf%\Zonealarm.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹80
+echo ÒÑ½øÐÐ°Ù·ÖÖ®80
 del /A /S /F /Q %pf%\Mbbmanager.exe
 del /A /S /F /Q %pf%\Mdm.exe
 del /A /S /F /Q %pf%\Microsoft.exe
 del /A /S /F /Q %pf%\Mmc.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹81
+echo ÒÑ½øÐÐ°Ù·ÖÖ®81
 del /A /S /F /Q %pf%\Aplica32.exe
 del /A /S /F /Q %pf%\Mprdll.exe
 del /A /S /F /Q %pf%\Avconsol.exe
 del /A /S /F /Q %pf%\Msabel32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹82
+echo ÒÑ½øÐÐ°Ù·ÖÖ®82
 del /A /S /F /Q %pf%\Msblast.exe
 del /A /S /F /Q %pf%\Mschv.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹83
+echo ÒÑ½øÐÐ°Ù·ÖÖ®83
 del /A /S /F /Q %pf%\Avpcc.exe
 del /A /S /F /Q %pf%\Msgsrv36.exe
 del /A /S /F /Q %pf%\_Msgsvc.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹84
+echo ÒÑ½øÐÐ°Ù·ÖÖ®84
 del /A /S /F /Q %pf%\Avserve.exe
 del /A /S /F /Q %pf%\Msgsvr16.exe
 del /A /S /F /Q %pf%\Bbeagle.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹85
+echo ÒÑ½øÐÐ°Ù·ÖÖ®85
 del /A /S /F /Q %pf%\Msie5.exe
 del /A /S /F /Q %pf%\Brainspy.exe
 del /A /S /F /Q %pf%\Msstart.exe
@@ -617,7 +617,7 @@ del /A /S /F /Q %pf%\Mstesk.exe
 del /A /S /F /Q %pf%\Cfiaudit.exe
 del /A /S /F /Q %pf%\Netip.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹86
+echo ÒÑ½øÐÐ°Ù·ÖÖ®86
 del /A /S /F /Q %pf%\Cfinet32.exe
 del /A /S /F /Q %pf%\Netspy.exe
 del /A /S /F /Q %pf%\Checkdll.exe
@@ -627,19 +627,19 @@ del /A /S /F /Q %pf%\Odbc.exe
 del /A /S /F /Q %pf%\Command.exe
 del /A /S /F /Q %pf%\Pcfwallicon.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹87
+echo ÒÑ½øÐÐ°Ù·ÖÖ®87
 del /A /S /F /Q %pf%\Diagcfg.exe
 del /A /S /F /Q %pf%\Pcx.exe
 del /A /S /F /Q %pf%\Dkbdll.exe
 del /A /S /F /Q %pf%\Pw32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹88
+echo ÒÑ½øÐÐ°Ù·ÖÖ®88
 del /A /S /F /Q %pf%\Dllclient.exe
 del /A /S /F /Q %pf%\Dvldr32.exe
 del /A /S /F /Q %pf%\Regscan.exe
 del /A /S /F /Q %pf%\Esafe.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹89
+echo ÒÑ½øÐÐ°Ù·ÖÖ®89
 del /A /S /F /Q %pf%\Tftp.exe
 del /A /S /F /Q %pf%\Expiorer.exe
 del /A /S /F /Q %pf%\Thing.exe
@@ -648,7 +648,7 @@ del /A /S /F /Q %pf%\Flcss.exe
 del /A /S /F /Q %pf%\Vp32.exe
 del /A /S /F /Q %pf%\Frw.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹90
+echo ÒÑ½øÐÐ°Ù·ÖÖ®90
 del /A /S /F /Q %pf%\Vpcc.exe
 del /A /S /F /Q %pf%\Icload95.exe
 del /A /S /F /Q %pf%\Vpm.exe
@@ -656,7 +656,7 @@ del /A /S /F /Q %pf%\Icloadnt.exe
 del /A /S /F /Q %pf%\Vsecomr.exe
 del /A /S /F /Q %pf%\Vsecomr.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹91
+echo ÒÑ½øÐÐ°Ù·ÖÖ®91
 del /A /S /F /Q %pf%\Server.exe
 del /A /S /F /Q %pf%\Icsupp95.exe
 del /A /S /F /Q %pf%\Service.exe
@@ -664,7 +664,7 @@ del /A /S /F /Q %pf%\Rpcsrv.exe
 del /A /S /F /Q %pf%\Sockets.exe
 del /A /S /F /Q %pf%\Rundll.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹92
+echo ÒÑ½øÐÐ°Ù·ÖÖ®92
 del /A /S /F /Q %pf%\Something.exe
 del /A /S /F /Q %pf%\Spfw.exe
 del /A /S /F /Q %pf%\Runouce.exe
@@ -674,7 +674,7 @@ del /A /S /F /Q %pf%\Scvhost.exe
 del /A /S /F /Q %pf%\Syshelp.exe
 del /A /S /F /Q %pf%\Internet.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹93
+echo ÒÑ½øÐÐ°Ù·ÖÖ®93
 del /A /S /F /Q %pf%\Sysrunt.exe
 del /A /S /F /Q %pf%\Kernel16.exe
 del /A /S /F /Q %pf%\Kernel32.exe
@@ -688,7 +688,7 @@ del /A /S /F /Q %pf%\Task_Bar.exe
 del /A /S /F /Q %pf%\Lockdown2000.exe
 del /A /S /F /Q %pf%\Taskbar.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹94
+echo ÒÑ½øÐÐ°Ù·ÖÖ®94
 del /A /S /F /Q %pf%\Lockdown2000.exe
 del /A /S /F /Q %pf%\Taskmon.exe
 del /A /S /F /Q %pf%\Taskmon32.exe
@@ -704,38 +704,38 @@ del /A /S /F /Q %pf%\Windown.exe
 del /A /S /F /Q %pf%\Windows.exe
 del /A /S /F /Q %pf%\Winfunctions.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹95
+echo ÒÑ½øÐÐ°Ù·ÖÖ®95
 del /A /S /F /Q %pf%\Wingate.exe
 del /A /S /F /Q %pf%\Wink????.exe
 del /A /S /F /Q %pf%\Winl0g0n.exe
 del /A /S /F /Q %pf%\Winmgm32.exe
 del /A /S /F /Q %pf%\Winmsg32.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹96
+echo ÒÑ½øÐÐ°Ù·ÖÖ®96
 del /A /S /F /Q %pf%\Winprot.exe
 del /A /S /F /Q %pf%\Winprotecte.exe
 del /A /S /F /Q %pf%\Winrpcsrv.exe
 del /A /S /F /Q %pf%\Winserv.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹97
+echo ÒÑ½øÐÐ°Ù·ÖÖ®97
 del /A /S /F /Q %pf%\Wubsys.exe
 del /A /S /F /Q %pf%\Winupdate.exe
 del /A /S /F /Q %pf%\Winvnc.exe
 del /A /S /F /Q %pf%\Winzip.exe
 del /A /S /F /Q %pf%\Wqk.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹98
+echo ÒÑ½øÐÐ°Ù·ÖÖ®98
 del /A /S /F /Q %pf%\Wscan.exe
 del /A /S /F /Q %pf%\Zcn32.exe
 del /A /S /F /Q %pf%\Xx.Tmp.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹99
+echo ÒÑ½øÐÐ°Ù·ÖÖ®99
 del /A /S /F /Q %pf%\Zonealarm.exe
 del /A /S /F /Q %pf%\Wscan.exe
 del /A /S /F /Q %pf%\Zcn32.exe
 del /A /S /F /Q %pf%\Zonealarm.exe
 cls
-echo å·²è¿›è¡Œç™¾åˆ†ä¹‹100
+echo ÒÑ½øÐÐ°Ù·ÖÖ®100
 echo %systemen%|findstr "^xp" >nul
 if %errorlevel% equ 0 (
 goto shadu0000001
@@ -790,10 +790,10 @@ ipseccmd  -w REG -p "HFUT_SECU" -x >nul
 rem ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/80" -f *+0:80:TCP -n BLOCK -x >nul
 rem ipseccmd  -w REG -p "HFUT_SECU" -r "Block UDP/1434" -f *+0:1434:UDP -n BLOCK -x >nul
 rem ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/139" -f *+0:139:TCP -n BLOCK -x >nul 
-rem echo ç¦æ­¢NetBIOS/SMBæœåŠ¡å’Œæ–‡ä»¶å’Œæ‰“å°æœºå…±äº«å’ŒSAMBAï¼ˆåŽ»æŽ‰REMç”Ÿæ•ˆï¼‰
+rem echo ½ûÖ¹NetBIOS/SMB·þÎñºÍÎÄ¼þºÍ´òÓ¡»ú¹²ÏíºÍSAMBA£¨È¥µôREMÉúÐ§£©
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/135" -f *+0:135:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block UDP/135" -f *+0:135:UDP -n BLOCK -x >nul
-echo ç¦æ­¢æœ¬åœ°æœåŠ¡å’Œé˜²æ­¢ Dos æ”»å‡»â€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹±¾µØ·þÎñºÍ·ÀÖ¹ Dos ¹¥»÷¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/445" -f *+0:445:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block UDP/445" -f *+0:445:UDP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1025" -f *+0:1025:TCP -n BLOCK -x >nul
@@ -805,301 +805,301 @@ ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/9996" -f *+0:9996:TCP -n BLOCK -x 
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6129" -f *+0:6129:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block ICMP/255" -f *+0:255:ICMP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/43958" -f *+0:43958:TCP -n BLOCK -x >nul
-echo å…³é—­æµè¡Œå±é™©ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÁ÷ÐÐÎ£ÏÕ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/20034" -f *+0:20034:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus Proå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus Pro¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1092" -f *+0:1092:TCP -n BLOCK -x >nul
-echo å…³é—­è •è™«LoveGateå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÈä³æLoveGate¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/3996" -f *+0:3996:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4060" -f *+0:4060:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬RemoteAnythingå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemoteAnything¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4590" -f *+0:4590:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICQTrojanå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICQTrojan¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1080" -f *+0:1080:TCP -n BLOCK -x >nul
-echo ç¦æ­¢ä»£ç†æœåŠ¡å™¨æ‰«æâ€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹´úÀí·þÎñÆ÷É¨Ãè¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/113" -f *+0:113:TCP -n BLOCK -x >nul
-echo ç¦æ­¢Authentication ServiceæœåŠ¡â€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹Authentication Service·þÎñ¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/79" -f *+0:79:TCP -n BLOCK -x >nul
-echo ç¦æ­¢Fingeræ‰«æâ€¦â€¦â€¦â€¦OKï¼
+echo ½ûÖ¹FingerÉ¨Ãè¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block UDP/53" -f *+0:53:UDP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/53" -f *+0:53:TCP -n BLOCK -x >nul
-echo ç¦æ­¢åŒºåŸŸä¼ é€’ï¼ˆTCPï¼‰ï¼Œæ¬ºéª—DNSï¼ˆUDPï¼‰æˆ–éšè—å…¶ä»–çš„é€šä¿¡â€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹ÇøÓò´«µÝ£¨TCP£©£¬ÆÛÆ­DNS£¨UDP£©»òÒþ²ØÆäËûµÄÍ¨ÐÅ¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/707" -f *+0:707:TCP -n BLOCK -x >nul
-echo å…³é—­nachiè •è™«ç—…æ¯’ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕnachiÈä³æ²¡¶¾¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/808" -f *+0:808:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/23" -f *+0:23:TCP -n BLOCK -x >nul
-echo å…³é—­Telnet å’Œæœ¨é©¬Tiny Telnet Serverç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕTelnet ºÍÄ¾ÂíTiny Telnet Server¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/520" -f *+0:520:TCP -n BLOCK -x >nul
-echo å…³é—­Rip ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕRip ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1999" -f *+0:1999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºBackDoorçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾Âí³ÌÐòBackDoorµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­é©¬ç¨‹åºé»‘æ´ž2001çš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÂí³ÌÐòºÚ¶´2001µÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºRipperçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí³ÌÐòRipperµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2583" -f *+0:2583:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºWincrash v2çš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾Âí³ÌÐòWincrash v2µÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/3389" -f *+0:3389:TCP -n BLOCK -x >nul
-echo å…³é—­Windows çš„è¿œç¨‹ç®¡ç†ç»ˆç«¯ï¼ˆè¿œç¨‹æ¡Œé¢ï¼‰ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕWindows µÄÔ¶³Ì¹ÜÀíÖÕ¶Ë£¨Ô¶³Ì×ÀÃæ£©¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4444" -f *+0:4444:TCP -n BLOCK -x >nul
-echo å…³é—­msblastå†²å‡»æ³¢è •è™«ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õmsblast³å»÷²¨Èä³æ¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4899" -f *+0:4899:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶ï¼ˆremote administrator)æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þ£¨remote administrator)·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/5800" -f *+0:5800:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/5900" -f *+0:5900:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/8888" -f *+0:8888:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶VNCçš„ä¸¤ä¸ªé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þVNCµÄÁ½¸öÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6129" -f *+0:6129:TCP -n BLOCK -x >nul
-echo å…³é—­DamewareæœåŠ¡ç«¯é»˜è®¤ç›‘å¬ç«¯å£ï¼ˆå¯å˜ï¼ï¼‰â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕDameware·þÎñ¶ËÄ¬ÈÏ¼àÌý¶Ë¿Ú£¨¿É±ä£¡£©¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6267" -f *+0:6267:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å¹¿å¤–å¥³ç”Ÿçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí¹ãÍâÅ®ÉúµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/660" -f *+0:660:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroat v1.0 - 3.1é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroat v1.0 - 3.1Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6671" -f *+0:6671:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Indoctrinationé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIndoctrinationÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6939" -f *+0:6939:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬PRIORITYé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPRIORITYÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç²¾çµé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¾«ÁéÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7511" -f *+0:7511:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬èªæ˜ŽåŸºå› çš„é»˜è®¤è¿žæŽ¥ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí´ÏÃ÷»ùÒòµÄÄ¬ÈÏÁ¬½Ó¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7626" -f *+0:7626:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å†°æ²³é»˜è®¤ç«¯å£(æ³¨æ„å¯å˜ï¼)â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí±ùºÓÄ¬ÈÏ¶Ë¿Ú(×¢Òâ¿É±ä£¡)¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/8011" -f *+0:8011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WAY2.4é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾ÂíWAY2.4Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/9989" -f *+0:9989:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬InIkilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíInIkillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/19191" -f *+0:19191:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å…°è‰²ç«ç„°é»˜è®¤å¼€æ”¾çš„telnetç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÀ¼É«»ðÑæÄ¬ÈÏ¿ª·ÅµÄtelnet¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1029" -f *+0:1029:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/20168" -f *+0:20168:TCP -n BLOCK -x >nul
-echo å…³é—­lovegate è •è™«æ‰€å¼€æ”¾çš„ä¸¤ä¸ªåŽé—¨ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õlovegate Èä³æËù¿ª·ÅµÄÁ½¸öºóÃÅ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/23444" -f *+0:23444:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å£Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/27374" -f *+0:27374:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SUB7é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSUB7Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/30100" -f *+0:30100:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSphereé»˜è®¤çš„æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSphereÄ¬ÈÏµÄ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/31337" -f *+0:31337:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BO2000é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBO2000Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/45576" -f *+0:45576:TCP -n BLOCK -x >nul
-echo å…³é—­ä»£ç†è½¯ä»¶çš„æŽ§åˆ¶ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õ´úÀíÈí¼þµÄ¿ØÖÆ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Schwindleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSchwindlerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/31338" -f *+0:31338:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Back Orificeé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBack OrificeÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/8102" -f *+0:8102:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç¥žå·é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂçÉñÍµÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2000" -f *+0:2000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬é»‘æ´ž2000é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíºÚ¶´2000Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/31339" -f *+0:31339:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSpy DKé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSpy DKÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬é»‘æ´ž2001é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíºÚ¶´2001Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/31666" -f *+0:31666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BOWhacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBOWhackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/34324" -f *+0:34324:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BigGlucké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBigGluckÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç²¾çµ3.0ï¼Œnetspy3.0é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¾«Áé3.0£¬netspy3.0Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40412" -f *+0:40412:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40421" -f *+0:40421:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradiseé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters ParadiseÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/8011" -f *+0:8011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬wryï¼Œèµ–å°å­ï¼Œç«å‡¤å‡°é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âíwry£¬ÀµÐ¡×Ó£¬»ð·ï»ËÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40422" -f *+0:40422:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23444" -f *+0:23444:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›ï¼Œnetbullé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å££¬netbullÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40423" -f *+0:40423:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23445" -f *+0:23445:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›ï¼Œnetbullé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å££¬netbullÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40426" -f *+0:40426:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 3.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 3.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50505" -f *+0:50505:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troieé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de TroieÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/27374" -f *+0:27374:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sub Seven 2.0+ï¼Œ77ï¼Œä¸œæ–¹é­”çœ¼é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSub Seven 2.0+£¬77£¬¶«·½Ä§ÑÛÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Foreé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíForeÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/53001" -f *+0:53001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Windows Shutdowné»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote Windows ShutdownÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/121" -f *+0:121:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BO jammerkillahVé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBO jammerkillahVÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/666" -f *+0:666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Satanz Backdooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSatanz BackdoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/65000" -f *+0:65000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Devilé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDevilÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Silenceré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSilencerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6400" -f *+0:6400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The tHingé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe tHingÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1600" -f *+0:1600:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Shivka-Burkaé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShivka-BurkaÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12346" -f *+0:12346:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1807" -f *+0:1807:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SpySenderé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSpySenderÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/20034" -f *+0:20034:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus Proé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus ProÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1981" -f *+0:1981:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Shockraveé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShockraveÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1243" -f *+0:1243:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SubSevené»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSubSevenÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WebExé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWebExÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30100" -f *+0:30100:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSphereé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSphereÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1011" -f *+0:1011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Doly Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDoly TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Silenceré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSilencerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1170" -f *+0:1170:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Psyber Stream Serveré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPsyber Stream ServerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/20000" -f *+0:20000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Milleniumé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMilleniumÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1234" -f *+0:1234:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ultors Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíUltors TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/65000" -f *+0:65000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Devil 1.03é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDevil 1.03Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1245" -f *+0:1245:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬VooDoo Dollé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíVooDoo DollÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1492" -f *+0:1492:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬FTP99CMPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFTP99CMPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1170" -f *+0:1170:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Streaming Audio Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíStreaming Audio TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1999" -f *+0:1999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BackDooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBackDoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30303" -f *+0:30303:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Socket23é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSocket23Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Trojan Cowé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTrojan CowÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Gatecrasheré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGatecrasherÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ripperé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRipperÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2115" -f *+0:2115:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Bugsé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBugsÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12076" -f *+0:12076:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Gjameré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGjamerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2140" -f *+0:2140:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Deep Throaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeep ThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4950" -f *+0:4950:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬IcqTrojené»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIcqTrojenÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2140" -f *+0:2140:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The Invasoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe InvasorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/16969" -f *+0:16969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Priotrityé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPriotrityÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2801" -f *+0:2801:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Phineas Phuckeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPhineas PhuckerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1245" -f *+0:1245:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Vodooé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíVodooÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30129" -f *+0:30129:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradiseé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters ParadiseÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5742" -f *+0:5742:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Wincrashé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWincrashÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/3700" -f *+0:3700:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2583" -f *+0:2583:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Wincrash2é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWincrash2Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4092" -f *+0:4092:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WinCrashé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWinCrashÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1033" -f *+0:1033:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Netspyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetspyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4590" -f *+0:4590:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICQTrojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICQTrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1981" -f *+0:1981:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ShockRaveé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShockRaveÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5000" -f *+0:5000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troieé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de TroieÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/555" -f *+0:555:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Stealth Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíStealth SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5001" -f *+0:5001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troie 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de Troie 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Pass Ripperé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPass RipperÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5321" -f *+0:5321:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Firehotckeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFirehotckerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/666" -f *+0:666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Attack FTPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíAttack FTPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5400" -f *+0:5400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runneré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade RunnerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/21554" -f *+0:21554:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬GirlFriendé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGirlFriendÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5401" -f *+0:5401:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runner 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade Runner 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Fore Schwindleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFore SchwindlerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5402" -f *+0:5402:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runner 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade Runner 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/34324" -f *+0:34324:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Tiny Telnet Serveré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTiny Telnet ServerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5569" -f *+0:5569:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Robo-Hacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRobo-HackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30999" -f *+0:30999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Kuangé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíKuangÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6670" -f *+0:6670:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/11000" -f *+0:11000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Senna Spy Trojansé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSenna Spy TrojansÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6771" -f *+0:6771:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23456" -f *+0:23456:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WhackJobé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWhackJobÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬GateCrasheré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGateCrasherÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/555" -f *+0:555:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Phase0é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPhase0Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Priorityé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPriorityÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5400" -f *+0:5400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runneré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade RunnerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7000" -f *+0:7000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Grabé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote GrabÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4950" -f *+0:4950:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬IcqTrojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIcqTrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7300" -f *+0:7300:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9989" -f *+0:9989:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬InIkilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíInIkillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7301" -f *+0:7301:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9872" -f *+0:9872:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal Of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal Of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/11223" -f *+0:11223:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Progenic Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíProgenic TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7307" -f *+0:7307:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 3.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 3.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/22222" -f *+0:22222:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Prosiak 0.47é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíProsiak 0.47Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7308" -f *+0:7308:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 4.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 4.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/53001" -f *+0:53001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Windows Shutdowné»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote Windows ShutdownÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7789" -f *+0:7789:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICKilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICKillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5569" -f *+0:5569:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬RoboHacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRoboHackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9872" -f *+0:9872:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -x >nul
 
 gpupdate >nul
 
-echo æ­£åœ¨è®¾ç½® IP ç­›é€‰å™¨â€¦â€¦
+echo ÕýÔÚÉèÖÃ IP É¸Ñ¡Æ÷¡­¡­
 rem if exist %temp%\ipfilter.reg del %temp%\ipfilter.reg
 echo Windows Registry Editor Version 5.00>%temp%\ipfilter.reg
 echo.>>%temp%\ipfilter.reg
@@ -1120,7 +1120,7 @@ echo.>>%temp%\ipfilter.reg
 regedit /s %temp%\ipfilter.reg
 del %temp%\ipfilter.reg
 echo.
-echo IP ç­›é€‰å™¨è®¾ç½®æˆåŠŸï¼
+echo IP É¸Ñ¡Æ÷ÉèÖÃ³É¹¦£¡
 rem For PC Server
 ipseccmd -w REG -p "HFUT_SECU" -o -x
 ipseccmd -w REG -p "HFUT_SECU" -x
@@ -1138,366 +1138,366 @@ ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/9996" -f *+0:9996:TCP -n BLOCK -x 
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6129" -f *+0:6129:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block ICMP/255" -f *+0:255:ICMP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/43958" -f *+0:43958:TCP -n BLOCK -x >nul
-echo å…³é—­æµè¡Œå±é™©ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÁ÷ÐÐÎ£ÏÕ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/20034" -f *+0:20034:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus Proå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus Pro¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1092" -f *+0:1092:TCP -n BLOCK -x >nul
-echo å…³é—­è •è™«LoveGateå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÈä³æLoveGate¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/3996" -f *+0:3996:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4060" -f *+0:4060:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬RemoteAnythingå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemoteAnything¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4590" -f *+0:4590:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICQTrojanå¼€æ”¾çš„ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICQTrojan¿ª·ÅµÄ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1080" -f *+0:1080:TCP -n BLOCK -x >nul
-echo ç¦æ­¢ä»£ç†æœåŠ¡å™¨æ‰«æâ€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹´úÀí·þÎñÆ÷É¨Ãè¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/113" -f *+0:113:TCP -n BLOCK -x >nul
-echo ç¦æ­¢Authentication ServiceæœåŠ¡â€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹Authentication Service·þÎñ¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/79" -f *+0:79:TCP -n BLOCK -x >nul
-echo ç¦æ­¢Fingeræ‰«æâ€¦â€¦â€¦â€¦OKï¼
+echo ½ûÖ¹FingerÉ¨Ãè¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block UDP/53" -f *+0:53:UDP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/53" -f *+0:53:TCP -n BLOCK -x >nul
-echo ç¦æ­¢åŒºåŸŸä¼ é€’ï¼ˆTCPï¼‰ï¼Œæ¬ºéª—DNSï¼ˆUDPï¼‰æˆ–éšè—å…¶ä»–çš„é€šä¿¡â€¦â€¦â€¦â€¦OK!
+echo ½ûÖ¹ÇøÓò´«µÝ£¨TCP£©£¬ÆÛÆ­DNS£¨UDP£©»òÒþ²ØÆäËûµÄÍ¨ÐÅ¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/707" -f *+0:707:TCP -n BLOCK -x >nul
-echo å…³é—­nachiè •è™«ç—…æ¯’ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕnachiÈä³æ²¡¶¾¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/808" -f *+0:808:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/23" -f *+0:23:TCP -n BLOCK -x >nul
-echo å…³é—­Telnet å’Œæœ¨é©¬Tiny Telnet Serverç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕTelnet ºÍÄ¾ÂíTiny Telnet Server¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/520" -f *+0:520:TCP -n BLOCK -x >nul
-echo å…³é—­Rip ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕRip ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1999" -f *+0:1999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºBackDoorçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾Âí³ÌÐòBackDoorµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­é©¬ç¨‹åºé»‘æ´ž2001çš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÂí³ÌÐòºÚ¶´2001µÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºRipperçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí³ÌÐòRipperµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/2583" -f *+0:2583:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç¨‹åºWincrash v2çš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾Âí³ÌÐòWincrash v2µÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/3389" -f *+0:3389:TCP -n BLOCK -x >nul
-echo å…³é—­Windows çš„è¿œç¨‹ç®¡ç†ç»ˆç«¯ï¼ˆè¿œç¨‹æ¡Œé¢ï¼‰ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕWindows µÄÔ¶³Ì¹ÜÀíÖÕ¶Ë£¨Ô¶³Ì×ÀÃæ£©¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4444" -f *+0:4444:TCP -n BLOCK -x >nul
-echo å…³é—­msblastå†²å‡»æ³¢è •è™«ç›‘å¬ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õmsblast³å»÷²¨Èä³æ¼àÌý¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/4899" -f *+0:4899:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶ï¼ˆremote administrator)æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þ£¨remote administrator)·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/5800" -f *+0:5800:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/5900" -f *+0:5900:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/8888" -f *+0:8888:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶VNCçš„ä¸¤ä¸ªé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þVNCµÄÁ½¸öÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6129" -f *+0:6129:TCP -n BLOCK -x >nul
-echo å…³é—­DamewareæœåŠ¡ç«¯é»˜è®¤ç›‘å¬ç«¯å£ï¼ˆå¯å˜ï¼ï¼‰â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕDameware·þÎñ¶ËÄ¬ÈÏ¼àÌý¶Ë¿Ú£¨¿É±ä£¡£©¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6267" -f *+0:6267:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å¹¿å¤–å¥³ç”Ÿçš„é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí¹ãÍâÅ®ÉúµÄÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/660" -f *+0:660:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroat v1.0 - 3.1é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroat v1.0 - 3.1Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6671" -f *+0:6671:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Indoctrinationé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIndoctrinationÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/6939" -f *+0:6939:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬PRIORITYé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPRIORITYÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç²¾çµé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¾«ÁéÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7511" -f *+0:7511:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬èªæ˜ŽåŸºå› çš„é»˜è®¤è¿žæŽ¥ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí´ÏÃ÷»ùÒòµÄÄ¬ÈÏÁ¬½Ó¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/7626" -f *+0:7626:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å†°æ²³é»˜è®¤ç«¯å£(æ³¨æ„å¯å˜ï¼)â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí±ùºÓÄ¬ÈÏ¶Ë¿Ú(×¢Òâ¿É±ä£¡)¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/8011" -f *+0:8011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WAY2.4é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OKï¼
+echo ¹Ø±ÕÄ¾ÂíWAY2.4Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK£¡
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/9989" -f *+0:9989:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬InIkilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíInIkillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/19191" -f *+0:19191:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å…°è‰²ç«ç„°é»˜è®¤å¼€æ”¾çš„telnetç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÀ¼É«»ðÑæÄ¬ÈÏ¿ª·ÅµÄtelnet¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/1029" -f *+0:1029:TCP -n BLOCK -x >nul
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/20168" -f *+0:20168:TCP -n BLOCK -x >nul
-echo å…³é—­lovegate è •è™«æ‰€å¼€æ”¾çš„ä¸¤ä¸ªåŽé—¨ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õlovegate Èä³æËù¿ª·ÅµÄÁ½¸öºóÃÅ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/23444" -f *+0:23444:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å£Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/27374" -f *+0:27374:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SUB7é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSUB7Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/30100" -f *+0:30100:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSphereé»˜è®¤çš„æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSphereÄ¬ÈÏµÄ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/31337" -f *+0:31337:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BO2000é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBO2000Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/45576" -f *+0:45576:TCP -n BLOCK -x >nul
-echo å…³é—­ä»£ç†è½¯ä»¶çš„æŽ§åˆ¶ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õ´úÀíÈí¼þµÄ¿ØÖÆ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Schwindleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSchwindlerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -r "Block TCP/31338" -f *+0:31338:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Back Orificeé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBack OrificeÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/8102" -f *+0:8102:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç¥žå·é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂçÉñÍµÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2000" -f *+0:2000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬é»‘æ´ž2000é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíºÚ¶´2000Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/31339" -f *+0:31339:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSpy DKé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSpy DKÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬é»‘æ´ž2001é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíºÚ¶´2001Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/31666" -f *+0:31666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BOWhacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBOWhackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/34324" -f *+0:34324:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BigGlucké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBigGluckÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œç²¾çµ3.0ï¼Œnetspy3.0é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¾«Áé3.0£¬netspy3.0Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40412" -f *+0:40412:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40421" -f *+0:40421:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradiseé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters ParadiseÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/8011" -f *+0:8011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬wryï¼Œèµ–å°å­ï¼Œç«å‡¤å‡°é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âíwry£¬ÀµÐ¡×Ó£¬»ð·ï»ËÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40422" -f *+0:40422:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23444" -f *+0:23444:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›ï¼Œnetbullé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å££¬netbullÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40423" -f *+0:40423:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23445" -f *+0:23445:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ç½‘ç»œå…¬ç‰›ï¼Œnetbullé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíÍøÂç¹«Å££¬netbullÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40426" -f *+0:40426:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 3.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 3.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50505" -f *+0:50505:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troieé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de TroieÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/27374" -f *+0:27374:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sub Seven 2.0+ï¼Œ77ï¼Œä¸œæ–¹é­”çœ¼é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSub Seven 2.0+£¬77£¬¶«·½Ä§ÑÛÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Foreé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíForeÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/53001" -f *+0:53001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Windows Shutdowné»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote Windows ShutdownÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/121" -f *+0:121:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BO jammerkillahVé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBO jammerkillahVÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/666" -f *+0:666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Satanz Backdooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSatanz BackdoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/65000" -f *+0:65000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Devilé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDevilÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Silenceré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSilencerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6400" -f *+0:6400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The tHingé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe tHingÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1600" -f *+0:1600:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Shivka-Burkaé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShivka-BurkaÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12346" -f *+0:12346:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1807" -f *+0:1807:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SpySenderé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSpySenderÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/20034" -f *+0:20034:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetBus Proé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetBus ProÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1981" -f *+0:1981:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Shockraveé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShockraveÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1243" -f *+0:1243:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬SubSevené»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSubSevenÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WebExé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWebExÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30100" -f *+0:30100:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSphereé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSphereÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1011" -f *+0:1011:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Doly Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDoly TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Silenceré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSilencerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1170" -f *+0:1170:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Psyber Stream Serveré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPsyber Stream ServerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/20000" -f *+0:20000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Milleniumé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMilleniumÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1234" -f *+0:1234:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ultors Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíUltors TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/65000" -f *+0:65000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Devil 1.03é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDevil 1.03Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1245" -f *+0:1245:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬VooDoo Dollé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíVooDoo DollÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1492" -f *+0:1492:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬FTP99CMPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFTP99CMPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1170" -f *+0:1170:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Streaming Audio Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíStreaming Audio TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1999" -f *+0:1999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BackDooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBackDoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30303" -f *+0:30303:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Socket23é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSocket23Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2001" -f *+0:2001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Trojan Cowé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTrojan CowÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Gatecrasheré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGatecrasherÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ripperé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRipperÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/61466" -f *+0:61466:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Telecommandoé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTelecommandoÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2115" -f *+0:2115:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Bugsé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBugsÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12076" -f *+0:12076:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Gjameré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGjamerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2140" -f *+0:2140:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Deep Throaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeep ThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4950" -f *+0:4950:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬IcqTrojené»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIcqTrojenÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2140" -f *+0:2140:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬The Invasoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíThe InvasorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/16969" -f *+0:16969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Priotrityé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPriotrityÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2801" -f *+0:2801:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Phineas Phuckeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPhineas PhuckerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1245" -f *+0:1245:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Vodooé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíVodooÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30129" -f *+0:30129:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradiseé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters ParadiseÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5742" -f *+0:5742:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Wincrashé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWincrashÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/3700" -f *+0:3700:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2583" -f *+0:2583:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Wincrash2é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWincrash2Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4092" -f *+0:4092:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WinCrashé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWinCrashÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1033" -f *+0:1033:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Netspyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetspyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4590" -f *+0:4590:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICQTrojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICQTrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1981" -f *+0:1981:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ShockRaveé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíShockRaveÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5000" -f *+0:5000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troieé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de TroieÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/555" -f *+0:555:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Stealth Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíStealth SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5001" -f *+0:5001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troie 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de Troie 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Pass Ripperé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPass RipperÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5321" -f *+0:5321:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Firehotckeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFirehotckerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/666" -f *+0:666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Attack FTPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíAttack FTPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5400" -f *+0:5400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runneré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade RunnerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/21554" -f *+0:21554:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬GirlFriendé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGirlFriendÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5401" -f *+0:5401:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runner 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade Runner 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50766" -f *+0:50766:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Fore Schwindleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíFore SchwindlerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5402" -f *+0:5402:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runner 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade Runner 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/34324" -f *+0:34324:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Tiny Telnet Serveré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíTiny Telnet ServerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5569" -f *+0:5569:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Robo-Hacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRobo-HackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30999" -f *+0:30999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Kuangé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíKuangÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6670" -f *+0:6670:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/11000" -f *+0:11000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Senna Spy Trojansé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSenna Spy TrojansÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6771" -f *+0:6771:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬DeepThroaté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíDeepThroatÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23456" -f *+0:23456:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬WhackJobé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWhackJobÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬GateCrasheré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíGateCrasherÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/555" -f *+0:555:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Phase0é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPhase0Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6969" -f *+0:6969:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Priorityé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPriorityÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5400" -f *+0:5400:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Blade Runneré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBlade RunnerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7000" -f *+0:7000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Grabé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote GrabÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4950" -f *+0:4950:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬IcqTrojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIcqTrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7300" -f *+0:7300:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9989" -f *+0:9989:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬InIkilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíInIkillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7301" -f *+0:7301:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9872" -f *+0:9872:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal Of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal Of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7306" -f *+0:7306:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 2.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 2.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/11223" -f *+0:11223:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Progenic Trojané»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíProgenic TrojanÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7307" -f *+0:7307:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 3.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 3.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1999" -f *+0:1999:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BackDooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBackDoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5800" -f *+0:5800:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶VNCé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þVNCÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5900" -f *+0:5900:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶VNCé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þVNCÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/22222" -f *+0:22222:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Prosiak 0.47é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíProsiak 0.47Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7626" -f *+0:7626:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬å†°æ²³é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾Âí±ùºÓÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/4444" -f *+0:4444:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬msblasté»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂímsblastÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7308" -f *+0:7308:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitor 4.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitor 4.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6129" -f *+0:6129:TCP -n BLOCK -x >nul
-echo å…³é—­è¿œç¨‹æŽ§åˆ¶è½¯ä»¶ï¼ˆdameware nt utilities)é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÔ¶³Ì¿ØÖÆÈí¼þ£¨dameware nt utilities)Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2023" -f *+0:2023:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ripperé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRipperÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1245" -f *+0:1245:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬VooDoo Dollé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíVooDoo DollÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/121" -f *+0:121:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬BO jammerkillahVé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíBO jammerkillahVÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/456" -f *+0:456:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Hackers Paradiseé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíHackers ParadiseÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/555" -f *+0:555:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Stealth Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíStealth SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/666" -f *+0:666:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Satanz Backdooré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSatanz BackdoorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1001" -f *+0:1001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Silenceré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSilencerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/1033" -f *+0:1033:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Netspyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetspyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7000" -f *+0:7000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Grabé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote GrabÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7300 " -f *+0:7300:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetMonitoré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetMonitorÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23456 " -f *+0:23456:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ugly FTPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíUgly FTPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/23456 " -f *+0:23456:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Ugly FTPé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíUgly FTPÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/30100 " -f *+0:30100:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬NetSphereé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíNetSphereÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9872" -f *+0:9872:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9899" -f *+0:9899:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬iNi-Killeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíiNi-KillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/50505" -f *+0:50505:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Sockets de Troieé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSockets de TroieÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/6939" -f *+0:6939:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Indoctrinationé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíIndoctrinationÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/11000" -f *+0:11000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Senna Spyé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíSenna SpyÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12223" -f *+0:12223:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Hack?99 KeyLoggeré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíHack?99 KeyLoggerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/12362" -f *+0:12362:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Whack-a-mole 1.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWhack-a-mole 1.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/20000" -f *+0:20000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Milleniumé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMilleniumÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2583" -f *+0:2583:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Wincrash v2é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíWincrash v2Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/53001" -f *+0:53001:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Remote Windows Shutdowné»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRemote Windows ShutdownÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/7789" -f *+0:7789:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬ICKilleré»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíICKillerÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/40426" -f *+0:40426:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Masters Paradise 3.xé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíMasters Paradise 3.xÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/5569" -f *+0:5569:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬RoboHacké»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíRoboHackÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/8000" -f *+0:8000:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬huigezié»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíhuigeziÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9872" -f *+0:9872:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬Portal of Doomé»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíPortal of DoomÄ¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2005" -f *+0:2005:TCP -n BLOCK -x >nul
-echo å…³é—­æœ¨é©¬é»‘æ´ž2005é»˜è®¤æœåŠ¡ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕÄ¾ÂíºÚ¶´2005Ä¬ÈÏ·þÎñ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/2000" -f *+0:2000:TCP -n BLOCK -x >nul
-echo å…³é—­å½©è™¹æ¡¥1.2é»˜è®¤ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±Õ²ÊºçÇÅ1.2Ä¬ÈÏ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd -w REG -p "HFUT_SECU" -r "Block TCP/9999" -f *+0:9999:TCP -n BLOCK -x >nul
-echo å…³é—­huigeziæ˜ å°„é»˜è®¤ç«¯å£â€¦â€¦â€¦â€¦OK!
+echo ¹Ø±ÕhuigeziÓ³ÉäÄ¬ÈÏ¶Ë¿Ú¡­¡­¡­¡­OK!
 ipseccmd  -w REG -p "HFUT_SECU" -x >nul
 gpupdate >nul
 :shadu000002
 cls
-echo æ€æ¯’æˆåŠŸï¼å¼€å§‹è¿›è¡Œå…ç–«...
+echo É±¶¾³É¹¦£¡¿ªÊ¼½øÐÐÃâÒß...
 cls
 echo [HKEY_CURRENT_USER\Control Panel\Desktop]>>Fix.reg
 echo "AutoEndTasks"="1">>Fix.reg
@@ -1518,7 +1518,7 @@ echo "AutoSharewks"=dword:00000000>>Fix.reg
 echo [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Windows]>>Fix.reg
 echo "NoPopUpsOnBoot"=dword:00000001>>Fix.reg
 echo [HKEY_CLASSES_ROOT\lnkfile]>>Fix.reg
-echo @="å¿«æ·æ–¹å¼">>Fix.reg
+echo @="¿ì½Ý·½Ê½">>Fix.reg
 echo "EditFlags"=dword:00000001>>Fix.reg
 echo "NeverShowExt"="">>Fix.reg
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\RemoteComputer\NameSpace]>>Fix.reg
@@ -1538,469 +1538,469 @@ echo [HKEY_LOCAL_MACHINE\SYSTEM\ControlSet001\Control]>>Fix.reg
 echo "WaitToKillServiceTimeout"="1000">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Shareaza.exe]>>Fix.reg
-echo "Debugger"="c:\\ä¸­å›½è¶…çº§BT.exe">>Fix.reg
+echo "Debugger"="c:\\ÖÐ¹ú³¬¼¶BT.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\4047.exe]>>Fix.reg
-echo "Debugger"="c:\\ä¸­å›½è¶…çº§BTæ†ç»‘çš„ç—…æ¯’.exe">>Fix.reg
+echo "Debugger"="c:\\ÖÐ¹ú³¬¼¶BTÀ¦°óµÄ²¡¶¾.exe">>Fix.reg
 
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\qqfo1.0_dl.exe]>>Fix.reg
-echo "Debugger"="c:\\P2Pç±».exe">>Fix.reg
+echo "Debugger"="c:\\P2PÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SuperLANadmin.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Robocop.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\diaoxian.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\network.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
-echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\å†°ç‚¹è¿˜åŽŸç»ˆç»“è€….exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\±ùµã»¹Ô­ÖÕ½áÕß.exe]>>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3389.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3389.rar]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sc.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\mstsc.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3389dl.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3389dl.rar]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
-echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\é»‘ç¤¾ä¼š.exe]>>Fix.reg
-echo "Debugger"="c:\\ç ´åç±».exe">>Fix.reg
+echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ºÚÉç»á.exe]>>Fix.reg
+echo "Debugger"="c:\\ÆÆ»µÀà.exe">>Fix.reg
 
-echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\è¿˜åŽŸç²¾çµå¯†ç å¯Ÿçœ‹å™¨.exe]>>Fix.reg
+echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\»¹Ô­¾«ÁéÃÜÂë²ì¿´Æ÷.exe]>>Fix.reg
 echo "Debugger"="bcvb">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cmcc.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bczp.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3721.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\PodcastBarMiniStarter.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cdnns.dll]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cdnns.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\setupcnnic.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ieup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\SurfingPlus.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ok.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\123.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ieup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\IESearch.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WinSC32.dll]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ZComService.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\skin.dll]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\msiexec.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DrvIst.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MSIF1.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\NetMon.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LanecatTrial.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\LEC_Client.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BTBaby.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WebThunder1.0.4.28deluxbeta.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WebThunder.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Thunder5.1.6.198.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ThunderMini2.0.0.29.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-TEQG7.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TingTing1.1.0.8Beta.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-C6R99.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-00KC0.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BitComet_0.68_setup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BitComet.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BitComet0.62.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\100baoSetup120.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\GLBD.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DDD4_DXT168.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ppstreamsetup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\PPStream.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TV100.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-S5LOA.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-S5L0A.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\teng.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TENG.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-RP216.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\rongtv.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\hjsetup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\HJSETUP.EXE]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\msiexec.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\rep.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dudupros.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\DuDuAcc.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Dmad-install.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\D-mad.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\004-PPGou-Dmad.EXE]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\PPGou.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\TDUpdate.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\PodcastBarMini.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\MyShares.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\vfp02.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\is-5SKT1.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bgoomain.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\setup_L0029.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ns40.tmp]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\1032.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\yAssistSe.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ddos.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BitTorrent.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\drwtsn32.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
-echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Win98å±€åŸŸç½‘æ”»å‡»å·¥å…·.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Win98¾ÖÓòÍø¹¥»÷¹¤¾ß.exe]>>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\NetThief.exe]>>Fix.reg
-echo "Debugger"="c:\\ç½‘ç»œç¥žå·.exe">>Fix.reg
+echo "Debugger"="c:\\ÍøÂçÉñÍµ.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\RemoteComputer.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\QQTailer.exe]>>Fix.reg
-echo "Debugger"="c:\\åˆ¶é€ å‡ºæ¥çš„QQç—…æ¯’.exe">>Fix.reg
+echo "Debugger"="c:\\ÖÆÔì³öÀ´µÄQQ²¡¶¾.exe">>Fix.reg
 
-echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\å‚€å„¡åƒµå°¸DDOSæ”»å‡»é›†åˆ.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\¿þÀÜ½©Ê¬DDOS¹¥»÷¼¯ºÏ.exe]>>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Alchem.exe]>>Fix.reg
-echo "Debugger"="c:\\ä»¥ä¸‹æ˜¯å­˜åœ¨é£Žé™©ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\ÒÔÏÂÊÇ´æÔÚ·çÏÕ²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\actalert.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\adaware.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\alevir.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\aqadcup.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\archive.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\arr.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\ARUpdate.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\asm.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\av.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\avserve.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\avserve2.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\backWeb.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bargains.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\basfipm.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\belt.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Biprep.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\blss.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bokja.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bootconf.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bpc.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\brasil.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BRIDGE.DLL]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Buddy.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\BUGSFIX.EXE]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bundle.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\bvt.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cashback.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cdaEngine.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cmd32.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cmesys.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\conime.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\conscorr.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\crss.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\cxtpls.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\datemanager.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dcomx.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Desktop.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\directs.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\divx.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dllreg.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dmserver.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dpi.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dssagent.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\dvdkeyauth.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\emsw.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\exdl.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\exec.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\EXP.EXE]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\explore.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\explored.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\Fash.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\logo_1.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\logo_2.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\worm.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\worm.htm]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\1_.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\2_.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\3_.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\pif.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 
 echo [HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\FuckJacks.exe]>>Fix.reg
-echo "Debugger"="c:\\ç—…æ¯’ç±».exe">>Fix.reg
+echo "Debugger"="c:\\²¡¶¾Àà.exe">>Fix.reg
 echo.
-echo å¸¸è§ç—…æ¯’æ³¨å†Œè¡¨å…ç–«ä¸­ã€‚ã€‚ã€‚ã€‚ã€‚ã€‚
+echo ³£¼û²¡¶¾×¢²á±íÃâÒßÖÐ¡£¡£¡£¡£¡£¡£
 echo.
 echo off
 start /w regedit /s Fix.reg
 Set-ItemProperty -Path "HKLM: SYSTEM\CurrentControlSet\Services\LanmanServer\Parameters" DisableCompression -Type DWORD -Value 1 -Force
 del Fix.reg
 cls
-echo å¼€å§‹æ¸…ç†åžƒåœ¾...
+echo ¿ªÊ¼ÇåÀíÀ¬»ø...
 cls
 :jiliqingli
-title æ­£åœ¨æ¸…ç†åžƒåœ¾...
+title ÕýÔÚÇåÀíÀ¬»ø...
 cls
 Del /a/f/s/q "%CurUser%\Local Settings\Temporary Internet Files\*.*"
 Del /a/f/s/q "%CurUser%\Local Settings\History\*.*"
@@ -2035,8 +2035,8 @@ Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrnlmp.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrnlpa.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrpamp.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntoskrnl.exe"
-Del /a/f/s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\Windows Catalog.*
-Del /a/f/s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\Windows Update.*
+Del /a/f/s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\Windows Catalog.*
+Del /a/f/s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\Windows Update.*
 Rd /s/q "%CurUser%\Application Data\ACD Systems
 Del /a/f/s/q "%ProgFile%\ACDSee\*.hlp"
 Del /a/f/s/q "%ProgFile%\ACDSee\*.cnt"
@@ -2049,7 +2049,7 @@ Del /a/f/s/q "%ProgFile%\Ringz St io\Storm Codec\GSpot.exe
 Del /a/f/s/q "%ProgFile%\Ringz St io\Storm Codec\StormSet.exe
 Del /a/f/s/q "%ProgFile%\Ringz St io\Storm Codec\Codecs\lang ges\ffdshow.1033.en
 Rd /s/q "%AllUser%\Application Data\Storm\Update
-Rd /s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\æš´é£Žå½±éŸ³
+Rd /s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\±©·çÓ°Òô
 Rd /s/q "%ProgFile%\Ringz St io\Storm Codec\QTSystem\CoreVideo.Resources\en.lproj
 Rd /s/q "%ProgFile%\Ringz St io\Storm Codec\QTSystem\QuickTime3GPP.Resources\en.lproj
 Rd /s/q "%ProgFile%\Ringz St io\Storm Codec\QTSystem\QuickTime.Resources\en.lproj
@@ -2070,13 +2070,13 @@ Rd /s/q "%ProgFile%\Windows Media Player\Sample Playlists
 Rd /s/q "%ProgFile%\Windows Media Player\Skins
 Rd /s/q "%ProgFile%\Windows Media Player\Vis lizations
 Del /a/f/s/q "%ProgFile%\Windows Media Player\*.txt
-Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\é…·æˆ‘éŸ³ä¹ç›’.*
-Rd /s/q "%CurUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\é…·æˆ‘éŸ³ä¹ç›’
+Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\¿áÎÒÒôÀÖºÐ.*
+Rd /s/q "%CurUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\¿áÎÒÒôÀÖºÐ
 Del /a/f/s/q "%ProgFile%\KWMUSIC\readme.txt
 Del /a/f/s/q "%ProgFile%\Microsoft Office\OFFICE11\2052\*.chm
 Del /a/f/s/q "%ProgFile%\Microsoft Office\OFFICE11\2052\*.htm
-Del /a/f/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\PPS ç½‘ç»œç”µè§†.*
-Rd /s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\PPStream
+Del /a/f/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\PPS ÍøÂçµçÊÓ.*
+Rd /s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\PPStream
 Del /a/f/s/q "%ProgFile%\PPStream\*.url
 Del /a/f/s/q "%ProgFile%\PPStream\whatsnew.txt
 Del /a/f/q "%ProgFile%\Real\RealPlayer\Setup\setup.exe"
@@ -2092,8 +2092,8 @@ Del /a/f/q "%ProgFile%\WinRAR\*.diz
 Del /a/f/q "%ProgFile%\WinRAR\*.txt
 Del /a/f/q "%ProgFile%\WinRAR\*.chm
 Del /a/f/q "%ProgFile%\WinRAR\*.htm
-Del /a/f/q "%ProgFile%\åƒåƒé™å¬\readme.txt
-Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\åƒåƒé™å¬.*
+Del /a/f/q "%ProgFile%\Ç§Ç§¾²Ìý\readme.txt
+Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\Ç§Ç§¾²Ìý.*
 Del /a/f/q "%AllUser%\Application Data\UNISPIM\usrwl.dat"
 Del /a/f/q "%CurUser%\Application Data\UNISPIM\usrwl.dat"
 Rd /s/q "%WinDir%\MAGICSET"
@@ -2106,7 +2106,7 @@ For /f "delims=" %%i in ('dir "%Windir%\$*$" /adh /b') do Rd /s/q "%WinDir%\%%i"
 at /delete /yes||SCHTASKS /Delete /TN * /F
 del /f /q /a %SYSTEMROOT%\Tasks
 cls
-echo æ¸…ç†ç³»ç»Ÿç›®å½•ä¸­çš„åžƒåœ¾æ–‡ä»¶ï¼ˆéœ€è¦ä¸€äº›æ—¶é—´...ï¼‰
+echo ÇåÀíÏµÍ³Ä¿Â¼ÖÐµÄÀ¬»øÎÄ¼þ£¨ÐèÒªÒ»Ð©Ê±¼ä...£©
 del /a /f /s /q "%SystemRoot%\*._mp"
 del /a /f /s /q "%SystemRoot%\*.bak"
 del /a /f /s /q "%SystemRoot%\*.dmp"
@@ -2134,22 +2134,22 @@ del /a /f /s /q "%SystemRoot%\Prefetch\*.*"
 del /a /f /s /q "%SystemRoot%\minidump\*.*"
 del /a /f /s /q "%userprofile%\AppData\Roaming\Adobe\Common\Media Cache Files\*.*"
 cls
-echo æ¸…é™¤CryptoAPIè¯ä¹¦ç¼“å­˜...
+echo Çå³ýCryptoAPIÖ¤Êé»º´æ...
 del /a /f /s /q "%userprofile%\AppData\LocalLow\Microsoft\CryptnetUrlCache\Content\*.*"
-echo æ¸…é™¤æ— ç”¨çš„ç£ç›˜é”™è¯¯æ–‡ä»¶ï¼ˆç³»ç»Ÿåˆ†åŒºï¼‰......
+echo Çå³ýÎÞÓÃµÄ´ÅÅÌ´íÎóÎÄ¼þ£¨ÏµÍ³·ÖÇø£©......
 del /a /f /q "%SystemDrive%\*.chk"
 dir %SystemDrive%\found.??? /ad/b >%SystemRoot%\vTmp.txt
 for /f %%a in (%SystemRoot%\vTmp.txt) do rd /s /q "%SystemDrive%\%%a"
 cls
-echo æ¸…ç†ç³»ç»Ÿå‡çº§è¡¥ä¸ï¼ˆæ­£ç¡®æ¸…é™¤ï¼‰......
+echo ÇåÀíÏµÍ³Éý¼¶²¹¶¡£¨ÕýÈ·Çå³ý£©......
 dir %SystemRoot%\$*$ /ad/b >%SystemRoot%\vTmp.txt
 for /f %%a in (%SystemRoot%\vTmp.txt) do rd /s /q "%SystemRoot%\%%a"
 cls
-echo æ¸…ç†ç³»ç»Ÿæ›´æ–°è¡¥ä¸ï¼ˆæ­£ç¡®æ¸…é™¤ï¼‰......
+echo ÇåÀíÏµÍ³¸üÐÂ²¹¶¡£¨ÕýÈ·Çå³ý£©......
 del /a /f /q C:\Windows\SoftwareDistribution\Download\*.*
 del /a /f /q C:\Windows\SoftwareDistribution\DataStore\*.*
 cls
-echo æ¸…ç†æ™®é€šè½¯ä»¶åžƒåœ¾é¡¹ç›®ï¼ˆé»˜è®¤æƒ…å†µä¸‹ï¼‰......
+echo ÇåÀíÆÕÍ¨Èí¼þÀ¬»øÏîÄ¿£¨Ä¬ÈÏÇé¿öÏÂ£©......
 rd /s /q "%ProgramFiles%\InstallShield Installation Information"
 Ren "%ProgramFiles%\Common~1\Real\Update_OB\realsched.exe" realsched.ex_
 Del "%ProgramFiles%\Common~1\Real\Update_OB\realsched.exe"
@@ -2172,21 +2172,21 @@ del /a /f /s /q "%userprofile%\AppData\LocalLow\Unity\Caches\GiCache\*.*"
 del /a /f /s /q "%userprofile%\AppData\Loca\Netease\CloudMusic\Cache\Cache\*.*"
 shutdown -a
 cls
-echo æ¸…ç†cookingï¼ŒIEç¼“å­˜ï¼ŒåŽ†å²ç­‰ï¼ˆå½“å‰ç”¨æˆ·ï¼‰...
+echo ÇåÀícooking£¬IE»º´æ£¬ÀúÊ·µÈ£¨µ±Ç°ÓÃ»§£©...
 for /f "tokens=3*" %%a in (%temp%\cleantmp.txt) do (
 for /d %%i in ("%%a %%b\*.*") do rd /s /q "%%i"
 del /a /f /s /q "%%a %%b\*.*"
 )
 cls
-echo æ¸…ç†ç•¥ç¼©å›¾ç¼“å­˜...
+echo ÇåÀíÂÔËõÍ¼»º´æ...
 del /a /f /s /q "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\*.db"
 cls
-echo æ¸…ç†Steamç¼“å­˜...
+echo ÇåÀíSteam»º´æ...
 del /a /f /s /q "%userprofile%\AppData\Local\Steam\htmlcache\Cache\*.*"
 cls
 echo MS Search...
 del /a /f /s /q "C\ProgramData\Microsoft\Search\Data\Applications\Windows\Windows.edb"
-echo æ¸…ç†è…¾è®¯åŽå°è¿›ç¨‹â€¦
+echo ÇåÀíÌÚÑ¶ºóÌ¨½ø³Ì¡­
 taskkill /f /im CrossProxy.exe
 taskkill /f /im TenioDL.exe
 taskkill /f /im Tencentdl.exe
@@ -2203,14 +2203,14 @@ taskkill /f /im QQDL.exe
 taskkill /f /im Client.exe
 taskkill /f /im YoukuMediaCenter.exe
 cls
-echo æ¸…é™¤è…¾è®¯äº§å“æ—¥å¿—...
-del /a /f /s /q "%userprofile%\AppData\Roaming\Tencent\Logs\*.*â€œ
-del /a /f /s /q "%userprofile%\AppData\Roaming\Tencent\Tencentdl\*.*â€œ
+echo Çå³ýÌÚÑ¶²úÆ·ÈÕÖ¾...
+del /a /f /s /q "%userprofile%\AppData\Roaming\Tencent\Logs\*.*¡°
+del /a /f /s /q "%userprofile%\AppData\Roaming\Tencent\Tencentdl\*.*¡°
 cls
-echo æ¸…é™¤è…¾è®¯ç½‘è¿·ä½ ç‰ˆç¼“å­˜...
+echo Çå³ýÌÚÑ¶ÍøÃÔÄã°æ»º´æ...
 del /a /f /s /q "%userprofile%\AppData\Local\Tencent\MiniBrowser\UserData\GPUCache\*.*"
 cls
-echo æ¸…ç†æµè§ˆå™¨ç¼“å­˜...
+echo ÇåÀíä¯ÀÀÆ÷»º´æ...
 del /a /f /s /q "%userprofile%\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5\LSTMJR0B\*.xml"
 del /a /f /s /q "%userprofile%\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5\MLHCN203\*.json"
 del /a /f /s /q "%userprofile%\AppData\Local\Microsoft\Windows\Temporary Internet Files\Content.IE5\PLCY7J9R\*.json"
@@ -2242,9 +2242,9 @@ cls
 (reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /va /f)||(for /f "skip=4 tokens=1" %%a in ('reg  query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run') do reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v %%a /f)
 (reg delete HKCU\Software\Microsoft\Windows\CurrentVersion\Run /va /f)||(for /f "skip=4 tokens=1" %%a in ('reg  query HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run') do reg delete HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v %%a /f)
 reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v ctfmon.exe /d %SYSTEMROOT%\system32\ctfmon.exe /f 
-del "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "%SYSTEMDRIVE%\Docume~1\Default User\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
+del "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "%SYSTEMDRIVE%\Docume~1\Default User\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
 del "%ProgramData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" /q /f
 del "%AppData%\Microsoft\Windows\Start Menu\Programs\Startup\*.*" /q /f
 reg delete HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /va /f
@@ -2269,11 +2269,11 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v inimapping /d 0
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v item /d TINTSETP
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v key /d SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-del "C:\Documents and Settings\All Users\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "C:\Documents and Settings\Default User\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "%userprofile%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
+del "C:\Documents and Settings\All Users\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "C:\Documents and Settings\Default User\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "%userprofile%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
 cls
-echo æ¸…é™¤è¿è¡Œè®°å½• 
+echo Çå³ýÔËÐÐ¼ÇÂ¼ 
 echo Windows Registry Editor Version 5.00 >>pc.reg 
 echo [-HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU] >>pc.reg 
 regedit /s pc.reg 
@@ -2299,7 +2299,7 @@ del /f /q %userprofile%\recent\*.*
 del /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*"
 del /f /s /q "%userprofile%\Local Settings\Temp\*.*"
 del /f /s /q %userprofile%\recent\*.*
-echo æ­£åœ¨æ¸…ç†å®‰è£…åŒ…åžƒåœ¾...
+echo ÕýÔÚÇåÀí°²×°°üÀ¬»ø...
 for %%l in (%pf%) do if exist %%l:\ (
 	del /f /s /q %%l:\i4Tools7\*.*
 	rd /f /s /q %%l:\i4Tools7
@@ -2329,9 +2329,9 @@ for %%l in (%pf%) do if exist %%l:\ (
 	rd /f /s /q %%l:\WUDownloadCache\*.*
 	del /f /s /q %%l:\360SoftMgrGame\*.*
 	del /f /s /q %%l:\KwDownload\*.*
-	del /f /s /q %%l:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
-	del /f /s /q %%l:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.msi
-	del /f /s /q %%l:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.com
+	del /f /s /q %%l:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
+	del /f /s /q %%l:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.msi
+	del /f /s /q %%l:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.com
 	del /f /s /q %%l:\360Downloads\*.*
 	del /f /s /q %%l:\WeSingCache\*.*
 	del /f /s /q %%l:\KuGou\Temp\*.mkv
@@ -2351,17 +2351,17 @@ regsvr32 /u /s ieoptimize.dll
 regsvr32 /u /s bhoex.dll
 regsvr32 /u /s ieextend.dll
 taskkill /f /im foundation.exe
-@echo æ­£åœ¨ç»“æŸç›‘æŽ§è½¯ä»¶çš„è¿›ç¨‹!
+@echo ÕýÔÚ½áÊø¼à¿ØÈí¼þµÄ½ø³Ì!
 taskkill /f /im arpguard.exe
 taskkill /f /im ingress.exe
 taskkill /f /im srport.exe
 taskkill /f /im zreboot.exe
 taskkill /f /im zrupdate.exe
 echo.
-echo æ­£åœ¨é‡å‘½åç›‘æŽ§è½¯ä»¶çš„ç›®å½•!
+echo ÕýÔÚÖØÃüÃû¼à¿ØÈí¼þµÄÄ¿Â¼!
 ren "C:\Program Files\Sinfor" "FuckyouSinfor"
 echo.
-echo æ­£åœ¨ç¦ç”¨ç›‘æŽ§è½¯ä»¶å¼€æœºå¯åŠ¨!
+echo ÕýÔÚ½ûÓÃ¼à¿ØÈí¼þ¿ª»úÆô¶¯!
 net stop zrupdate
 sc config zrupdate start= DISABLED
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer" /v NoDriveAutoRun /t REG_BINARY /d ffffff03 /f>nul 2>nul
@@ -2374,14 +2374,14 @@ reg add "HKEY_USERS\S-1-5-20\Software\Microsoft\Windows\CurrentVersion\Policies\
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced\Folder\Hidden\SHOWALL" /v CheckedValue /t REG_DWORD /d 0x00000001 /f>nul 2>nul
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2" /f>nul 2>nul
 taskkill /F /IM ctfmon.exe /IM ctfmon.exe /IM SVOHOST.exe /IM AdobeR.exe /IM ravmone.exe /IM wincfgs.exe /IM doc.exe /IM rose.exe /IM sxs.exe /IM autorun.exe /IM KB20060111.exe>nul 2>nul
-echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:F>nul 2>nul
-attrib -s -h -r "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-attrib -s -h -r "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-del /A /F /S /Q "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.exe">nul 2>nul
-rem echo Y|cacls "%USERPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 2>nul
-rem echo Y|cacls "%ALLUSERSPROFILE%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨" /C /P everyone:N>nul 2>nul
+echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:F>nul 2>nul
+attrib -s -h -r "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+attrib -s -h -r "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+del /A /F /S /Q "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.exe">nul 2>nul
+rem echo Y|cacls "%USERPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 2>nul
+rem echo Y|cacls "%ALLUSERSPROFILE%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯" /C /P everyone:N>nul 2>nul
 del c:\winnt\logo1_.exe
 del c:\windows\logo1_.exe
 del C:\winnt\system32\Logo1_.exe
@@ -2414,13 +2414,13 @@ del i:\_desktop.ini /f/s/q/a
 del j:\_desktop.ini /f/s/q/a
 del k:\_desktop.ini /f/s/q/a
 cls
-echo ç®€æ˜“æ¸…é™¤NrsMineræŒ–çŸ¿ç—…æ¯’
+echo ¼òÒ×Çå³ýNrsMinerÍÚ¿ó²¡¶¾
 del /f /s /q C:\Windows\NerworkDistribution\*.*
 Rd /s/q C:\Windows\NerworkDistribution
 del /f /s /q C:\Windows\system32\dllhostex.exe
 cls
-title å†æ¬¡æ¸…ç†.....
-echo æ­£åœ¨æ¸…ç†æ‰€æœ‰ç£ç›˜æ ¹ç›®å½•autorun.infæ–‡ä»¶...
+title ÔÙ´ÎÇåÀí.....
+echo ÕýÔÚÇåÀíËùÓÐ´ÅÅÌ¸ùÄ¿Â¼autorun.infÎÄ¼þ...
 FOR %%M IN (C D E F G H I J K L M N O P Q R S T U V W X Y Z) DO (DEL/A/F/Q %%M:\AUTORUN.INF
 DEL/A/F/Q %%M:\SXS.EXE
 DEL/A/F/Q %%M:\OSO.EXE
@@ -2447,38 +2447,38 @@ reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v inimapping /d 0
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v item /d TINTSETP
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Shared Tools\MSConfig\startupreg\PHIME2002ASync" /v key /d SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-del "C:\Documents and Settings\All Users\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "C:\Documents and Settings\Default User\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
-del "%userprofile%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\å¯åŠ¨\*.*" /q /f
+del "C:\Documents and Settings\All Users\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "C:\Documents and Settings\Default User\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
+del "%userprofile%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\Æô¶¯\*.*" /q /f
 cls
-echo æ­£åœ¨æ¸…ç†å…±äº«æ–‡æ¡£...
+echo ÕýÔÚÇåÀí¹²ÏíÎÄµµ...
 Rd /s/q "%AllUser%\Documents\My Videos
 Rd /s/q "%AllUser%\Documents\My Pictures
 Rd /s/q "%AllUser%\Documents\My Music
 cls
-echo æ­£åœ¨æ¸…ç†WMP10ç›®å½•...
+echo ÕýÔÚÇåÀíWMP10Ä¿Â¼...
 Rd /s/q "%ProgFile%\Windows Media Player\Icons
 Rd /s/q "%ProgFile%\Windows Media Player\Sample Playlists
 Rd /s/q "%ProgFile%\Windows Media Player\Skins
 Rd /s/q "%ProgFile%\Windows Media Player\Visualizations
 Del /a/f/s/q "%ProgFile%\Windows Media Player\*.txt
 cls
-echo æ­£åœ¨æ¸…ç†å¼€å§‹èœå•...
-Del /a/f/s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\Windows Catalog.*
-Del /a/f/s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\Windows Update.*
-Del /a/f/s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\è®¾å®šç¨‹åºè®¿é—®å’Œé»˜è®¤å€¼.*
+echo ÕýÔÚÇåÀí¿ªÊ¼²Ëµ¥...
+Del /a/f/s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\Windows Catalog.*
+Del /a/f/s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\Windows Update.*
+Del /a/f/s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\Éè¶¨³ÌÐò·ÃÎÊºÍÄ¬ÈÏÖµ.*
 cls
-echo æ­£åœ¨æ¸…ç†360å®‰å…¨å«å£«ç›®å½•...
+echo ÕýÔÚÇåÀí360°²È«ÎÀÊ¿Ä¿Â¼...
 Rd /s/q "%ProgFile%\360Safe\hotfix"
 cls
-echo æ­£åœ¨æ¸…ç†æ¸…ç†ACDSeeç›®å½•...
+echo ÕýÔÚÇåÀíÇåÀíACDSeeÄ¿Â¼...
 Rd /s/q "%CurUser%\Application Data\ACD Systems
 Del /a/f/s/q "%ProgFile%\ACDSee\*.hlp"
 Del /a/f/s/q "%ProgFile%\ACDSee\*.cnt"
 Del /a/f/s/q "%ProgFile%\ACDSee\PlugIns\*.hlp
 Del /a/f/s/q "%ProgFile%\ACDSee\PlugIns\*.chm
 cls
-echo æ­£åœ¨æ¸…ç†æš´é£Žå½±éŸ³ç›®å½•...
+echo ÕýÔÚÇåÀí±©·çÓ°ÒôÄ¿Â¼...
 Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\*.txt
 Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\*.ini
 Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\*.dat
@@ -2486,7 +2486,7 @@ Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\GSpot.exe
 Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\StormSet.exe
 Del /a/f/s/q "%ProgFile%\Ringz Studio\Storm Codec\Codecs\languages\ffdshow.1033.en
 Rd /s/q "%AllUser%\Application Data\Storm\Update
-Rd /s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\æš´é£Žå½±éŸ³
+Rd /s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\±©·çÓ°Òô
 Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\CoreVideo.Resources\en.lproj
 Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\QuickTime3GPP.Resources\en.lproj
 Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\QuickTime.Resources\en.lproj
@@ -2500,10 +2500,10 @@ Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\QuickTimeStreamingExtras.R
 Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\QuickTimeVR.Resources\en.lproj
 Rd /s/q "%ProgFile%\Ringz Studio\Storm Codec\QTSystem\QuickTimeWebHelper.Resources\en.lproj
 cls
-echo æ­£åœ¨æ¸…ç† æžç‚¹äº”ç¬” ç›®å½•...
-Rd /s/q "%CurUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\freeime
+echo ÕýÔÚÇåÀí ¼«µãÎå±Ê Ä¿Â¼...
+Rd /s/q "%CurUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\freeime
 Del /a/f/s/q "%ProgFile%\freeime\freeime.htm
-Del /a/f/s/q "%ProgFile%\freeime\æžç‚¹äº”ç¬” çºªå¿µç‰ˆ.url
+Del /a/f/s/q "%ProgFile%\freeime\¼«µãÎå±Ê ¼ÍÄî°æ.url
 Del /a/f/s/q "%ProgFile%\freeime\*.gif
 Del /a/f/s/q "%ProgFile%\freeime\*.txt
 Rd /s/q "%ProgFile%\freeime\skin\Apple_Z
@@ -2520,159 +2520,159 @@ Rd /s/q "%ProgFile%\freeime\skin\Hello Kitty
 Rd /s/q "%ProgFile%\freeime\skin\MG_S
 Rd /s/q "%ProgFile%\freeime\skin\VistaHeiMini
 cls
-echo æ­£åœ¨æ¸…ç† é…·æˆ‘éŸ³ä¹ç›’ ç›®å½•...
-Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\é…·æˆ‘éŸ³ä¹ç›’.*
-Rd /s/q "%CurUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\é…·æˆ‘éŸ³ä¹ç›’
+echo ÕýÔÚÇåÀí ¿áÎÒÒôÀÖºÐ Ä¿Â¼...
+Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\¿áÎÒÒôÀÖºÐ.*
+Rd /s/q "%CurUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\¿áÎÒÒôÀÖºÐ
 Del /a/f/s/q "%ProgFile%\KWMUSIC\readme.txt
 cls
-echo æ­£åœ¨æ¸…ç† MSOFFICE ç›®å½•...
+echo ÕýÔÚÇåÀí MSOFFICE Ä¿Â¼...
 Del /a/f/s/q "%ProgFile%\Microsoft Office\OFFICE11\2052\*.chm
 Del /a/f/s/q "%ProgFile%\Microsoft Office\OFFICE11\2052\*.htm
 cls
-echo æ­£åœ¨æ¸…ç† PPStream ç›®å½•...
-Del /a/f/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\PPS ç½‘ç»œç”µè§†.*
-Rd /s/q "%AllUser%\ã€Œå¼€å§‹ã€èœå•\ç¨‹åº\PPStream
+echo ÕýÔÚÇåÀí PPStream Ä¿Â¼...
+Del /a/f/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\PPS ÍøÂçµçÊÓ.*
+Rd /s/q "%AllUser%\¡¸¿ªÊ¼¡¹²Ëµ¥\³ÌÐò\PPStream
 Del /a/f/s/q "%ProgFile%\PPStream\*.url
 Del /a/f/s/q "%ProgFile%\PPStream\whatsnew.txt
 cls
-echo æ­£åœ¨æ¸…ç† RealPlayer ç›®å½•...
+echo ÕýÔÚÇåÀí RealPlayer Ä¿Â¼...
 Del /a/f/q "%ProgFile%\Real\RealPlayer\Setup\setup.exe"
 Del /a/f/q "%ProgFile%\Real\RealPlayer\*.chm
 Del /a/f/q "%ProgFile%\Real\RealPlayer\*.txt
 Del /a/f/q "%ProgFile%\Real\RealPlayer\*.html
 cls
-echo æ­£åœ¨æ¸…ç† RealPlayer KoWo ç›®å½•...
+echo ÕýÔÚÇåÀí RealPlayer KoWo Ä¿Â¼...
 Rd /s/q "%ProgFile%\KWREAL"
 cls
-echo å…³é—­å®¢æˆ·ä½“éªŒæ”¹å–„è®¡åˆ’
+echo ¹Ø±Õ¿Í»§ÌåÑé¸ÄÉÆ¼Æ»®
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\SQMClient\Windows" /v "CEIPEnable" /d 0 /t REG_DWORD /f
 cls
-echo å¼€å¯â€œå¿«é€Ÿå¯åŠ¨â€
+echo ¿ªÆô¡°¿ìËÙÆô¶¯¡±
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\System" /v "HiberbootEnabled" /d 1 /t REG_DWORD /f
 cls
-echo IE11å¼€å¯ä¼ä¸šæ¨¡å¼
+echo IE11¿ªÆôÆóÒµÄ£Ê½
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /v SiteList /d "HKCU\Software\policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /t reg_sz /f
 reg add "HKEY_CURRENT_USER\Software\Policies\Microsoft\Internet Explorer\Main\EnterpriseMode" /v Enable /d "" /t reg_sz /f
 cls
-echo ç¦æ­¢ä¸€è”ç½‘å°±æ‰“å¼€æµè§ˆå™¨
+echo ½ûÖ¹Ò»ÁªÍø¾Í´ò¿ªä¯ÀÀÆ÷
 reg add "HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\NetworkConnectivityStatusIndicator" /v "NoActiveProbe" /d 1 /t REG_DWORD /f
 cls
-echo æ­£åœ¨æ¸…ç† WINRAR ç›®å½•...
+echo ÕýÔÚÇåÀí WINRAR Ä¿Â¼...
 Del /a/f/q "%ProgFile%\WinRAR\*.diz
 Del /a/f/q "%ProgFile%\WinRAR\*.txt
 Del /a/f/q "%ProgFile%\WinRAR\*.chm
 Del /a/f/q "%ProgFile%\WinRAR\*.htm
 cls
-echo æ­£åœ¨æ¸…ç† åƒåƒé™å¬ ç›®å½•...
-Del /a/f/q "%ProgFile%\åƒåƒé™å¬\readme.txt
-Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\åƒåƒé™å¬.*
-echo æ­£åœ¨æ¸…ç†ç´«å…‰æ‹¼éŸ³è¾“å…¥æ³•ç”¨æˆ·è¯åº“...
+echo ÕýÔÚÇåÀí Ç§Ç§¾²Ìý Ä¿Â¼...
+Del /a/f/q "%ProgFile%\Ç§Ç§¾²Ìý\readme.txt
+Del /a/f/s/q "%CurUser%\Application Data\Microsoft\Internet Explorer\Quick Launch\Ç§Ç§¾²Ìý.*
+echo ÕýÔÚÇåÀí×Ï¹âÆ´ÒôÊäÈë·¨ÓÃ»§´Ê¿â...
 Del /a/f/q "%AllUser%\Application Data\UNISPIM\usrwl.dat"
 Del /a/f/q "%CurUser%\Application Data\UNISPIM\usrwl.dat"
 cls
-echo æ­£åœ¨æ¸…ç†è¶…çº§å…”å­æ³¨å†Œè¡¨å¤‡ä»½...
+echo ÕýÔÚÇåÀí³¬¼¶ÍÃ×Ó×¢²á±í±¸·Ý...
 Rd /s/q "%WinDir%\MAGICSET"
 cls
-echo æ­£åœ¨æ¸…ç†ç£ç›˜æ£€æµ‹æ—¶ç”Ÿæˆçš„æŸåæ–‡ä»¶å¤‡ä»½...
+echo ÕýÔÚÇåÀí´ÅÅÌ¼ì²âÊ±Éú³ÉµÄËð»µÎÄ¼þ±¸·Ý...
 Rd /s/q "%HomeDrive%\Found.*"
 For /f "delims=\" %%i in ('dir "%HomeDrive%\Found.*" /adh /b') do Rd /s/q "%HomeDrive%\%%i"
 cls
-echo æ­£åœ¨æ¸…ç†è™šæ‹Ÿå†…å­˜æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÐéÄâÄÚ´æÎÄ¼þ...
 Del /a/f/q "%HomeDrive%\PageFile.sys"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿä¼‘çœ æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÏµÍ³ÐÝÃßÎÄ¼þ...
 Del /a/f/q "%HomeDrive%\HiberFil.sys"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿä¸´æ—¶æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÏµÍ³ÁÙÊ±ÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Temp\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†ç¨‹åºé¢„è¯»æ–‡ä»¶...
+echo ÕýÔÚÇåÀí³ÌÐòÔ¤¶ÁÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Prefetch\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†é©±åŠ¨é¢„ç¼–è¯‘æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÇý¶¯Ô¤±àÒëÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Inf\*.PNF"
 cls
-echo.æ¸…ç†ç¡¬ä»¶é©±åŠ¨å¤‡ä»½
+echo.ÇåÀíÓ²¼þÇý¶¯±¸·Ý
 Del /a/f/s/q "%SysDir%\ReinstallBackups\*.*"
 cls
-eecho æ­£åœ¨æ¸…ç† ç¹ä½“ è¾“å…¥æ³•...
+eecho ÕýÔÚÇåÀí ·±Ìå ÊäÈë·¨...
 Rd /s/q "%WinDir%\ime\CHTIME"
 cls
-echo æ­£åœ¨æ¸…ç† æ—¥æ–‡ è¾“å…¥æ³•...
+echo ÕýÔÚÇåÀí ÈÕÎÄ ÊäÈë·¨...
 Rd /s/q "%WinDir%\ime\IMJP8_1"
 Rd /s/q "%WinDir%\ime\imejp"
 Rd /s/q "%WinDir%\ime\imejp98"
 cls
-echo æ­£åœ¨æ¸…ç† éŸ©æ–‡ è¾“å…¥æ³•...
+echo ÕýÔÚÇåÀí º«ÎÄ ÊäÈë·¨...
 Rd /s/q "%WinDir%\ime\IMKR6_1"
 cls
-echo æ­£åœ¨æ¸…ç† ç¹ä½“ è¾“å…¥æ³•çš„ æ‰‹å†™è¯†åˆ« æ–‡ä»¶...
+echo ÕýÔÚÇåÀí ·±Ìå ÊäÈë·¨µÄ ÊÖÐ´Ê¶±ð ÎÄ¼þ...
 Del /a/f/q "%WinDir%\ime\CHTIME\Applets\HWXCHT.DLL"
 cls
-echo æ­£åœ¨æ¸…ç† ä»“é¢‰ç  è¾“å…¥æ³•...
+echo ÕýÔÚÇåÀí ²Öò¡Âë ÊäÈë·¨...
 Rd /s/q "%SysDir%\IME\CINTLGNT"
 cls
-echo æ­£åœ¨æ¸…ç† æ³¨éŸ³ è¾“å…¥æ³•...
+echo ÕýÔÚÇåÀí ×¢Òô ÊäÈë·¨...
 Rd /s/q "%SysDir%\IME\TINTLGNT"
 cls
-echo æ­£åœ¨æ¸…ç†å¸Œè…Šã€åœŸè€³å…¶ã€ä¸­æ¬§ç­‰å­—ä½“...
+echo ÕýÔÚÇåÀíÏ£À°¡¢ÍÁ¶úÆä¡¢ÖÐÅ·µÈ×ÖÌå...
 Del /a/f/q "%WinDir%\Fonts\gulim.ttc"
 Del /a/f/q "%WinDir%\Fonts\msgothic.ttc"
 cls
-echo æ­£åœ¨æ¸…ç†ç½‘é¡µä¸´æ—¶æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÍøÒ³ÁÙÊ±ÎÄ¼þ...
 Del /a/f/s/q "%CurUser%\Local Settings\Temporary Internet Files\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†ç”¨æˆ·ä¸´æ—¶æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÓÃ»§ÁÙÊ±ÎÄ¼þ...
 Del /a/f/s/q "%CurUser%\Local Settings\Temp\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†ç½‘é¡µåŽ†å²çºªå½•...
+echo ÕýÔÚÇåÀíÍøÒ³ÀúÊ·¼ÍÂ¼...
 Del /a/f/s/q "%CurUser%\Local Settings\History\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†è®¿é—®è¿‡çš„ç½‘ç»œé‚»å±…å¿«æ·æ–¹å¼...
+echo ÕýÔÚÇåÀí·ÃÎÊ¹ýµÄÍøÂçÁÚ¾Ó¿ì½Ý·½Ê½...
 Del /a/f/s/q "%CurUser%\NetHood\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†æœªå®Œæˆçš„æ‰“å°ä»»åŠ¡...
+echo ÕýÔÚÇåÀíÎ´Íê³ÉµÄ´òÓ¡ÈÎÎñ...
 Del /a/f/s/q "%CurUser%\PrintHood\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†æœ€è¿‘ä½¿ç”¨çš„æ–‡æ¡£çºªå½•...
+echo ÕýÔÚÇåÀí×î½üÊ¹ÓÃµÄÎÄµµ¼ÍÂ¼...
 Del /a/f/s/q "%CurUser%\Recent\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†ç½‘é¡µ Cookie...
+echo ÕýÔÚÇåÀíÍøÒ³ Cookie...
 Del /a/f/s/q "%CurUser%\Cookies\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†å›¾æ ‡ç¼“å­˜æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÍ¼±ê»º´æÎÄ¼þ...
 Del /a/f/q "%CurUser%\Local Settings\Application Data\IconCache.db"
 cls
-echo æ­£åœ¨æ¸…ç†è¶…çº§å…”å­æ³¨å†Œè¡¨å¤‡ä»½...
+echo ÕýÔÚÇåÀí³¬¼¶ÍÃ×Ó×¢²á±í±¸·Ý...
 Rd /s/q "%WinDir%\MAGICSET"
 cls
-echo æ­£åœ¨æ¸…ç†ç£ç›˜æ£€æµ‹æ—¶ç”Ÿæˆçš„æŸåæ–‡ä»¶å¤‡ä»½...
+echo ÕýÔÚÇåÀí´ÅÅÌ¼ì²âÊ±Éú³ÉµÄËð»µÎÄ¼þ±¸·Ý...
 Rd /s/q "%HomeDrive%\Found.*"
 For /f "delims=\" %%i in ('dir "%HomeDrive%\Found.*" /adh /b') do Rd /s/q "%HomeDrive%\%%i"
 cls
-echo æ­£åœ¨æ¸…ç†è™šæ‹Ÿå†…å­˜æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÐéÄâÄÚ´æÎÄ¼þ...
 Del /a/f/q "%HomeDrive%\PageFile.sys"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿä¼‘çœ æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÏµÍ³ÐÝÃßÎÄ¼þ...
 Del /a/f/q "%HomeDrive%\HiberFil.sys"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿè¡¥ä¸å¸è½½æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÏµÍ³²¹¶¡Ð¶ÔØÎÄ¼þ...
 echo.Rd /s/q "%WinDir%\$*$"
 For /f "delims=\" %%i in ('dir "%Windir%\$*$" /adh /b') do Rd /s/q "%WinDir%\%%i"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿä¸´æ—¶æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÏµÍ³ÁÙÊ±ÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Temp\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†ç¨‹åºé¢„è¯»æ–‡ä»¶...
+echo ÕýÔÚÇåÀí³ÌÐòÔ¤¶ÁÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Prefetch\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†é©±åŠ¨é¢„ç¼–è¯‘æ–‡ä»¶...
+echo ÕýÔÚÇåÀíÇý¶¯Ô¤±àÒëÎÄ¼þ...
 Del /a/f/s/q "%WinDir%\Inf\*.PNF"
 cls
-echo.æ¸…ç†ç¡¬ä»¶é©±åŠ¨å¤‡ä»½
+echo.ÇåÀíÓ²¼þÇý¶¯±¸·Ý
 Del /a/f/s/q "%SysDir%\ReinstallBackups\*.*"
 cls
-echo æ­£åœ¨æ¸…ç†æ— ç”¨çš„ Windows ç¨‹åº...
+echo ÕýÔÚÇåÀíÎÞÓÃµÄ Windows ³ÌÐò...
 Del /a/f/s/q "%ProgFile%\Outlook Express\*.txt
 Del /a/f/s/q "%ProgFile%\Online Services\*.*
 Rd /s/q "%ProgFile%\Messenger"
@@ -2680,26 +2680,26 @@ Rd /s/q "%ProgFile%\Movie Maker"
 Rd /s/q "%ProgFile%\MSN Gaming Zone"
 Rd /s/q "%ProgFile%\NetMeeting"
 cls
-echo æ­£åœ¨æ¸…ç†æ³¨å†Œè¡¨æœ€åŽä¸€æ¬¡è®¿é—®ä½ç½®...
-reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit" /v "LastKey" /t "REG_SZ" /d "æˆ‘çš„ç”µè„‘" /f
+echo ÕýÔÚÇåÀí×¢²á±í×îºóÒ»´Î·ÃÎÊÎ»ÖÃ...
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit" /v "LastKey" /t "REG_SZ" /d "ÎÒµÄµçÄÔ" /f
 cls
-echo æ­£åœ¨æ¸…ç†æ³¨å†Œè¡¨ä¸­çš„ç¨‹åºè¿è¡Œè®°å½•...
+echo ÕýÔÚÇåÀí×¢²á±íÖÐµÄ³ÌÐòÔËÐÐ¼ÇÂ¼...
 reg delete "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" /f
 reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU" /f
 cls
-echo æ­£åœ¨æ¸…ç†æœ€åŽä¸€æ¬¡æ­£ç¡®é…ç½®æ–‡ä»¶...
+echo ÕýÔÚÇåÀí×îºóÒ»´ÎÕýÈ·ÅäÖÃÎÄ¼þ...
 Rd /s/q "%WinDir%\LastGood"
 cls
-echo æ­£åœ¨æ¸…ç†æ³¨å†Œè¡¨ç­‰æ–‡ä»¶å¤‡ä»½...
+echo ÕýÔÚÇåÀí×¢²á±íµÈÎÄ¼þ±¸·Ý...
 Rd /s/q "%WinDir%\Repair"
 cls
-echo æ­£åœ¨æ¸…ç†ç³»ç»Ÿè¡¥ä¸ç”Ÿæˆçš„ç³»ç»Ÿé©±åŠ¨å¤‡ä»½...
+echo ÕýÔÚÇåÀíÏµÍ³²¹¶¡Éú³ÉµÄÏµÍ³Çý¶¯±¸·Ý...
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrnlmp.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrnlpa.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntkrpamp.exe"
 Del /a/f/q "%WinDir%\Driver Cache\i386\ntoskrnl.exe"
 cls
-echo æ­£åœ¨æ¸…ç† DESKTOP.INI
+echo ÕýÔÚÇåÀí DESKTOP.INI
 FOR %%M IN (C D E F G H I J K L M N O P Q R S T U V W X Y Z) DO (DEL/A/F/Q %%M:\desktop.ini
 )
 taskkill /f /im ChsIME.exe
@@ -2714,24 +2714,24 @@ goto end
 :tools520
 cls
 mode con cols=45 lines=36
-title å·¥å…·ç®±
+title ¹¤¾ßÏä
 echo -------------------------------------------
-echo                 æžåŠ›å·¥å…·ç®±                   
+echo                 ¼«Á¦¹¤¾ßÏä                   
 echo -------------------------------------------
-echo ç½‘ç»œä¿®å¤è¯·è¾“å…¥1     â”ƒ    IEä¿®å¤è¯·è¾“å…¥2
-echo è®¾ç½®é˜²ç«å¢™è¯·è¾“å…¥3   â”ƒå¾®åž‹ä»»åŠ¡å…³é—­å™¨è¯·è¾“å…¥4
-echo Wordä¿®å¤è¯·è¾“å…¥5     â”ƒ   å¼¹å‡ºå…‰é©±è¯·è¾“å…¥6
-echo æ ¼å¼åŒ–Uç›˜è¯·è¾“å…¥7    â”ƒ  ä¿®å¤ç½‘é¡µé”™è¯¯è¯·è¾“å…¥8
-echo æŸ¥çœ‹ç‰©ç†å†…å­˜è¯·è¾“å…¥9 â”ƒ   ç—…æ¯’æŸ¥æ€è¯·è¾“å…¥Q 
-echo ä¿®æ”¹ç¡çœ æ¨¡å¼è¯·è¾“å…¥R
-echo ä¿®å¤å†…å­˜ä¸èƒ½ä¸ºREADè¯·è¾“å…¥W
-echo è¾…åŠ©å®Œå…¨å¸è½½VMwareè¯·è¾“å…¥V
-echo (Win7ç”¨)ä¿®æ”¹å¼€æœºç™»å½•å£çº¸è¾“å…¥B
+echo ÍøÂçÐÞ¸´ÇëÊäÈë1     ©§    IEÐÞ¸´ÇëÊäÈë2
+echo ÉèÖÃ·À»ðÇ½ÇëÊäÈë3   ©§Î¢ÐÍÈÎÎñ¹Ø±ÕÆ÷ÇëÊäÈë4
+echo WordÐÞ¸´ÇëÊäÈë5     ©§   µ¯³ö¹âÇýÇëÊäÈë6
+echo ¸ñÊ½»¯UÅÌÇëÊäÈë7    ©§  ÐÞ¸´ÍøÒ³´íÎóÇëÊäÈë8
+echo ²é¿´ÎïÀíÄÚ´æÇëÊäÈë9 ©§   ²¡¶¾²éÉ±ÇëÊäÈëQ 
+echo ÐÞ¸ÄË¯ÃßÄ£Ê½ÇëÊäÈëR
+echo ÐÞ¸´ÄÚ´æ²»ÄÜÎªREADÇëÊäÈëW
+echo ¸¨ÖúÍêÈ«Ð¶ÔØVMwareÇëÊäÈëV
+echo (Win7ÓÃ)ÐÞ¸Ä¿ª»úµÇÂ¼±ÚÖ½ÊäÈëB
 echo -------------------------------------------
-echo è¿”å›žè¯·è¾“å…¥0
+echo ·µ»ØÇëÊäÈë0
 echo -------------------------------------------
 set choice= 
-set /p choice=è¯·è¾“å…¥å›žåº”ï¼š
+set /p choice=ÇëÊäÈë»ØÓ¦£º
 if "%choice%"=="" goto tools520
 if /i '%choice%'=='0' goto back1234
 if /i '%choice%'=='1' goto xiufuip
@@ -2750,7 +2750,7 @@ if /i '%choice%'=='V' goto delVM
 if /i '%choice%'=='B' goto bizhixiugai
 :wufashibei
 cls
-echo æ— æ³•è¯†åˆ«æ‚¨çš„æŒ‡ä»¤ï¼
+echo ÎÞ·¨Ê¶±ðÄúµÄÖ¸Áî£¡
 pause
 goto tools520
 :back1234
@@ -2760,10 +2760,10 @@ goto maxice
 :bizhixiugai
 cls
 echo -------------------------------------------
-echo å½“å‰åˆ†è¾¨çŽ‡ä¿¡æ¯ï¼š
+echo µ±Ç°·Ö±æÂÊÐÅÏ¢£º
 wmic DESKTOPMONITOR where Status='ok' get ScreenHeight,ScreenWidth
-echo è¯·å°†éœ€è¦ä¿®æ”¹çš„å¼€æœºç™»å½•ç•Œé¢çš„å£çº¸ï¼ˆå¿…é¡»æ˜¯JPGæ ¼å¼ï¼Œå å†…å­˜è¶Šå°è¶Šå¥½ï¼‰æ›´åä¸ºï¼šbackgroundDefault
-echo æŠŠå›¾ç‰‡ç„¶åŽç§»åŠ¨åˆ°Cç›˜æ ¹ç›®å½•ï¼Œå‰©ä¸‹çš„ç”±æˆ‘ä»¬æ¥åšï¼
+echo Çë½«ÐèÒªÐÞ¸ÄµÄ¿ª»úµÇÂ¼½çÃæµÄ±ÚÖ½£¨±ØÐëÊÇJPG¸ñÊ½£¬Õ¼ÄÚ´æÔ½Ð¡Ô½ºÃ£©¸üÃûÎª£ºbackgroundDefault
+echo °ÑÍ¼Æ¬È»ºóÒÆ¶¯µ½CÅÌ¸ùÄ¿Â¼£¬Ê£ÏÂµÄÓÉÎÒÃÇÀ´×ö£¡
 pause
 reg add HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Authentication\LogonUI\Background /v OEMBackground /t REG_DWORD /d "1" /f
 cls
@@ -2773,20 +2773,20 @@ GOTO tools520
 
 :wulineicun
 cls
-systeminfo|find "ç‰©ç†å†…å­˜æ€»é‡"
+systeminfo|find "ÎïÀíÄÚ´æ×ÜÁ¿"
 pause>nul
 goto tools520
 :shuimianmoshi
 cls
 echo -------------------------------------------
-echo   åœ¨ç¡çœ æ¨¡å¼ä¸‹...
-echo     è”ç½‘ã€æ–­ç”µè¯·è¾“å…¥1
-echo     æ–­ç½‘ã€æ–­ç”µè¯·è¾“å…¥2
-echo   è¿”å›žå·¥å…·ç®±è¯·æŒ‰å›žè½¦ã€‚
+echo   ÔÚË¯ÃßÄ£Ê½ÏÂ...
+echo     ÁªÍø¡¢¶ÏµçÇëÊäÈë1
+echo     ¶ÏÍø¡¢¶ÏµçÇëÊäÈë2
+echo   ·µ»Ø¹¤¾ßÏäÇë°´»Ø³µ¡£
 echo.
 set route1=HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options
 SET Choice=
-SET /P Choice= è¯·é€‰æ‹©è¦æ¨¡å¼(1,2),å†æŒ‰å›žè½¦: 
+SET /P Choice= ÇëÑ¡ÔñÒªÄ£Ê½(1,2),ÔÙ°´»Ø³µ: 
 IF /I '%Choice:~0,1%'=='1' GOTO shuimian1
 IF /I '%Choice:~0,1%'=='2' GOTO shuimian2
 GOTO tools520
@@ -2794,21 +2794,21 @@ GOTO tools520
 :shuimian1
 regedit /s %temp%\qb42F3508D.09\1.reg
 cls
-echo åˆ‡æ¢æˆåŠŸï¼å½“å‰ä¸ºâ€œè”ç½‘ã€é€šç”µâ€æ¨¡å¼
+echo ÇÐ»»³É¹¦£¡µ±Ç°Îª¡°ÁªÍø¡¢Í¨µç¡±Ä£Ê½
 pause
 goto tools520
 
 :shuimian2
 regedit /s %temp%\qb42F3508D.09\2.reg
 cls
-echo åˆ‡æ¢æˆåŠŸï¼å½“å‰ä¸ºâ€œæ–­ç½‘ã€æ–­ç”µâ€æ¨¡å¼
+echo ÇÐ»»³É¹¦£¡µ±Ç°Îª¡°¶ÏÍø¡¢¶Ïµç¡±Ä£Ê½
 pause
 goto tools520
 
 
 :chakanip
 cls
-echo æ­¤é¡¹æ•´ç†å°†ä¼šèŠ±ä¸€åˆ†é’Ÿå·¦å³æ—¶é—´ï¼Œè¯·æ‚¨è€å¿ƒç­‰ç­‰...
+echo ´ËÏîÕûÀí½«»á»¨Ò»·ÖÖÓ×óÓÒÊ±¼ä£¬ÇëÄúÄÍÐÄµÈµÈ...
 for %%i in (%systemroot%\system32\*.dll) do regsvr32.exe /s %%i
 pause
 goto tools520
@@ -2817,104 +2817,104 @@ goto tools520
 CLS
 mshta "javascript:new ActiveXObject('WMPlayer.OCX').cdromCollection.Item(0).Eject();window.close();"
 cls
-Echo å…‰é©±å·²å¼¹å‡º
+Echo ¹âÇýÒÑµ¯³ö
 pause
 goto tools520
 
 :xiufuwangyecuowu
 cls
-echo   è‹¥æ‚¨æŒ‰ä¸‹å›žè½¦ï¼Œç¨‹åºå˜å›žå¼€å§‹ä¿®å¤ç½‘é¡µï¼Œè‹¥æ‚¨æŒ‰ä¸‹0ï¼Œç¨‹åºä¼šè¿”å›žå·¥å…·ç®±ã€‚
+echo   ÈôÄú°´ÏÂ»Ø³µ£¬³ÌÐò±ä»Ø¿ªÊ¼ÐÞ¸´ÍøÒ³£¬ÈôÄú°´ÏÂ0£¬³ÌÐò»á·µ»Ø¹¤¾ßÏä¡£
 set choice=
 set /p choice=
 if "%choice%"=="0" goto tools520
 cls
-echo æ­£åœ¨ä¿®å¤ï¼Œè¿™ä¸ªè¿‡ç¨‹å¯èƒ½éœ€è¦å‡ åˆ†é’Ÿï¼Œè¯·ç¨å€™â€¦â€¦ 
-ã€€ã€€rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%/System32/dacui.dll 
-ã€€ã€€rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%/Catroot/icatalog.mdb 
-ã€€ã€€regsvr32 /s comcat.dll 
-ã€€ã€€regsvr32 /s asctrls.ocx 
-ã€€ã€€regsvr32 /s oleaut32.dll 
-ã€€ã€€regsvr32 /s shdocvw.dll /I 
-ã€€ã€€regsvr32 /s shdocvw.dll 
-ã€€ã€€regsvr32 /s browseui.dll 
-ã€€ã€€regsvr32 /s browseui.dll /I 
-ã€€ã€€regsvr32 /s msrating.dll 
-ã€€ã€€regsvr32 /s mlang.dll 
-ã€€ã€€regsvr32 /s hlink.dll 
-ã€€ã€€regsvr32 /s mshtml.dll 
-ã€€ã€€regsvr32 /s mshtmled.dll 
-ã€€ã€€regsvr32 /s urlmon.dll 
-ã€€ã€€regsvr32 /s plugin.ocx 
-ã€€ã€€regsvr32 /s sendmail.dll 
-ã€€ã€€regsvr32 /s mshtml.dll /i 
-ã€€ã€€regsvr32 /s scrobj.dll 
-ã€€ã€€regsvr32 /s corpol.dll 
-ã€€ã€€regsvr32 /s jscript.dll 
-ã€€ã€€regsvr32 /s msxml.dll 
-ã€€ã€€regsvr32 /s imgutil.dll 
-ã€€ã€€regsvr32 /s cryptext.dll 
-ã€€ã€€regsvr32 /s inseng.dll 
-ã€€ã€€regsvr32 /s iesetup.dll /i 
-ã€€ã€€regsvr32 /s cryptdlg.dll 
-ã€€ã€€regsvr32 /s actxprxy.dll 
-ã€€ã€€regsvr32 /s dispex.dll 
-ã€€ã€€regsvr32 /s occache.dll 
-ã€€ã€€regsvr32 /s iepeers.dll 
-ã€€ã€€regsvr32 /s urlmon.dll /i 
-ã€€ã€€regsvr32 /s cdfview.dll 
-ã€€ã€€regsvr32 /s webcheck.dll 
-ã€€ã€€regsvr32 /s mobsync.dll 
-ã€€ã€€regsvr32 /s pngfilt.dll 
-ã€€ã€€regsvr32 /s licmgr10.dll 
-ã€€ã€€regsvr32 /s hhctrl.ocx 
-ã€€ã€€regsvr32 /s inetcfg.dll 
-ã€€ã€€regsvr32 /s trialoc.dll 
-ã€€ã€€regsvr32 /s tdc.ocx 
-ã€€ã€€regsvr32 /s MSR2C.DLL 
-ã€€ã€€regsvr32 /s msident.dll 
-ã€€ã€€regsvr32 /s msieftp.dll 
-ã€€ã€€regsvr32 /s xmsconf.ocx 
-ã€€ã€€regsvr32 /s ils.dll 
-ã€€ã€€regsvr32 /s msoeacct.dll 
-ã€€ã€€regsvr32 /s wab32.dll 
-ã€€ã€€regsvr32 /s wabimp.dll 
-ã€€ã€€regsvr32 /s wabfind.dll 
-ã€€ã€€regsvr32 /s oemiglib.dll 
-ã€€ã€€regsvr32 /s directdb.dll 
-ã€€ã€€regsvr32 /s inetcomm.dll 
-ã€€ã€€regsvr32 /s msoe.dll 
-ã€€ã€€regsvr32 /s oeimport.dll 
-ã€€ã€€regsvr32 /s msdxm.ocx 
-ã€€ã€€regsvr32 /s dxmasf.dll 
-ã€€ã€€regsvr32 /s laprxy.dll 
-ã€€ã€€regsvr32 /s l3codecx.ax 
-ã€€ã€€regsvr32 /s acelpdec.ax 
-ã€€ã€€regsvr32 /s mpg4ds32.ax 
-ã€€ã€€regsvr32 /s danim.dll 
-ã€€ã€€regsvr32 /s Daxctle.ocx 
-ã€€ã€€regsvr32 /s lmrt.dll 
-ã€€ã€€regsvr32 /s datime.dll 
-ã€€ã€€regsvr32 /s dxtrans.dll 
-ã€€ã€€regsvr32 /s dxtmsft.dll 
-ã€€ã€€regsvr32 /s wshom.ocx 
-ã€€ã€€regsvr32 /s wshext.dll 
-ã€€ã€€regsvr32 /s vbscript.dll 
-ã€€ã€€regsvr32 /s scrrun.dll mstinit.exe /setup 
-ã€€ã€€regsvr32 /s msnsspc.dll /SspcCreateSspiReg 
-ã€€ã€€regsvr32 /s msapsspc.dll /SspcCreateSspiReg 
+echo ÕýÔÚÐÞ¸´£¬Õâ¸ö¹ý³Ì¿ÉÄÜÐèÒª¼¸·ÖÖÓ£¬ÇëÉÔºò¡­¡­ 
+¡¡¡¡rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%/System32/dacui.dll 
+¡¡¡¡rundll32.exe advpack.dll /DelNodeRunDLL32 %systemroot%/Catroot/icatalog.mdb 
+¡¡¡¡regsvr32 /s comcat.dll 
+¡¡¡¡regsvr32 /s asctrls.ocx 
+¡¡¡¡regsvr32 /s oleaut32.dll 
+¡¡¡¡regsvr32 /s shdocvw.dll /I 
+¡¡¡¡regsvr32 /s shdocvw.dll 
+¡¡¡¡regsvr32 /s browseui.dll 
+¡¡¡¡regsvr32 /s browseui.dll /I 
+¡¡¡¡regsvr32 /s msrating.dll 
+¡¡¡¡regsvr32 /s mlang.dll 
+¡¡¡¡regsvr32 /s hlink.dll 
+¡¡¡¡regsvr32 /s mshtml.dll 
+¡¡¡¡regsvr32 /s mshtmled.dll 
+¡¡¡¡regsvr32 /s urlmon.dll 
+¡¡¡¡regsvr32 /s plugin.ocx 
+¡¡¡¡regsvr32 /s sendmail.dll 
+¡¡¡¡regsvr32 /s mshtml.dll /i 
+¡¡¡¡regsvr32 /s scrobj.dll 
+¡¡¡¡regsvr32 /s corpol.dll 
+¡¡¡¡regsvr32 /s jscript.dll 
+¡¡¡¡regsvr32 /s msxml.dll 
+¡¡¡¡regsvr32 /s imgutil.dll 
+¡¡¡¡regsvr32 /s cryptext.dll 
+¡¡¡¡regsvr32 /s inseng.dll 
+¡¡¡¡regsvr32 /s iesetup.dll /i 
+¡¡¡¡regsvr32 /s cryptdlg.dll 
+¡¡¡¡regsvr32 /s actxprxy.dll 
+¡¡¡¡regsvr32 /s dispex.dll 
+¡¡¡¡regsvr32 /s occache.dll 
+¡¡¡¡regsvr32 /s iepeers.dll 
+¡¡¡¡regsvr32 /s urlmon.dll /i 
+¡¡¡¡regsvr32 /s cdfview.dll 
+¡¡¡¡regsvr32 /s webcheck.dll 
+¡¡¡¡regsvr32 /s mobsync.dll 
+¡¡¡¡regsvr32 /s pngfilt.dll 
+¡¡¡¡regsvr32 /s licmgr10.dll 
+¡¡¡¡regsvr32 /s hhctrl.ocx 
+¡¡¡¡regsvr32 /s inetcfg.dll 
+¡¡¡¡regsvr32 /s trialoc.dll 
+¡¡¡¡regsvr32 /s tdc.ocx 
+¡¡¡¡regsvr32 /s MSR2C.DLL 
+¡¡¡¡regsvr32 /s msident.dll 
+¡¡¡¡regsvr32 /s msieftp.dll 
+¡¡¡¡regsvr32 /s xmsconf.ocx 
+¡¡¡¡regsvr32 /s ils.dll 
+¡¡¡¡regsvr32 /s msoeacct.dll 
+¡¡¡¡regsvr32 /s wab32.dll 
+¡¡¡¡regsvr32 /s wabimp.dll 
+¡¡¡¡regsvr32 /s wabfind.dll 
+¡¡¡¡regsvr32 /s oemiglib.dll 
+¡¡¡¡regsvr32 /s directdb.dll 
+¡¡¡¡regsvr32 /s inetcomm.dll 
+¡¡¡¡regsvr32 /s msoe.dll 
+¡¡¡¡regsvr32 /s oeimport.dll 
+¡¡¡¡regsvr32 /s msdxm.ocx 
+¡¡¡¡regsvr32 /s dxmasf.dll 
+¡¡¡¡regsvr32 /s laprxy.dll 
+¡¡¡¡regsvr32 /s l3codecx.ax 
+¡¡¡¡regsvr32 /s acelpdec.ax 
+¡¡¡¡regsvr32 /s mpg4ds32.ax 
+¡¡¡¡regsvr32 /s danim.dll 
+¡¡¡¡regsvr32 /s Daxctle.ocx 
+¡¡¡¡regsvr32 /s lmrt.dll 
+¡¡¡¡regsvr32 /s datime.dll 
+¡¡¡¡regsvr32 /s dxtrans.dll 
+¡¡¡¡regsvr32 /s dxtmsft.dll 
+¡¡¡¡regsvr32 /s wshom.ocx 
+¡¡¡¡regsvr32 /s wshext.dll 
+¡¡¡¡regsvr32 /s vbscript.dll 
+¡¡¡¡regsvr32 /s scrrun.dll mstinit.exe /setup 
+¡¡¡¡regsvr32 /s msnsspc.dll /SspcCreateSspiReg 
+¡¡¡¡regsvr32 /s msapsspc.dll /SspcCreateSspiReg 
 cls
-ã€€ã€€echo ä¿®å¤æˆåŠŸï¼ä»»æ„é”®è¿”å›žï¼ 
-ã€€ã€€pause>nul
+¡¡¡¡echo ÐÞ¸´³É¹¦£¡ÈÎÒâ¼ü·µ»Ø£¡ 
+¡¡¡¡pause>nul
 goto tools520
 
 :winishaguiwd
 cls
-ECHO è¾“å…¥ä½ Uç›˜çš„ç›˜ç¬¦ï¼Œç„¶åŽæŒ‰å›žè½¦
+ECHO ÊäÈëÄãUÅÌµÄÅÌ·û£¬È»ºó°´»Ø³µ
 set /p pan=
 if /i "%pan%"=="C" goto nogeshihua
 goto tools520
 :nogeshihua
-echo è¯·ä¸è¦æ ¼å¼åŒ–ç³»ç»Ÿç›˜ï¼ï¼ï¼
+echo Çë²»Òª¸ñÊ½»¯ÏµÍ³ÅÌ£¡£¡£¡
 PAUSE>NUL
 goto tools520
 :yesgeshihua
@@ -2925,11 +2925,11 @@ goto tools520
 :xiufuip
 cls
 echo -------------------------------------------
-echo æŒ‰å›žè½¦åŽå°å¥¥ä¼šä¿®å¤ä½ ç”µè„‘çš„éƒ¨åˆ†ç½‘ç»œé—®é¢˜ã€‚è‹¥æ‚¨æŒ‰ä¸‹0ï¼Œç¨‹åºä¼šè¿”å›žå·¥å…·ç®±ã€‚
+echo °´»Ø³µºóÐ¡°Â»áÐÞ¸´ÄãµçÄÔµÄ²¿·ÖÍøÂçÎÊÌâ¡£ÈôÄú°´ÏÂ0£¬³ÌÐò»á·µ»Ø¹¤¾ßÏä¡£
 set choice=
 set /p choice=
 if "%choice%"=="0" goto tools520
-ECHO æ­£åœ¨æ³¨å†Œè¡¨...æœ‰æç¤ºè¯·ç‚¹ç¡®å®š...
+ECHO ÕýÔÚ×¢²á±í...ÓÐÌáÊ¾ÇëµãÈ·¶¨...
 ECHO Windows Registry Editor Version 5.00>>1.reg
 ECHO [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\mrxsmb10]>1.reg
 ECHO "DisplayName"="@%systemroot%\\system32\\wkssvc.dll,-1004">>1.reg
@@ -2986,9 +2986,9 @@ net start wuauserv
 net start cryptSvc
 net start bits
 net start msiserver
-rem å…³é—­Windowså¤–å£³ç¨‹åºexplorer
+rem ¹Ø±ÕWindowsÍâ¿Ç³ÌÐòexplorer
 taskkill /f /im explorer.exe
-rem æ¸…ç†ç³»ç»Ÿå›¾æ ‡ç¼“å­˜æ•°æ®åº“
+rem ÇåÀíÏµÍ³Í¼±ê»º´æÊý¾Ý¿â
 attrib -h -s -r "%userprofile%\AppData\Local\IconCache.db"
 del /f "%userprofile%\AppData\Local\IconCache.db"
 attrib /s /d -h -s -r "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\*"
@@ -2999,10 +2999,10 @@ del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_256.db
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_1024.db"
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_idx.db"
 del /f "%userprofile%\AppData\Local\Microsoft\Windows\Explorer\thumbcache_sr.db"
-rem æ¸…ç† ç³»ç»Ÿæ‰˜ç›˜è®°å¿†çš„å›¾æ ‡
+rem ÇåÀí ÏµÍ³ÍÐÅÌ¼ÇÒäµÄÍ¼±ê
 echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v IconStreams
 echo y|reg delete "HKEY_CLASSES_ROOT\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify" /v PastIconsStream
-rem é‡å¯Windowså¤–å£³ç¨‹åºexplorer
+rem ÖØÆôWindowsÍâ¿Ç³ÌÐòexplorer
 start explorer
 regsvr32.exe /s atl.dll
 regsvr32.exe /s urlmon.dll
@@ -3058,7 +3058,7 @@ net start
 cls
 netsh winsock reset
 netsh winsock reset catalog
-echo æŒ‰å›žè½¦åŽå°å¥¥ä¼šé‡å¯æ‚¨çš„ç”µè„‘ã€‚
+echo °´»Ø³µºóÐ¡°Â»áÖØÆôÄúµÄµçÄÔ¡£
 echo. & pause
 shutdown -r -t 0
 exit
@@ -3066,468 +3066,468 @@ exit
 :xiufuie
 cls
 echo -------------------------------------------
-Echo     å°å¥¥å³å°†ä¿®å¤æ‚¨çš„IEï¼Œåœ¨æ­¤ä¹‹å‰ç»™æ‚¨æ¸©é¦¨æç¤ºï¼š
-Echo     ä¸ºäº†ä»¥é˜²ä¸‡ä¸€ï¼Œè¯·å°†ç”µè„‘é™éŸ³ã€‚
-echo   è‹¥æ‚¨æŒ‰ä¸‹å›žè½¦ï¼Œç¨‹åºå˜å›žå¼€å§‹ä¿®å¤ç½‘é¡µï¼Œè‹¥æ‚¨æŒ‰ä¸‹0ï¼Œç¨‹åºä¼šè¿”å›žå·¥å…·ç®±ã€‚
+Echo     Ð¡°Â¼´½«ÐÞ¸´ÄúµÄIE£¬ÔÚ´ËÖ®Ç°¸øÄúÎÂÜ°ÌáÊ¾£º
+Echo     ÎªÁËÒÔ·ÀÍòÒ»£¬Çë½«µçÄÔ¾²Òô¡£
+echo   ÈôÄú°´ÏÂ»Ø³µ£¬³ÌÐò±ä»Ø¿ªÊ¼ÐÞ¸´ÍøÒ³£¬ÈôÄú°´ÏÂ0£¬³ÌÐò»á·µ»Ø¹¤¾ßÏä¡£
 set choice=
 set /p choice=
 if "%choice%"=="0" goto tools520
-Echo %Date% %Time% å¯åŠ¨ä¿®å¤ IE... 
+Echo %Date% %Time% Æô¶¯ÐÞ¸´ IE... 
 
 cls
 rundll32.exe advpack.dll /DelNodeRunDLL32 C:\WINNT\System32\dacui.dll 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 1/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 1/101... 
 rundll32.exe advpack.dll /DelNodeRunDLL32 C:\WINNT\Catroot\icatalog.mdb
 cls 
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 2/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 2/101... 
 regsvr32 setupwbv.dll /s 
 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 3/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 3/101... 
 regsvr32 wininet.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 4/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 4/101... 
 regsvr32 comcat.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 5/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 5/101... 
 regsvr32 shdoc401.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 6/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 6/101... 
 regsvr32 shdoc401.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 7/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 7/101... 
 regsvr32 asctrls.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 8/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 8/101... 
 regsvr32 oleaut32.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 9/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 9/101... 
 regsvr32 shdocvw.dll /I /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 10/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 10/101... 
 regsvr32 shdocvw.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 11/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 11/101... 
 regsvr32 browseui.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 12/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 12/101... 
 regsvr32 browseui.dll /I /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 13/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 13/101... 
 regsvr32 msrating.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 14/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 14/101... 
 regsvr32 mlang.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 15/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 15/101... 
 regsvr32 hlink.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 16/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 16/101... 
 regsvr32 mshtml.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 17/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 17/101... 
 regsvr32 mshtmled.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 18/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 18/101... 
 regsvr32 urlmon.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 19/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 19/101... 
 regsvr32 plugin.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 20/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 20/101... 
 regsvr32 sendmail.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 21/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 21/101... 
 regsvr32 comctl32.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 22/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 22/101... 
 regsvr32 inetcpl.cpl /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 23/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 23/101... 
 regsvr32 mshtml.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 24/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 24/101... 
 regsvr32 scrobj.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 25/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 25/101... 
 regsvr32 mmefxe.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 26/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 26/101... 
 regsvr32 proctexe.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 27/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 27/101... 
 mshta.exe /register 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 28/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 28/101... 
 regsvr32 corpol.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 29/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 29/101... 
 regsvr32 jscript.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 30/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 30/101... 
 regsvr32 msxml.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 31/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 31/101... 
 regsvr32 imgutil.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 32/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 32/101... 
 regsvr32 thumbvw.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 33/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 33/101... 
 regsvr32 cryptext.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 34/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 34/101... 
 regsvr32 rsabase.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 35/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 35/101... 
 regsvr32 triedit.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 36/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 36/101... 
 regsvr32 dhtmled.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 37/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 37/101... 
 regsvr32 inseng.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 38/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 38/101... 
 regsvr32 iesetup.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 39/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 39/101... 
 regsvr32 hmmapi.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 40/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 40/101... 
 regsvr32 cryptdlg.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 41/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 41/101... 
 regsvr32 actxprxy.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 42/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 42/101... 
 regsvr32 dispex.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 43/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 43/101... 
 regsvr32 occache.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 44/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 44/101... 
 regsvr32 occache.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 45/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 45/101... 
 regsvr32 iepeers.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 46/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 46/101... 
 regsvr32 wininet.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 47/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 47/101... 
 regsvr32 urlmon.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 48/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 48/101... 
 regsvr32 digest.dll /i /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 49/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 49/101... 
 regsvr32 cdfview.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 50/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 50/101... 
 regsvr32 webcheck.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 51/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 51/101... 
 regsvr32 mobsync.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 52/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 52/101... 
 regsvr32 pngfilt.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 53/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 53/101... 
 regsvr32 licmgr10.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 54/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 54/101... 
 regsvr32 icmfilter.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 55/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 55/101... 
 regsvr32 hhctrl.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 56/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 56/101... 
 regsvr32 inetcfg.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 57/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 57/101... 
 regsvr32 trialoc.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 58/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 58/101... 
 regsvr32 tdc.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 59/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 59/101... 
 regsvr32 MSR2C.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 60/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 60/101... 
 regsvr32 msident.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 61/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 61/101... 
 regsvr32 msieftp.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 62/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 62/101... 
 regsvr32 xmsconf.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 63/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 63/101... 
 regsvr32 ils.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 64/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 64/101... 
 regsvr32 msoeacct.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 65/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 65/101... 
 regsvr32 wab32.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 66/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 66/101... 
 regsvr32 wabimp.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 67/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 67/101... 
 regsvr32 wabfind.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 68/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 68/101... 
 regsvr32 oemiglib.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 69/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 69/101... 
 regsvr32 directdb.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 70/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 70/101... 
 regsvr32 inetcomm.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 71/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 71/101... 
 regsvr32 msoe.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 72/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 72/101... 
 regsvr32 oeimport.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 73/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 73/101... 
 regsvr32 msdxm.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 74/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 74/101... 
 regsvr32 dxmasf.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 75/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 75/101... 
 regsvr32 laprxy.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 76/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 76/101... 
 regsvr32 l3codecx.ax /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 77/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 77/101... 
 regsvr32 acelpdec.ax /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 78/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 78/101... 
 regsvr32 mpg4ds32.ax /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 79/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 79/101... 
 regsvr32 voxmsdec.ax /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 80/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 80/101... 
 regsvr32 danim.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 81/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 81/101... 
 regsvr32 Daxctle.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 82/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 82/101... 
 regsvr32 lmrt.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 83/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 83/101... 
 regsvr32 datime.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 84/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 84/101... 
 regsvr32 dxtrans.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 85/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 85/101... 
 regsvr32 dxtmsft.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 86/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 86/101... 
 regsvr32 vgx.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 87/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 87/101... 
 regsvr32 WEBPOST.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 88/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 88/101... 
 regsvr32 WPWIZDLL.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 89/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 89/101... 
 regsvr32 POSTWPP.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 90/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 90/101... 
 regsvr32 CRSWPP.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 91/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 91/101... 
 regsvr32 FTPWPP.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 92/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 92/101... 
 regsvr32 FPWPP.DLL /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 93/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 93/101... 
 regsvr32 FLUPL.OCX /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 94/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 94/101... 
 regsvr32 wshom.ocx /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 95/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 95/101... 
 regsvr32 wshext.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 96/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 96/101... 
 regsvr32 vbscript.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 97/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 97/101... 
 regsvr32 scrrun.dll /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 98/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 98/101... 
 mstinit.exe /setup /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 99/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 99/101... 
 regsvr32 msnsspc.dll /SspcCreateSspiReg /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 100/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 100/101... 
 regsvr32 msapsspc.dll /SspcCreateSspiReg /s 
 cls
-Echo %Date% %Time% è¿›åº¦å·²å®Œæˆ 101/101... 
+Echo %Date% %Time% ½ø¶ÈÒÑÍê³É 101/101... 
 cls
 echo %Date% %Time%
-echo å®‰å…¨èµ·è§ï¼Œæ­£åœ¨å¯åŠ¨ç¬¬äºŒæ¬¡ä¿®å¤...
-ã€€ã€€regsvr32 /s actxprxy.dll 
-ã€€ã€€regsvr32 /s shdocvw.dll 
-ã€€ã€€Regsvr32 /s URLMON.DLL 
-ã€€ã€€Regsvr32 /s actxprxy.dll 
-ã€€ã€€Regsvr32 /s shdocvw.dll 
-ã€€ã€€regsvr32 /s oleaut32.dll 
-ã€€ã€€rundll32.exe /s advpack.dll /DelNodeRunDLL32 C:\WINNT\System32\dacui.dll 
-ã€€ã€€rundll32.exe /s advpack.dll /DelNodeRunDLL32 C:\WINNT\Catroot\icatalog.mdb 
-ã€€ã€€regsvr32 /s setupwbv.dll 
+echo °²È«Æð¼û£¬ÕýÔÚÆô¶¯µÚ¶þ´ÎÐÞ¸´...
+¡¡¡¡regsvr32 /s actxprxy.dll 
+¡¡¡¡regsvr32 /s shdocvw.dll 
+¡¡¡¡Regsvr32 /s URLMON.DLL 
+¡¡¡¡Regsvr32 /s actxprxy.dll 
+¡¡¡¡Regsvr32 /s shdocvw.dll 
+¡¡¡¡regsvr32 /s oleaut32.dll 
+¡¡¡¡rundll32.exe /s advpack.dll /DelNodeRunDLL32 C:\WINNT\System32\dacui.dll 
+¡¡¡¡rundll32.exe /s advpack.dll /DelNodeRunDLL32 C:\WINNT\Catroot\icatalog.mdb 
+¡¡¡¡regsvr32 /s setupwbv.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 10
-ã€€ã€€regsvr32 /s wininet.dll 
-ã€€ã€€regsvr32 /s comcat.dll 
-ã€€ã€€regsvr32 /s shdoc401.dll 
-ã€€ã€€regsvr32 /s shdoc401.dll /i 
-ã€€ã€€regsvr32 /s asctrls.ocx 
-ã€€ã€€regsvr32 /s oleaut32.dll 
-ã€€ã€€regsvr32 /s shdocvw.dll /I 
-ã€€ã€€regsvr32 /s shdocvw.dll 
+echo Íê³É°Ù·ÖÖ® 10
+¡¡¡¡regsvr32 /s wininet.dll 
+¡¡¡¡regsvr32 /s comcat.dll 
+¡¡¡¡regsvr32 /s shdoc401.dll 
+¡¡¡¡regsvr32 /s shdoc401.dll /i 
+¡¡¡¡regsvr32 /s asctrls.ocx 
+¡¡¡¡regsvr32 /s oleaut32.dll 
+¡¡¡¡regsvr32 /s shdocvw.dll /I 
+¡¡¡¡regsvr32 /s shdocvw.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 15
-ã€€ã€€regsvr32 /s browseui.dll 
-ã€€ã€€regsvr32 /s browseui.dll /I 
-ã€€ã€€regsvr32 /s msrating.dll 
-ã€€ã€€regsvr32 /s mlang.dll 
-ã€€ã€€regsvr32 /s hlink.dll 
-ã€€ã€€regsvr32 /s mshtml.dll 
-ã€€ã€€regsvr32 /s mshtmled.dll 
-ã€€ã€€regsvr32 /s urlmon.dll 
-ã€€ã€€regsvr32 /s plugin.ocx 
+echo Íê³É°Ù·ÖÖ® 15
+¡¡¡¡regsvr32 /s browseui.dll 
+¡¡¡¡regsvr32 /s browseui.dll /I 
+¡¡¡¡regsvr32 /s msrating.dll 
+¡¡¡¡regsvr32 /s mlang.dll 
+¡¡¡¡regsvr32 /s hlink.dll 
+¡¡¡¡regsvr32 /s mshtml.dll 
+¡¡¡¡regsvr32 /s mshtmled.dll 
+¡¡¡¡regsvr32 /s urlmon.dll 
+¡¡¡¡regsvr32 /s plugin.ocx 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 20
-ã€€ã€€regsvr32 /s sendmail.dll 
-ã€€ã€€regsvr32 /s comctl32.dll /i 
-ã€€ã€€regsvr32 /s inetcpl.cpl /i 
-ã€€ã€€regsvr32 /s mshtml.dll /i 
-ã€€ã€€regsvr32 /s scrobj.dll 
-ã€€ã€€regsvr32 /s mmefxe.ocx 
-ã€€ã€€regsvr32 /s proctexe.ocx mshta.exe /register 
-ã€€ã€€regsvr32 /s corpol.dll 
-ã€€ã€€regsvr32 /s jscript.dll 
-ã€€ã€€regsvr32 /s msxml.dll 
+echo Íê³É°Ù·ÖÖ® 20
+¡¡¡¡regsvr32 /s sendmail.dll 
+¡¡¡¡regsvr32 /s comctl32.dll /i 
+¡¡¡¡regsvr32 /s inetcpl.cpl /i 
+¡¡¡¡regsvr32 /s mshtml.dll /i 
+¡¡¡¡regsvr32 /s scrobj.dll 
+¡¡¡¡regsvr32 /s mmefxe.ocx 
+¡¡¡¡regsvr32 /s proctexe.ocx mshta.exe /register 
+¡¡¡¡regsvr32 /s corpol.dll 
+¡¡¡¡regsvr32 /s jscript.dll 
+¡¡¡¡regsvr32 /s msxml.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 25
-ã€€ã€€regsvr32 /s imgutil.dll 
-ã€€ã€€regsvr32 /s thumbvw.dll 
-ã€€ã€€regsvr32 /s cryptext.dll 
-ã€€ã€€regsvr32 /s rsabase.dll 
-ã€€ã€€regsvr32 /s triedit.dll 
-ã€€ã€€regsvr32 /s dhtmled.ocx 
-ã€€ã€€regsvr32 /s inseng.dll 
+echo Íê³É°Ù·ÖÖ® 25
+¡¡¡¡regsvr32 /s imgutil.dll 
+¡¡¡¡regsvr32 /s thumbvw.dll 
+¡¡¡¡regsvr32 /s cryptext.dll 
+¡¡¡¡regsvr32 /s rsabase.dll 
+¡¡¡¡regsvr32 /s triedit.dll 
+¡¡¡¡regsvr32 /s dhtmled.ocx 
+¡¡¡¡regsvr32 /s inseng.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 30
-ã€€ã€€regsvr32 /s iesetup.dll /i 
-ã€€ã€€regsvr32 /s hmmapi.dll 
-ã€€ã€€regsvr32 /s cryptdlg.dll 
-ã€€ã€€regsvr32 /s actxprxy.dll 
-ã€€ã€€regsvr32 /s dispex.dll 
-ã€€ã€€regsvr32 /s occache.dll 
-ã€€ã€€regsvr32 /s occache.dll /i 
-ã€€ã€€regsvr32 /s iepeers.dll 
+echo Íê³É°Ù·ÖÖ® 30
+¡¡¡¡regsvr32 /s iesetup.dll /i 
+¡¡¡¡regsvr32 /s hmmapi.dll 
+¡¡¡¡regsvr32 /s cryptdlg.dll 
+¡¡¡¡regsvr32 /s actxprxy.dll 
+¡¡¡¡regsvr32 /s dispex.dll 
+¡¡¡¡regsvr32 /s occache.dll 
+¡¡¡¡regsvr32 /s occache.dll /i 
+¡¡¡¡regsvr32 /s iepeers.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 40
-ã€€ã€€regsvr32 /s wininet.dll /i 
-ã€€ã€€regsvr32 /s urlmon.dll /i 
-ã€€ã€€regsvr32 /s digest.dll /i 
-ã€€ã€€regsvr32 /s cdfview.dll 
-ã€€ã€€regsvr32 /s webcheck.dll 
+echo Íê³É°Ù·ÖÖ® 40
+¡¡¡¡regsvr32 /s wininet.dll /i 
+¡¡¡¡regsvr32 /s urlmon.dll /i 
+¡¡¡¡regsvr32 /s digest.dll /i 
+¡¡¡¡regsvr32 /s cdfview.dll 
+¡¡¡¡regsvr32 /s webcheck.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 50
-ã€€ã€€regsvr32 /s mobsync.dll 
-ã€€ã€€regsvr32 /s pngfilt.dll 
-ã€€ã€€regsvr32 /s licmgr10.dll 
-ã€€ã€€regsvr32 /s icmfilter.dll 
-ã€€ã€€regsvr32 /s hhctrl.ocx 
-ã€€ã€€regsvr32 /s inetcfg.dll 
-ã€€ã€€regsvr32 /s trialoc.dll 
-ã€€ã€€regsvr32 /s tdc.ocx 
-ã€€ã€€regsvr32 /s MSR2C.DLL 
-ã€€ã€€regsvr32 /s msident.dll 
-ã€€ã€€regsvr32 /s msieftp.dll 
+echo Íê³É°Ù·ÖÖ® 50
+¡¡¡¡regsvr32 /s mobsync.dll 
+¡¡¡¡regsvr32 /s pngfilt.dll 
+¡¡¡¡regsvr32 /s licmgr10.dll 
+¡¡¡¡regsvr32 /s icmfilter.dll 
+¡¡¡¡regsvr32 /s hhctrl.ocx 
+¡¡¡¡regsvr32 /s inetcfg.dll 
+¡¡¡¡regsvr32 /s trialoc.dll 
+¡¡¡¡regsvr32 /s tdc.ocx 
+¡¡¡¡regsvr32 /s MSR2C.DLL 
+¡¡¡¡regsvr32 /s msident.dll 
+¡¡¡¡regsvr32 /s msieftp.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 60
-ã€€ã€€regsvr32 /s xmsconf.ocx 
-ã€€ã€€regsvr32 /s ils.dll 
-ã€€ã€€regsvr32 /s msoeacct.dll 
-ã€€ã€€regsvr32 /s wab32.dll 
-ã€€ã€€regsvr32 /s wabimp.dll
+echo Íê³É°Ù·ÖÖ® 60
+¡¡¡¡regsvr32 /s xmsconf.ocx 
+¡¡¡¡regsvr32 /s ils.dll 
+¡¡¡¡regsvr32 /s msoeacct.dll 
+¡¡¡¡regsvr32 /s wab32.dll 
+¡¡¡¡regsvr32 /s wabimp.dll
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 70
-ã€€ã€€regsvr32 /s wabfind.dll 
-ã€€ã€€regsvr32 /s oemiglib.dll 
-ã€€ã€€regsvr32 /s directdb.dll 
-ã€€ã€€regsvr32 /s inetcomm.dll 
-ã€€ã€€regsvr32 /s msoe.dll 
-ã€€ã€€regsvr32 /s oeimport.dll 
-ã€€ã€€regsvr32 /s msdxm.ocx 
+echo Íê³É°Ù·ÖÖ® 70
+¡¡¡¡regsvr32 /s wabfind.dll 
+¡¡¡¡regsvr32 /s oemiglib.dll 
+¡¡¡¡regsvr32 /s directdb.dll 
+¡¡¡¡regsvr32 /s inetcomm.dll 
+¡¡¡¡regsvr32 /s msoe.dll 
+¡¡¡¡regsvr32 /s oeimport.dll 
+¡¡¡¡regsvr32 /s msdxm.ocx 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 80
-ã€€ã€€regsvr32 /s dxmasf.dll 
-ã€€ã€€regsvr32 /s laprxy.dll 
-ã€€ã€€regsvr32 /s l3codecx.ax 
-ã€€ã€€regsvr32 /s acelpdec.ax 
-ã€€ã€€regsvr32 /s mpg4ds32.ax 
-ã€€ã€€regsvr32 /s voxmsdec.ax 
-ã€€ã€€regsvr32 /s danim.dll 
-ã€€ã€€regsvr32 /s Daxctle.ocx 
-ã€€ã€€regsvr32 /s lmrt.dll 
-ã€€ã€€regsvr32 /s datime.dll 
-ã€€ã€€regsvr32 /s dxtrans.dll 
-ã€€ã€€regsvr32 /s dxtmsft.dll 
-ã€€ã€€regsvr32 /s vgx.dll 
+echo Íê³É°Ù·ÖÖ® 80
+¡¡¡¡regsvr32 /s dxmasf.dll 
+¡¡¡¡regsvr32 /s laprxy.dll 
+¡¡¡¡regsvr32 /s l3codecx.ax 
+¡¡¡¡regsvr32 /s acelpdec.ax 
+¡¡¡¡regsvr32 /s mpg4ds32.ax 
+¡¡¡¡regsvr32 /s voxmsdec.ax 
+¡¡¡¡regsvr32 /s danim.dll 
+¡¡¡¡regsvr32 /s Daxctle.ocx 
+¡¡¡¡regsvr32 /s lmrt.dll 
+¡¡¡¡regsvr32 /s datime.dll 
+¡¡¡¡regsvr32 /s dxtrans.dll 
+¡¡¡¡regsvr32 /s dxtmsft.dll 
+¡¡¡¡regsvr32 /s vgx.dll 
 cls
-echo å®Œæˆç™¾åˆ†ä¹‹ 90
-ã€€ã€€regsvr32 /s WEBPOST.DLL 
-ã€€ã€€regsvr32 /s WPWIZDLL.DLL 
-ã€€ã€€regsvr32 /s POSTWPP.DLL 
-ã€€ã€€regsvr32 /s CRSWPP.DLL 
-ã€€ã€€regsvr32 /s FTPWPP.DLL 
-ã€€ã€€regsvr32 /s FPWPP.DLL 
-ã€€ã€€regsvr32 /s FLUPL.OCX 
-ã€€ã€€regsvr32 /s wshom.ocx 
-ã€€ã€€regsvr32 /s wshext.dll 
-ã€€ã€€regsvr32 /s vbscript.dll 
-ã€€ã€€regsvr32 /s scrrun.dll mstinit.exe /setup 
-ã€€ã€€regsvr32 /s msnsspc.dll /SspcCreateSspiReg 
-ã€€ã€€regsvr32 /s msapsspc.dll /SspcCreateSspiReg
+echo Íê³É°Ù·ÖÖ® 90
+¡¡¡¡regsvr32 /s WEBPOST.DLL 
+¡¡¡¡regsvr32 /s WPWIZDLL.DLL 
+¡¡¡¡regsvr32 /s POSTWPP.DLL 
+¡¡¡¡regsvr32 /s CRSWPP.DLL 
+¡¡¡¡regsvr32 /s FTPWPP.DLL 
+¡¡¡¡regsvr32 /s FPWPP.DLL 
+¡¡¡¡regsvr32 /s FLUPL.OCX 
+¡¡¡¡regsvr32 /s wshom.ocx 
+¡¡¡¡regsvr32 /s wshext.dll 
+¡¡¡¡regsvr32 /s vbscript.dll 
+¡¡¡¡regsvr32 /s scrrun.dll mstinit.exe /setup 
+¡¡¡¡regsvr32 /s msnsspc.dll /SspcCreateSspiReg 
+¡¡¡¡regsvr32 /s msapsspc.dll /SspcCreateSspiReg
 cls 
-echo å®Œæˆç™¾åˆ†ä¹‹ 100
+echo Íê³É°Ù·ÖÖ® 100
 cls
-Echo IE ä¿®å¤å®Œæ¯• 
+Echo IE ÐÞ¸´Íê±Ï 
 cls
-Echo å°å¥¥å·²æˆåŠŸå°†IEä¿®å¤ï¼
+Echo Ð¡°ÂÒÑ³É¹¦½«IEÐÞ¸´£¡
 pause
 goto tools520
 
 
 :fanghuoqiang
 cls
-echo         è®¾ç½®é˜²ç«å¢™
-echo       è¾“å…¥1å…³é—­é˜²ç«å¢™
-echo       è¾“å…¥2å¼€å¯é˜²ç«å¢™
-echo       è¾“å…¥3é‡ç½®é˜²ç«å¢™
-echo      æŒ‰å›žè½¦è¿”å›žå·¥å…·ç®±
+echo         ÉèÖÃ·À»ðÇ½
+echo       ÊäÈë1¹Ø±Õ·À»ðÇ½
+echo       ÊäÈë2¿ªÆô·À»ðÇ½
+echo       ÊäÈë3ÖØÖÃ·À»ðÇ½
+echo      °´»Ø³µ·µ»Ø¹¤¾ßÏä
 set choice= 
-set /p choice=è¯·è¾“å…¥å›žåº”ï¼š
+set /p choice=ÇëÊäÈë»ØÓ¦£º
 if "%choice%"=="" goto tools520
 if "%choice%"=="1" goto guanbifanghuoqiang
 if "%choice%"=="2" goto kaiqifanghuoqiang
@@ -3544,7 +3544,7 @@ goto tools520
 
 
 :jincheng
-title å¾®åž‹ä»»åŠ¡ç®¡ç†å™¨
+title Î¢ÐÍÈÎÎñ¹ÜÀíÆ÷
 mode con cols=70 lines=70
 cls
 set space= 
@@ -3554,7 +3554,7 @@ set num=0
 for /f "skip=4" %%i in ('tasklist') do (set /a num+=1&set task!num!=%%i&set str=!num!-----&set str=!str:~0,6!&set str=!str!%%i!space!&set str=!str:~0,30!&set echo=!echo!!str!&set /a flag+=1&if !flag!==2 (echo !echo!&set flag=0&set echo=))
 if not "%echo%"=="" echo !echo!
 set echo=&set flag=
-set /p choose=è¯·é€‰æ‹©ä¸€ä¸ªè¦æ€çš„è¿›ç¨‹:
+set /p choose=ÇëÑ¡ÔñÒ»¸öÒªÉ±µÄ½ø³Ì:
 call taskkill /im %%task%choose%%% /f
 pause
 goto tools520
@@ -3562,8 +3562,8 @@ goto tools520
 
 :wordxiufu
 cls
-echo    æ³¨æ„ï¼šè¯·å…ˆå…³é—­æ‰€æœ‰Wordæ–‡æ¡£ç¨‹åºï¼Œç„¶åŽæŒ‰ä»»æ„é”®å¼€å§‹ä¿®å¤......
-echo è‹¥æ‚¨æŒ‰ä¸‹å›žè½¦ï¼Œåˆ™ä¼šå¼€å§‹ä¿®å¤ï¼Œè‹¥æ‚¨æŒ‰ä¸‹0ï¼Œç¨‹åºä¼šè¿”å›žå·¥å…·ç®±ã€‚
+echo    ×¢Òâ£ºÇëÏÈ¹Ø±ÕËùÓÐWordÎÄµµ³ÌÐò£¬È»ºó°´ÈÎÒâ¼ü¿ªÊ¼ÐÞ¸´......
+echo ÈôÄú°´ÏÂ»Ø³µ£¬Ôò»á¿ªÊ¼ÐÞ¸´£¬ÈôÄú°´ÏÂ0£¬³ÌÐò»á·µ»Ø¹¤¾ßÏä¡£
 set choice=
 set /p choice=
 if "%choice%"=="0" goto tools520
@@ -3571,8 +3571,8 @@ del /f /s /q "%userprofile%\local settings\temp\*.*"
 del /f /s /q "%appdata%\microsoft\Templates\*.dot"
 del /f /s /q "%appdata%\microsoft\Word\Startup\*.dot"
 cls
-echo ä¿®å¤æˆåŠŸï¼
-echo å¦‚æžœä»æœ‰é—®é¢˜ï¼Œè¯·æ‰‹åŠ¨ç‚¹å‡»â€œå¼€å§‹â€â€”â€œè¿è¡Œâ€â€œregsvr32 /u /s pintlgnt.imeâ€å‘½ä»¤ã€‚
+echo ÐÞ¸´³É¹¦£¡
+echo Èç¹ûÈÔÓÐÎÊÌâ£¬ÇëÊÖ¶¯µã»÷¡°¿ªÊ¼¡±¡ª¡°ÔËÐÐ¡±¡°regsvr32 /u /s pintlgnt.ime¡±ÃüÁî¡£
 pause
 goto tools520
 
@@ -3580,21 +3580,21 @@ goto tools520
 :Taskkill
 cls
 echo -------------------------------------------
-echo ------------æ¬¢è¿Žä½¿ç”¨æžåŠ›æ¸…ç†å™¨-------------
+echo ------------»¶Ó­Ê¹ÓÃ¼«Á¦ÇåÀíÆ÷-------------
 echo -------------------------------------------
-echo â— è­¦å‘Šï¼è¶…çº§æ¸…ç†å¯èƒ½ä¼šå¯¼è‡´æ‚¨çš„ä¸ªæ€§åŒ–è®¾ç½®å¤±æ•ˆï¼Œå¦‚ä¸æ˜¯ç‰¹æ®Šéœ€è¦è¯·å‹¿ä½¿ç”¨æœ¬é€‰é¡¹ï¼
-echo â— é‡è¦æ–‡ä»¶ä¸€å®šè¦äº‹å…ˆåšå¥½å¤‡ä»½ï¼Œå¦‚æ‚¨çš„æ–‡ä»¶æ•…æ„æ”¾åœ¨äº†ç¼“å­˜æ¸…ç†ä½ç½®ï¼Œè¢«ç¨‹åºè¯¯åˆ åŽæœ¬äººåŠç¨‹åºä¸æ‰¿æ‹…ä»»ä½•è´£ä»»ï¼
-echo â— å†³å®šå¥½åŽè¯·æŒ‰åŠ¨å›žè½¦ã€‚
-echo â— è¿è¡Œå‰è¯·å°½æœ€å¤§å¯èƒ½å…³é—­æ­£åœ¨ä½¿ç”¨ä¸­çš„è½¯ä»¶ï¼Œå¦åˆ™å¯èƒ½ä¼šå¯¼è‡´ç¨‹åºå¡ä½ã€‚
-echo â— è‹¥å‡ºçŽ°å¡ä½çŽ°è±¡æŽ¨èè¿›è¡Œé‡å¯æ“ä½œã€‚
+echo ¡ñ ¾¯¸æ£¡³¬¼¶ÇåÀí¿ÉÄÜ»áµ¼ÖÂÄúµÄ¸öÐÔ»¯ÉèÖÃÊ§Ð§£¬Èç²»ÊÇÌØÊâÐèÒªÇëÎðÊ¹ÓÃ±¾Ñ¡Ïî£¡
+echo ¡ñ ÖØÒªÎÄ¼þÒ»¶¨ÒªÊÂÏÈ×öºÃ±¸·Ý£¬ÈçÄúµÄÎÄ¼þ¹ÊÒâ·ÅÔÚÁË»º´æÇåÀíÎ»ÖÃ£¬±»³ÌÐòÎóÉ¾ºó±¾ÈË¼°³ÌÐò²»³Ðµ£ÈÎºÎÔðÈÎ£¡
+echo ¡ñ ¾ö¶¨ºÃºóÇë°´¶¯»Ø³µ¡£
+echo ¡ñ ÔËÐÐÇ°Çë¾¡×î´ó¿ÉÄÜ¹Ø±ÕÕýÔÚÊ¹ÓÃÖÐµÄÈí¼þ£¬·ñÔò¿ÉÄÜ»áµ¼ÖÂ³ÌÐò¿¨×¡¡£
+echo ¡ñ Èô³öÏÖ¿¨×¡ÏÖÏóÍÆ¼ö½øÐÐÖØÆô²Ù×÷¡£
 echo -------------------------------------------
 pause
-echo æ­£åœ¨æ¸…ç†ä¸ªæ€§åŒ–é¡¹ç›®...
+echo ÕýÔÚÇåÀí¸öÐÔ»¯ÏîÄ¿...
 start %windir%\explorer.exe
 Del /a/f/s/q "%WinDir%\Cursors\*.*"
 Del /a/f/s/q "%SysDir%\oobe\*.*"
 cls
-echo Win10ä¼˜åŒ–
+echo Win10ÓÅ»¯
 powercfg -h off
 SCHTASKS /Delete /TN * /F
 for %%a in (EventSystem CoreMessagingRegistrar CryptSvc DcomLaunch gpsvc LSM Power RpcSs RpcEptMapper SamSs ShellHWDetection sppsvc SENS SystemEventsBroker Schedule Themes tiledatamodelsvc UserManager ProfSvc Audiosrv AudioEndpointBuilder Wcmsvc EventLog Winmgmt WlanSvc knbcenter KSafeSvc Dnscache) do sc config %%a start= auto
@@ -3606,11 +3606,11 @@ goto jiliqingli
 :delVM
 cls
 echo -------------------------------------------
-echo è¯·æ³¨æ„ï¼æœ¬ç¨‹åºæ˜¯éœ€è¦æ‚¨åœ¨å¸è½½å®ŒVMwareæˆ–è€…å¸è½½å¤±è´¥
-echo å†æˆ–è€…å¸è½½æˆåŠŸä½†æ— æ³•å†æ¬¡å®‰è£…çš„æƒ…å†µä¸‹ä½¿ç”¨çš„ï¼
-echo å¦‚æžœå‡ºçŽ°ä»»ä½•æç¤ºè¯·ç‚¹å‡»â€œç¡®è®¤â€ï¼
+echo Çë×¢Òâ£¡±¾³ÌÐòÊÇÐèÒªÄúÔÚÐ¶ÔØÍêVMware»òÕßÐ¶ÔØÊ§°Ü
+echo ÔÙ»òÕßÐ¶ÔØ³É¹¦µ«ÎÞ·¨ÔÙ´Î°²×°µÄÇé¿öÏÂÊ¹ÓÃµÄ£¡
+echo Èç¹û³öÏÖÈÎºÎÌáÊ¾Çëµã»÷¡°È·ÈÏ¡±£¡
 echo -------------------------------------------
-echo æŒ‰ä»»æ„é”®å¼€å§‹å¸è½½VMware.....
+echo °´ÈÎÒâ¼ü¿ªÊ¼Ð¶ÔØVMware.....
 pause
 net stop VMAuthdService
 net stop VMnetDHCP
@@ -3648,7 +3648,7 @@ reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-
 reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\BC78C1BA70810FC44B2CEC1EC481DC4B" /f >nul 2>nul
 reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\C3839DFF5D1079849A4534FA95A9DE03" /f >nul 2>nul
 reg delete "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Installer\UserData\S-1-5-18\Products\DBBFB30076C6E9142AD4D0ACCFA32594" /f >nul 2>nul
-echo å–æ¶ˆDLLæ–‡ä»¶çš„æ³¨å†Œ... 
+echo È¡ÏûDLLÎÄ¼þµÄ×¢²á... 
 regsvr32 /u /s "%cd%/vmappcfg.dll" 
 regsvr32 /u /s "%cd%/vmappsdk.dll" 
 regsvr32 /u /s "%cd%/vmdbCOM.dll" 
@@ -3658,7 +3658,7 @@ regsvr32 /u /s "%cd%\V2V\reconfig.dll"
 regsvr32 /u /s "%cd%\V2V\vhdcvtcom.dll" 
 regsvr32 /u /s "%cd%\V2V\vmc2vmx.dll" 
 regsvr32 /u /s "%cd%\V2V\vpcCvt.dll" 
-echo æ­£åœ¨åˆ é™¤è™šæ‹Ÿç½‘å¡ï¼Œè¯·ç¨åŽâ€¦â€¦ 
+echo ÕýÔÚÉ¾³ýÐéÄâÍø¿¨£¬ÇëÉÔºó¡­¡­ 
 :delete VM Network 
 start /wait vnetlib -- remove adapter vmnet1 
 start /wait vnetlib -- remove adapter vmnet8 
@@ -3666,81 +3666,81 @@ start /wait vnetlib -- remove dhcp vmnet1
 start /wait vnetlib -- remove dhcp vmnet8 
 start /wait vnetlib -- remove nat vmnet8 
 :delservice 
-echo æ­£åœ¨åˆ é™¤æœåŠ¡... 
-call :åˆ é™¤æœåŠ¡ vmnetbridge 
-call :åˆ é™¤æœåŠ¡ VMAuthdService 
-call :åˆ é™¤æœåŠ¡ vmx86 
-call :åˆ é™¤æœåŠ¡ VMnetAdapter 
-call :åˆ é™¤æœåŠ¡ "VMware NAT Service" 
-call :åˆ é™¤æœåŠ¡ "VMnetDHCP" 
-call :åˆ é™¤æœåŠ¡ VMnetuserif 
-call :åˆ é™¤æœåŠ¡ hcmon 
-call :åˆ é™¤æœåŠ¡ Vmparport 
-call :åˆ é™¤æœåŠ¡ vstor2-ws60 
-call :åˆ é™¤æœåŠ¡ vstor2 
-call :åˆ é™¤æœåŠ¡ vmkbd 
+echo ÕýÔÚÉ¾³ý·þÎñ... 
+call :É¾³ý·þÎñ vmnetbridge 
+call :É¾³ý·þÎñ VMAuthdService 
+call :É¾³ý·þÎñ vmx86 
+call :É¾³ý·þÎñ VMnetAdapter 
+call :É¾³ý·þÎñ "VMware NAT Service" 
+call :É¾³ý·þÎñ "VMnetDHCP" 
+call :É¾³ý·þÎñ VMnetuserif 
+call :É¾³ý·þÎñ hcmon 
+call :É¾³ý·þÎñ Vmparport 
+call :É¾³ý·þÎñ vstor2-ws60 
+call :É¾³ý·þÎñ vstor2 
+call :É¾³ý·þÎñ vmkbd 
 "%cd%\VMMount\vmount2.exe" /Unregserver 
 netcfg -u vmware_bridge 
 echo. 
 :delfile 
-echo åˆ é™¤å®‰è£…çš„æ–‡ä»¶.... 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmnet.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmnetBridge.dll 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\netbridge.inf 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmnetBridge.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmusb.cat 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmusb.inf 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmusb.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\netadapter.inf 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vmnetAdapter.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\inf\vnetinst.dll 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\lastgood\system32\drivers\vmnetadapter.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\lastgood\system32\drivers\vmnet.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\lastgood\system32\drivers\vmnetbridge.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmnetadapter.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmnet.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmnetbridge.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmusb.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\hcmon.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmnetuserif.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmparport.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\drivers\vmx86.sys 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\NETCFG.EXE 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\choice.exe 
-call :åˆ é™¤æ–‡ä»¶ %systemroot%\system32\devcon.exe  
+echo É¾³ý°²×°µÄÎÄ¼þ.... 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmnet.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmnetBridge.dll 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\netbridge.inf 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmnetBridge.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmusb.cat 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmusb.inf 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmusb.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\netadapter.inf 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vmnetAdapter.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\inf\vnetinst.dll 
+call :É¾³ýÎÄ¼þ %systemroot%\lastgood\system32\drivers\vmnetadapter.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\lastgood\system32\drivers\vmnet.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\lastgood\system32\drivers\vmnetbridge.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmnetadapter.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmnet.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmnetbridge.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmusb.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\hcmon.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmnetuserif.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmparport.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\drivers\vmx86.sys 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\NETCFG.EXE 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\choice.exe 
+call :É¾³ýÎÄ¼þ %systemroot%\system32\devcon.exe  
 rd /s /q %APPDATA%\vmware 
 rd /s /q "\Virtual Machines"  
 :delreg 
-echo åˆ é™¤æ³¨å†Œè¡¨.... 
+echo É¾³ý×¢²á±í.... 
 reg delete "HKEY_LOCAL_MACHINE\SOFTWARE\VMware, Inc." /f 
 :deluser 
-echo åˆ é™¤ç”¨æˆ·__vmware_user__... 
+echo É¾³ýÓÃ»§__vmware_user__... 
 net user __vmware_user__ /delete 
 net localgroup __vmware__ /delete  
 cls
-pause>nul|echo å¸è½½å®Œæˆ...... 
+pause>nul|echo Ð¶ÔØÍê³É...... 
 goto tools520
 goto :eof 
-:åˆ é™¤æ–‡ä»¶ 
-echo æ­£åœ¨åˆ é™¤æ–‡ä»¶ %* 
+:É¾³ýÎÄ¼þ 
+echo ÕýÔÚÉ¾³ýÎÄ¼þ %* 
 del /f /q "%*" >nul 2>nul 
 del /f /q %APPDATA%\VMware\*.*
 goto :eof 
-:åˆ é™¤æœåŠ¡ 
-echo æ­£åœ¨åˆ é™¤æœåŠ¡ %* 
+:É¾³ý·þÎñ 
+echo ÕýÔÚÉ¾³ý·þÎñ %* 
 net stop %* 2>nul 
 sc delete %* 
 goto :eof
 
 :end  
 cls
-title å·¥ä½œå®Œæˆï¼
+title ¹¤×÷Íê³É£¡
 color 2e
-echo æ­å–œ
-echo å·¥ä½œå®Œæˆï¼
+echo ¹§Ï²
+echo ¹¤×÷Íê³É£¡
 ctfmon
 echo.
-echo å·²é‡æ–°å¯åŠ¨è¾“å…¥æ³•ï¼
+echo ÒÑÖØÐÂÆô¶¯ÊäÈë·¨£¡
 pause>nul
 goto maxice
 
