@@ -2,199 +2,500 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>九境美 AI 聊天测试站</title>
-  <!-- 引入 highlight.js 样式 -->
-  <link rel="stylesheet" href="default.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>AI 聊天测试</title>
+  <link href="./fonts.googleleapis.css" rel="stylesheet">
+  <link rel="stylesheet" href="./default.min.css">
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+    html, body {
+      height: 100%;
+      width: 100%;
+      overflow: hidden;
+    }
     body {
-      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      font-family: 'Inter', sans-serif;
       margin: 0;
       padding: 0;
-      background: #f5f5f5;
-      height: 100vh;
       display: flex;
-      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #c89eff, #90b8ff, #ffc0cb, #ffe0b3);
+      background-size: 400% 400%;
+      animation: gradient-animation 30s ease infinite;
+      position: relative;
     }
-    /* 聊天容器自动适配整个浏览器窗口高度 */
+
+    @keyframes gradient-animation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    #raindrop-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 0;
+      pointer-events: none;
+      opacity: 0.6;
+    }
+
     #chat-container {
       width: 100%;
-      max-width: 800px;
-      height: 100vh;
+      height: 100%;
+      max-width: 860px;
+      max-height: 96vh;
       display: flex;
       flex-direction: column;
-      background: rgba(255, 255, 255, 0.95);
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(35px) saturate(200%);
+      -webkit-backdrop-filter: blur(35px) saturate(200%);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 16px 50px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(255,255,255,0.1) inset;
+      border-radius: 2rem;
       overflow: hidden;
-      margin-bottom: 10px;
+      z-index: 1;
+      transition: box-shadow 0.4s ease, transform 0.4s ease;
     }
+    @media (min-width: 769px) {
+      #chat-container:hover {
+          box-shadow: 0 20px 65px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255,255,255,0.15) inset;
+          transform: translateY(-4px) scale(1.005);
+      }
+    }
+
+
     h2 {
       text-align: center;
-      background: #25d366;
-      color: white;
+      background: rgba(255, 255, 255, 0.06);
+      backdrop-filter: blur(20px) saturate(160%);
+      -webkit-backdrop-filter: blur(20px) saturate(160%);
+      color: #ffffff;
       margin: 0;
-      padding: 15px;
+      padding: 20px 15px;
+      font-weight: 700;
+      font-size: 2rem;
+      text-shadow: 0 4px 8px rgba(0,0,0,0.35);
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.12);
+      border-radius: 2rem 2rem 0 0;
+      letter-spacing: 0.5px;
     }
-    #status {
-      text-align: center;
-      font-size: 12px;
-      color: #333;
-      padding: 5px;
-      background: rgba(0, 0, 0, 0.05);
+
+    h2 .slogan {
+      font-size: 0.6em;
+      opacity: 0.9;
+      display: block;
+      margin-top: 7px;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      font-weight: 400;
+      letter-spacing: 0.2px;
     }
-    /* 顶部控制区域 */
+
     #top-controls {
       text-align: center;
-      padding: 10px;
+      padding: 14px 10px;
+      background: rgba(255, 255, 255, 0.04);
+      backdrop-filter: blur(15px) saturate(140%);
+      -webkit-backdrop-filter: blur(15px) saturate(140%);
+      border-bottom: 1.5px solid rgba(255, 255, 255, 0.1);
+      display: flex;
+      justify-content: center;
+      gap: 10px;
     }
+
     #messages {
       flex: 1;
-      padding: 10px;
+      padding: 20px;
+      padding-bottom: 80px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
+      scroll-behavior: smooth;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.08);
+      overscroll-behavior-y: contain;
+      scroll-snap-type: y proximity;
     }
+    #messages::-webkit-scrollbar {
+      width: 9px;
+    }
+    #messages::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 10px;
+      margin: 5px 0;
+    }
+    #messages::-webkit-scrollbar-thumb {
+      background-color: rgba(255, 255, 255, 0.4);
+      border-radius: 10px;
+      border: 2.5px solid transparent;
+      background-clip: content-box;
+    }
+     #messages::-webkit-scrollbar-thumb:hover {
+      background-color: rgba(255, 255, 255, 0.6);
+    }
+
+
+    @keyframes float-wave {
+      0% { transform: translateY(0px) rotate(-0.15deg) scale(1); }
+      50% { transform: translateY(-7px) rotate(0.15deg) scale(1.005); }
+      100% { transform: translateY(0px) rotate(-0.15deg) scale(1); }
+    }
+
     .message {
-      margin: 10px 0;
-      padding: 10px 15px;
-      border-radius: 20px;
-      max-width: 75%;
+      margin: 12px 0;
+      padding: 15px 22px;
+      border-radius: 1.5rem;
+      max-width: 82%;
       word-wrap: break-word;
       display: inline-block;
-      line-height: 1.5;
+      line-height: 1.7;
+      font-size: 1rem;
+      text-shadow: 0 1px 2px rgba(0,0,0,0.08);
+      opacity: 0;
+      transform: translateY(30px) scale(0.98);
+      animation: fadeInUp 0.7s cubic-bezier(0.165, 0.84, 0.44, 1) forwards, float-wave 6s ease-in-out infinite alternate;
+      animation-delay: 0.15s;
+      position: relative;
+      transition: transform 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.35s cubic-bezier(0.165, 0.84, 0.44, 1), border-color 0.35s ease;
+      backdrop-filter: blur(22px) saturate(170%) brightness(1.05);
+      -webkit-backdrop-filter: blur(22px) saturate(170%) brightness(1.05);
+      will-change: transform, box-shadow;
     }
-    .user { background: #dcf8c6; align-self: flex-end; }
-    .bot {
-      background: #fff;
+    .message:hover {
+        transform: translateY(-6px) scale(1.025) rotate(0.1deg);
+        box-shadow: 0 10px 35px rgba(0,0,0,0.22), 0 0 0 2px rgba(255,255,255,0.45), 0 0 12px rgba(255,255,255,0.2);
+        border-color: rgba(255,255,255,0.7) !important;
+        animation-play-state: paused;
+    }
+
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    .message.user {
+      background: rgba(190, 230, 255, 0.3);
+      align-self: flex-end;
+      color: #182838;
+      border: 1.5px solid rgba(190, 230, 255, 0.45);
+      box-shadow: 0 6px 22px rgba(100,160,210,0.18);
+    }
+    .message.bot {
+      background: rgba(255, 255, 255, 0.35);
       align-self: flex-start;
-      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      color: #283848;
+      border: 1.5px solid rgba(255, 255, 255, 0.55);
+      box-shadow: 0 6px 22px rgba(160,160,160,0.15);
     }
+
     #input-container {
       display: flex;
-      padding: 10px;
-      border-top: 1px solid #ddd;
-      background: #fff;
+      padding: 20px;
+      border-top: 1.5px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(25px) saturate(170%);
+      -webkit-backdrop-filter: blur(25px) saturate(170%);
+      border-radius: 0 0 2rem 2rem;
+      align-items: center;
+      gap: 14px;
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      box-sizing: border-box;
+      padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 20px) ;
     }
+
     #user-input {
       flex: 1;
-      padding: 12px;
-      border: 1px solid #ddd;
-      border-radius: 20px;
+      padding: 15px 20px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.18);
+      backdrop-filter: blur(10px) saturate(130%);
+      -webkit-backdrop-filter: blur(10px) saturate(130%);
+      border-radius: 1.75rem;
       outline: none;
-      font-size: 16px;
+      font-size: 1.1rem;
+      color: #222;
+      transition: all 0.35s ease;
     }
+    #user-input:focus {
+      border-color: rgba(170, 210, 255, 0.75);
+      background: rgba(255, 255, 255, 0.28);
+      box-shadow: 0 0 0 4px rgba(170, 210, 255, 0.35), 0 0 15px rgba(170, 210, 255, 0.3);
+    }
+    #user-input::placeholder {
+        color: rgba(51, 51, 51, 0.45);
+        opacity: 1;
+    }
+
+
     #send-btn, #clear-btn, #toggle-markdown-btn, #toggle-context-btn {
-      margin-left: 10px;
-      padding: 12px 20px;
-      border: none;
-      background: #25d366;
+      padding: 15px 28px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: linear-gradient(45deg, rgba(170, 206, 255, 0.3), rgba(230, 186, 255, 0.3));
+      backdrop-filter: blur(15px) saturate(160%);
+      -webkit-backdrop-filter: blur(15px) saturate(160%);
       color: white;
-      border-radius: 20px;
+      border-radius: 1.75rem;
       cursor: pointer;
-      font-size: 16px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.18);
+      transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
     #send-btn:hover, #clear-btn:hover, #toggle-markdown-btn:hover, #toggle-context-btn:hover {
-      background: #1eb85d;
+      transform: translateY(-4px) scale(1.04);
+      box-shadow: 0 8px 22px rgba(0,0,0,0.28), 0 0 0 2.5px rgba(255,255,255,0.25), 0 0 10px rgba(255,255,255,0.15);
+      border-color: rgba(255,255,255,0.55);
+      background: linear-gradient(45deg, rgba(180, 216, 255, 0.4), rgba(240, 196, 255, 0.4));
     }
-    @media (max-width: 600px) {
-      #chat-container { height: 100%; border-radius: 0; }
+    #send-btn:active, #clear-btn:active, #toggle-markdown-btn:active, #toggle-context-btn:active {
+      transform: translateY(0) scale(0.96);
+      box-shadow: 0 4px 10px rgba(0,0,0,0.18);
     }
-    /* 悬浮调试面板样式（类似微信风格） */
+    #send-btn::before, #clear-btn::before, #toggle-markdown-btn::before, #toggle-context-btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 400%;
+      height: 400%;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(0);
+      opacity: 0;
+      transition: transform 0.7s cubic-bezier(0.19, 1, 0.22, 1), opacity 0.7s cubic-bezier(0.19, 1, 0.22, 1);
+      z-index: 0;
+    }
+    #send-btn:hover::before, #clear-btn:hover::before, #toggle-markdown-btn:hover::before, #toggle-context-btn:hover::before {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    #send-btn span, #clear-btn span, #toggle-markdown-btn span, #toggle-context-btn span {
+      position: relative;
+      z-index: 1;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        align-items: stretch;
+      }
+      #chat-container {
+        width: 100%;
+        height: 100%;
+        max-height: none;
+        border-radius: 0;
+        margin-bottom: 0;
+        box-shadow: none;
+        border: none;
+      }
+       #chat-container:hover {
+        box-shadow: none;
+        transform: none;
+      }
+      h2 {
+        border-radius: 0;
+        font-size: 1.7rem;
+        padding: 18px 15px;
+        padding-top: calc(env(safe-area-inset-top, 0px) + 18px);
+      }
+      #input-container {
+        border-radius: 0;
+        padding: 15px;
+        padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 15px);
+        gap: 10px;
+      }
+      #user-input {
+        padding: 14px 18px;
+        font-size: 1rem;
+        border-radius: 1.5rem;
+      }
+      #send-btn, #clear-btn {
+        padding: 14px 20px;
+        font-size: 1rem;
+        border-radius: 1.5rem;
+      }
+      #top-controls {
+        padding: 10px 8px;
+        padding-top: calc(env(safe-area-inset-top, 0px) / 2 + 10px);
+      }
+      #top-controls button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+        border-radius: 1.25rem;
+      }
+      .message {
+        max-width: 92%;
+        padding: 14px 20px;
+        border-radius: 1.25rem;
+        font-size: 0.95rem;
+      }
+       #messages {
+        padding: 15px;
+        padding-bottom: 70px;
+      }
+    }
+     @media (max-width: 400px) {
+        #send-btn, #clear-btn, #toggle-markdown-btn, #toggle-context-btn {
+            padding: 12px 15px;
+            font-size: 0.9rem;
+        }
+        #user-input {
+            font-size: 0.95rem;
+            padding: 12px 15px;
+        }
+        #top-controls button {
+            font-size: 0.8rem;
+            padding: 8px 12px;
+        }
+     }
+
+
     #debug-panel {
       position: fixed;
       top: 20px;
       right: 20px;
-      width: 320px;
-      height: 240px;
-      background: #fff;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-      font-size: 14px;
-      padding: 10px;
+      width: clamp(280px, 80vw, 350px);
+      max-height: 50vh;
+      background: rgba(245, 245, 255, 0.5);
+      backdrop-filter: blur(18px) saturate(160%);
+      -webkit-backdrop-filter: blur(18px) saturate(160%);
+      border: 1px solid rgba(225, 225, 255, 0.45);
+      border-radius: 1.35rem;
+      box-shadow: 0 7px 25px rgba(0,0,0,0.18);
+      font-size: 0.88rem;
+      padding: 12px;
       overflow-y: auto;
       z-index: 1000;
       display: none;
+      color: #2c303a;
     }
-    /* 调试面板头部 */
     #debug-panel-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: #f0f0f0;
-      padding: 5px 10px;
-      border-bottom: 1px solid #ccc;
-      border-radius: 6px 6px 0 0;
+      background: rgba(225, 225, 255, 0.15);
+      padding: 10px 15px;
+      border-bottom: 1px solid rgba(225, 225, 255, 0.35);
+      border-radius: 1.15rem 1.15rem 0 0;
       font-weight: bold;
+      color: #1c202a;
     }
     #debug-panel-close {
       background: transparent;
       border: none;
-      font-size: 16px;
+      font-size: 1.35rem;
       cursor: pointer;
-      color: #888;
+      color: #667;
+      padding: 0;
+      line-height: 1;
+      transition: color 0.25s, transform 0.25s;
     }
-    #debug-panel p { margin: 5px 0; }
-    /* 新增：网址小卡片样式 */
+    #debug-panel-close:hover {
+        color: #223;
+        transform: scale(1.1);
+    }
+    #debug-panel p {
+      margin: 7px 0;
+      word-break: break-all;
+    }
     .url-card {
-        display: inline-flex;
-        align-items: center;
-        border: 1px solid #25d366;
-        border-radius: 12px;
-        padding: 8px 12px;
-        margin: 5px 0;
-        background: #fff;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        transition: transform 0.2s;
+      display: inline-flex;
+      align-items: center;
+      border: 1px solid rgba(170, 206, 255, 0.45);
+      border-radius: 0.9rem;
+      padding: 10px 15px;
+      margin: 7px 0;
+      background: rgba(255, 255, 255, 0.6);
+      backdrop-filter: blur(10px) saturate(140%);
+      -webkit-backdrop-filter: blur(10px) saturate(140%);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+      transition: transform 0.28s, box-shadow 0.28s, border-color 0.28s;
+      color: #283542;
     }
     .url-card:hover {
-        transform: translateY(-2px);
+      transform: translateY(-3.5px) scale(1.025);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.18), 0 0 0 2.5px rgba(170,206,255,0.35);
+      border-color: rgba(170,206,255,0.75);
     }
     .url-card a {
-        color: #25d366;
-        text-decoration: none;
-        font-weight: 500;
-        max-width: 200px;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+      color: #5045cd;
+      text-decoration: none;
+      font-weight: 500;
+      max-width: 170px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
+    .url-card span {
+      font-size: 1.3em;
+      margin-right: 12px;
+    }
+
+    pre code.hljs {
+        border-radius: 1rem;
+        padding: 1.2em;
+        background: #000000;
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #f8f8f2;
+    }
+    .message pre {
+        margin: 10px 0;
+        overflow-x: auto;
+    }
+
   </style>
-  <!-- 引入 highlight.js 与 marked.js -->
-  <script src="highlight.min.js"></script>
-  <script src="marked.min.js"></script>
+  <script src="./highlight.min.js"></script>
+  <script src="./marked.min.js"></script>
   <script>
-    // 配置 marked 自动识别代码块并使用 highlight.js 渲染
     marked.setOptions({
       highlight: function(code, lang) {
-        if (lang && hljs.getLanguage(lang)) {
-          return hljs.highlight(code, { language: lang }).value;
-        } else {
-          return hljs.highlightAuto(code).value;
-        }
-      }
+        const language = hljs.getLanguage(lang) ? lang : 'plaintext';
+        return hljs.highlight(code, { language, ignoreIllegals: true }).value;
+      },
+      pedantic: false,
+      gfm: true,
+      breaks: false,
+      sanitize: false,
+      smartLists: true,
+      smartypants: false,
+      xhtml: false
     });
   </script>
 </head>
 <body>
+  <canvas id="raindrop-canvas"></canvas>
   <div id="chat-container">
-    <h2>奥帆帆 AI 聊天 v2 (3B测试版)</h2>
-    <div id="status">测试线程: 15 | GPU占用: 75%</div>
-    <!-- 顶部控制区域 -->
+    <h2>AI 聊天 <span class="slogan">AI一定会改变世界</span></h2>
     <div id="top-controls">
-      <button id="toggle-markdown-btn">开启 Markdown(写代码时使用)</button>
-      <button id="toggle-context-btn">关闭上下文(AI记忆混乱时可用)</button>
+      <button id="toggle-markdown-btn"><span>关闭 Markdown</span></button>
+      <button id="toggle-context-btn"><span>关闭上下文</span></button>
     </div>
     <div id="messages"></div>
     <div id="input-container">
       <input type="text" id="user-input" placeholder="输入消息...">
-      <button id="send-btn">发送</button>
-      <button id="clear-btn">清除</button>
+      <button id="send-btn"><span>发送</span></button>
+      <button id="clear-btn"><span>清除</span></button>
     </div>
   </div>
-  <!-- 悬浮调试面板 -->
   <div id="debug-panel">
     <div id="debug-panel-header">
       调试日志
@@ -204,378 +505,377 @@
   </div>
 
   <script>
-    // 全局变量控制 Markdown 渲染，及上下文记忆
-    let enableMarkdown = false;
+    let closeMarkdown = false;
     let enableContextMemory = true;
     let contextHistory = "";
-    // 存放 data.jsonl 文件中的参考数据
-    let referenceData = [];
-    // 判断是否是第一次发送消息
     let firstMessage = true;
 
-    // 调试日志函数，将信息输出到调试面板的内容区域
     function logDebug(info) {
       const debugContent = document.getElementById("debug-content");
+      if (!debugContent) return;
       const p = document.createElement("p");
-      p.textContent = info;
+      p.textContent = String(info);
       debugContent.appendChild(p);
       debugContent.scrollTop = debugContent.scrollHeight;
     }
 
-    // 按下 Alt 键显示悬浮调试面板
     document.addEventListener("keydown", function(e) {
       if (e.altKey) {
-        document.getElementById("debug-panel").style.display = "block";
+        const debugPanel = document.getElementById("debug-panel");
+        if (debugPanel) debugPanel.style.display = "block";
       }
     });
-    // 调试面板关闭按钮点击事件
-    document.getElementById("debug-panel-close").addEventListener("click", function() {
-      document.getElementById("debug-panel").style.display = "none";
-    });
-
-    // 启动时读取本地 data.jsonl 文件
-    fetch('data.jsonl')
-      .then(response => response.text())
-      .then(text => {
-        const lines = text.trim().split("\n");
-        lines.forEach(line => {
-          try {
-            const jsonObj = JSON.parse(line);
-            const parts = jsonObj.text.split("\n\n");
-            if (parts.length >= 2) {
-              const userPart = parts[0].replace(/^User:\s*/i, "");
-              const assistantPart = parts[1].replace(/^Assistant:\s*/i, "");
-              referenceData.push({ user: userPart, assistant: assistantPart });
-            }
-          } catch (e) {
-            console.error("解析 data.jsonl 时出错:", e);
-            logDebug("解析 data.jsonl 时出错: " + e);
-          }
+    const debugPanelCloseBtn = document.getElementById("debug-panel-close");
+    if (debugPanelCloseBtn) {
+        debugPanelCloseBtn.addEventListener("click", function() {
+            const debugPanel = document.getElementById("debug-panel");
+            if (debugPanel) debugPanel.style.display = "none";
         });
-        logDebug("成功加载 data.jsonl, 参考数据条数: " + referenceData.length);
-      })
-      .catch(error => {
-        console.error("无法读取 data.jsonl 文件:", error);
-        logDebug("无法读取 data.jsonl 文件: " + error);
-      });
-
-    // 切换 Markdown 渲染状态
-    document.getElementById("toggle-markdown-btn").addEventListener("click", function() {
-      enableMarkdown = !enableMarkdown;
-      this.textContent = enableMarkdown ? "关闭 Markdown" : "开启 Markdown";
-      logDebug("Markdown 状态: " + (enableMarkdown ? "启用" : "关闭"));
-    });
-
-    // 切换上下文记忆功能
-    document.getElementById("toggle-context-btn").addEventListener("click", function() {
-      enableContextMemory = !enableContextMemory;
-      this.textContent = enableContextMemory ? "关闭上下文" : "开启上下文";
-      if (!enableContextMemory) {
-        contextHistory = "";
-      }
-      logDebug("上下文记忆状态: " + (enableContextMemory ? "开启" : "关闭"));
-    });
-
-    // 更新状态显示
-    function updateStatus() {
-      const userCount = Math.floor(Math.random() * 11) + 10;
-      const gpuUsage = Math.floor(Math.random() * 35) + 65;
-      document.getElementById("status").textContent = `线程占用: ${userCount} | GPU占用: ${gpuUsage}%`;
     }
-    setInterval(updateStatus, 5000);
 
-    // 计算 Levenshtein 距离
-    function levenshtein(a, b) {
-      const matrix = [];
-      const aLen = a.length;
-      const bLen = b.length;
-      if (aLen === 0) return bLen;
-      if (bLen === 0) return aLen;
+    const toggleMarkdownBtn = document.getElementById("toggle-markdown-btn");
+    if (toggleMarkdownBtn) {
+        toggleMarkdownBtn.addEventListener("click", function() {
+          closeMarkdown = !closeMarkdown;
+          this.querySelector('span').textContent = closeMarkdown ? "开启 Markdown" : "关闭 Markdown";
+          logDebug("Markdown 状态: " + (closeMarkdown ? "关闭" : "启用"));
+        });
+    }
 
-      for (let i = 0; i <= aLen; i++) {
-        matrix[i] = [i];
-      }
-      for (let j = 0; j <= bLen; j++) {
-        matrix[0][j] = j;
-      }
-      for (let i = 1; i <= aLen; i++) {
-        for (let j = 1; j <= bLen; j++) {
-          if (a.charAt(i - 1) === b.charAt(j - 1)) {
-            matrix[i][j] = matrix[i - 1][j - 1];
-          } else {
-            matrix[i][j] = Math.min(
-              matrix[i - 1][j] + 1,
-              matrix[i][j - 1] + 1,
-              matrix[i - 1][j - 1] + 1
-            );
+    const toggleContextBtn = document.getElementById("toggle-context-btn");
+    if (toggleContextBtn) {
+        toggleContextBtn.addEventListener("click", function() {
+          enableContextMemory = !enableContextMemory;
+          this.querySelector('span').textContent = enableContextMemory ? "关闭上下文" : "开启上下文";
+          if (!enableContextMemory) {
+            contextHistory = "";
           }
-        }
+          logDebug("上下文记忆状态: " + (enableContextMemory ? "开启" : "关闭"));
+        });
+    }
+
+    function escapeHTML(str) {
+        return str.replace(/[&<>"']/g, function (match) {
+            return {
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                '"': '&quot;',
+                "'": '&#39;'
+            }[match];
+        });
+    }
+
+    async function convertUrlsToCards(text) {
+      const urlRegex = /https?:\/\/(?:www\.)?[\w-]+(?:\.[\w-]+)+(?:[\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/gi;
+      let matches = [];
+      let match;
+      while ((match = urlRegex.exec(text)) !== null) {
+          matches.push({ url: match[0], index: match.index, length: match[0].length });
       }
-      return matrix[aLen][bLen];
-    }
 
-    // 计算相似度比例（0到1之间）；
-    // 去除标点符号后再比较
-    function similarity(a, b) {
-      a = stripPunctuation(a.toLowerCase());
-      b = stripPunctuation(b.toLowerCase());
-      const distance = levenshtein(a, b);
-      const maxLen = Math.max(a.length, b.length);
-      if (maxLen === 0) return 1;
-      return 1 - distance / maxLen;
-    }
+      if (matches.length === 0) {
+          return text;
+      }
 
-    function m_similarity(a, b) {
-      a = a.toLowerCase();
-      b = b.toLowerCase();
-      const distance = levenshtein(a, b);
-      const maxLen = Math.max(a.length, b.length);
-      if (maxLen === 0) return 1;
-      return 1 - distance / maxLen;
-    }
+      let result = '';
+      let lastIndex = 0;
 
-    // 去除标点符号（支持中英文）
-    function stripPunctuation(str) {
-      // 使用 Unicode 属性匹配去除所有标点符号
-      return str.replace(/[\p{P}\p{S}]/gu, '');
-    }
+      for (const m of matches) {
+          result += escapeHTML(text.substring(lastIndex, m.index));
+          const cleanedUrl = m.url.replace(/[。！？，；：”’）】〉」》]+$/, '');
 
-// 改进后的网址检测函数
-function convertUrlsToCards(text) {
-    // 增强版正则表达式，支持中文参数和正确边界判断
-    const urlRegex = /https?:\/\/(?:www\.)?[\w-]+\.[a-z]{2,}(?:[/?#][^\s<>"'{}\|\\^`。！？，、；：（）【】「」《》“”‘’]*)?/gi;
-    
-    return text.replace(urlRegex, function(match) {
-        // 智能截断尾部标点（保留允许出现在URL中的符号）
-        const cleanedUrl = match.replace(/[。！？，；：”’）】〉」》]+$/, '');
-        
-        try {
-            const urlObj = new URL(cleanedUrl);
-            // 对解码后的查询参数进行美化处理
-            const searchParams = new URLSearchParams(urlObj.search);
-            const decodedQuery = Array.from(searchParams.entries())
-                .map(([k, v]) => `${k}=${decodeURIComponent(v)}`)
-                .join('&');
-            
-            // 构造更友好的显示文本
-            const displayText = decodedQuery 
-                ? `${urlObj.hostname}?${decodedQuery}`
-                : urlObj.hostname;
-
-            return `
-                <div class="url-card" title="${cleanedUrl}">
-                    <span style="margin-right:8px">🌍</span>
-                    <a href="${cleanedUrl}" target="_blank">${displayText}</a>
+          try {
+              new URL(cleanedUrl);
+              const response = await fetch(`get_title.php?url=${encodeURIComponent(cleanedUrl)}`);
+              const data = await response.json();
+              let title = data.title || new URL(cleanedUrl).hostname;
+              if (title.startsWith('www.')) {
+                title = title.substring(4);
+              }
+              result += `
+                <div class="url-card" title="${escapeHTML(cleanedUrl)}">
+                  <span style="margin-right:8px">🔗</span>
+                  <a href="${escapeHTML(cleanedUrl)}" target="_blank" rel="noopener noreferrer">${escapeHTML(title)}</a>
                 </div>
-            `;
-        } catch (e) {
-            console.warn('无效的URL:', cleanedUrl);
-            return match; // 返回原始文本
-        }
-    });
-}
-
-    // 时间相关的问题参考语句（可扩展）
-    const timeQuestions = [
-        "现在是几点",
-        "现在是什么时间",
-        "当前时间",
-        "现在时间",
-        "现在几点了",
-        "几点钟了",
-        "几点了",
-        "现在是早上吗",
-        "现在是早晨吗",
-        "现在是中午吗",
-        "现在是晚上吗",
-        "现在是夜晚吗",
-        "现在是下午吗",
-    ];
-
-    // 修改后的时间检测逻辑
-    function checkTimeQuestion(input) {
-        // 统一去除标点后比较
-        const cleanInput = stripPunctuation(input);
-        for (let question of timeQuestions) {
-            if (similarity(cleanInput, question) >= 0.5) {
-                return true;
-            }
-        }
-        return false;
+              `;
+          } catch (e) {
+              console.warn('无效的URL或获取标题失败:', cleanedUrl, e);
+              result += escapeHTML(m.url);
+          }
+          lastIndex = m.index + m.length;
+      }
+      result += escapeHTML(text.substring(lastIndex));
+      return result;
     }
 
-    // 发送消息（修改为 async 以便等待 person.txt 的获取）
+
     async function sendMessage() {
-      let userMessage = document.getElementById("user-input").value.trim();
+      const userInputField = document.getElementById("user-input");
+      let userMessage = userInputField.value.trim();
       if (userMessage === "") return;
 
       const messagesDiv = document.getElementById("messages");
 
-      // 显示用户消息
       const userDiv = document.createElement("div");
       userDiv.className = "message user";
       userDiv.textContent = userMessage;
       messagesDiv.appendChild(userDiv);
-      document.getElementById("user-input").value = "";
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+      userInputField.value = "";
+      userInputField.focus();
 
-      // 创建显示机器人的消息容器，并显示“正在思考中...”提示
+
       const botDiv = document.createElement("div");
       botDiv.className = "message bot";
-      botDiv.textContent = "奥帆帆正在思考中...";
+      const thinkingSpan = document.createElement('span');
+      thinkingSpan.textContent = "正在思考中";
+      botDiv.appendChild(thinkingSpan);
+      let dotCount = 0;
+      const thinkingInterval = setInterval(() => {
+          dotCount = (dotCount + 1) % 4;
+          thinkingSpan.textContent = "正在思考中" + ".".repeat(dotCount);
+      }, 500);
+
       messagesDiv.appendChild(botDiv);
       messagesDiv.scrollTop = messagesDiv.scrollHeight;
 
-      // 用于累积机器人的回复内容
-      let botMessage = "";
+
+      let botMessageContent = "";
       let hasReceivedData = false;
       let timedOut = false;
 
-      // 超时定时器：10秒内未收到数据则显示“响应超时”
       const timeoutTimer = setTimeout(() => {
         if (!hasReceivedData) {
           timedOut = true;
-          botDiv.textContent = "响应超时";
+          clearInterval(thinkingInterval);
+          botDiv.innerHTML = "响应超时，请检查网络或稍后再试。";
           logDebug("响应超时");
         }
-      }, 10000);
+      }, 15000);
 
-      // 构造发送给 AI 的消息，初始为用户输入
-      let messageToSend = userMessage;
+      const formData = new URLSearchParams();
+      formData.append('message', userMessage);
+      formData.append('enableContextMemory', enableContextMemory);
+      formData.append('contextHistory', contextHistory);
+      formData.append('firstMessage', firstMessage);
 
-      // 如果开启上下文记忆，则加入之前对话内容
-      if (enableContextMemory) {
-        messageToSend = (contextHistory ? contextHistory + "\n" : "") + "User: " + userMessage;
-      }
+      try {
+          const response = await fetch("chat.php", {
+            method: "POST",
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: formData
+          });
 
-      // 如果用户提问中包含“时间”，附加系统时间
-      if (checkTimeQuestion(userMessage)) {
-        const nowStr = new Date().toLocaleString();
-        messageToSend += "\n系统时间：" + nowStr;
-        logDebug("附加系统时间：" + nowStr);
-    }
+          if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+          }
 
-      // 如果是第一次发送消息，则附加 person.txt 的内容（不参与 jsonl 匹配）
-      if (firstMessage) {
-        try {
-          const res = await fetch("person.txt");
-          const personText = await res.text();
-          messageToSend = "Person Info: " + personText + "\n" + messageToSend;
-          logDebug("附加 person.txt 内容");
-        } catch (err) {
-          logDebug("读取 person.txt 失败: " + err);
-        }
-        firstMessage = false;
-      }
+          firstMessage = false;
 
-// 双策略相似度计算与择优逻辑‌:ml-citation{ref="1,2" data="citationList"}
-let bestMatch = null;
-let bestSim = 0;
-for (let ref of referenceData) {
-  // 并行计算两种相似度‌:ml-citation{ref="2,8" data="citationList"}
-  const sim1 = similarity(userMessage, ref.user);    // 去除标点策略
-  const sim2 = m_similarity(userMessage, ref.user);  // 保留标点策略
-  const currentSim = Math.max(sim1, sim2);           // 择优取最高值‌:ml-citation{ref="1,8" data="citationList"}
-  
-  if (currentSim > bestSim) {
-    bestSim = currentSim;
-    bestMatch = ref;
-    // 记录优选策略类型‌:ml-citation{ref="8" data="citationList"}
-    bestMatch.simType = (sim1 > sim2) ? "去标点策略" : "留标点策略";
-  }
-}
+          const reader = response.body.getReader();
+          const decoder = new TextDecoder();
+          let buffer = "";
 
-if (bestSim >= 0.8 && bestMatch) {
-  messageToSend += "\n。基于上面这个问题，必须参考下面的答案重复给我：" + bestMatch.assistant;
-  // 日志显示双策略结果‌:ml-citation{ref="8" data="citationList"}
-  logDebug(`匹配到参考答案，匹配文本：${bestMatch.user} (相似度: ${bestSim.toFixed(2)}, 策略: ${bestMatch.simType})`);
-} else {
-  logDebug("无匹配参考答案");
-}
-
-
-      // 新增导航检测逻辑
-      const navigationRegex = /(带我去|导航到)([^\s，。！？]+)/;
-      const navMatch = userMessage.match(navigationRegex);
-      if (navMatch && navMatch[2]) {
-          const location = navMatch[2].replace(/[。！？]$/, '');  // 去除结尾标点
-          const encodedLocation = encodeURIComponent(location);
-          messageToSend += `\n（。在这个网址的后面加上我想去的地方，我要求你直接生成网址，不要问我去哪里，只告诉我网址就可以了：https://www.amap.com/search?query=）`;
-      }
-
-      logDebug("发送给AI的文本: " + messageToSend);
-
-      // 发送请求到后端
-      fetch("chat.php", {
-        method: "POST",
-        body: new URLSearchParams({ message: messageToSend })
-      }).then(response => {
-        const reader = response.body.getReader();
-        const decoder = new TextDecoder();
-        let buffer = "";
-
-        function processStream() {
-          reader.read().then(({ done, value }) => {
-            if (done || timedOut) return;
-            buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split("\n");
-            buffer = lines.pop();
-
-            for (let line of lines) {
-              if (line.startsWith("data: ")) {
-                let jsonStr = line.substring(6).trim();
-                if (jsonStr === "[DONE]") {
-                  if (enableContextMemory) {
-                    contextHistory = (contextHistory ? contextHistory + "\n" : "") + "User: " + userMessage + "\nBot: " + botMessage;
-                  }
-                  logDebug("AI 回复完成: " + botMessage);
-                  return;
+          async function processStreamResult() {
+            reader.read().then(async ({ done, value }) => {
+              if (timedOut) return;
+              if (done) {
+                clearInterval(thinkingInterval);
+                if (enableContextMemory) {
+                  contextHistory = (contextHistory ? contextHistory + "\n" : "") + "User: " + userMessage + "\nBot: " + botMessageContent;
                 }
-                try {
-                  const dataObj = JSON.parse(jsonStr);
-                  if (!hasReceivedData && dataObj.choices && dataObj.choices[0].delta.content) {
-                    hasReceivedData = true;
-                    clearTimeout(timeoutTimer);
-                  }
-                  if (dataObj.choices && dataObj.choices[0].delta.content) {
-                    botMessage += dataObj.choices[0].delta.content;
-                    // 先进行 URL 转换，再根据 Markdown 设置显示
-                    const processedMsg = convertUrlsToCards(botMessage);
-                    if (enableMarkdown) {
-                      botDiv.innerHTML = marked.parse(processedMsg);
-                    } else {
-                      botDiv.innerHTML = processedMsg;
+                logDebug("AI 回复完成: " + botMessageContent);
+                if (buffer.length > 0) {
+                    if (buffer.startsWith("data: ")) {
+                        let jsonStr = buffer.substring(6).trim();
+                        try {
+                            if (jsonStr !== "[DONE]") {
+                                const dataObj = JSON.parse(jsonStr);
+                                if (dataObj.choices && dataObj.choices[0].delta.content) {
+                                    botMessageContent += dataObj.choices[0].delta.content;
+                                }
+                            }
+                        } catch (e) {
+                        }
                     }
+                    const finalProcessedMsg = await convertUrlsToCards(botMessageContent);
+                    botDiv.innerHTML = closeMarkdown ? marked.parse(finalProcessedMsg) : finalProcessedMsg.replace(/\n/g, '<br>');
+                    if(closeMarkdown) hljs.highlightAll();
+                }
+                return;
+              }
+
+              buffer += decoder.decode(value, { stream: true });
+              let lines = buffer.split("\n");
+              buffer = lines.pop();
+
+              for (let line of lines) {
+                if (line.startsWith("data: ")) {
+                  let jsonStr = line.substring(6).trim();
+                  if (jsonStr === "[DONE]") {
+                    continue;
                   }
-                } catch (e) {
-                  console.error("JSON解析失败:", e);
-                  logDebug("JSON解析失败: " + e);
+                  try {
+                    const dataObj = JSON.parse(jsonStr);
+                    if (!hasReceivedData && dataObj.choices && dataObj.choices[0].delta.content) {
+                      hasReceivedData = true;
+                      clearTimeout(timeoutTimer);
+                      clearInterval(thinkingInterval);
+                      botDiv.innerHTML = "";
+                    }
+                    if (dataObj.choices && dataObj.choices[0].delta.content) {
+                      botMessageContent += dataObj.choices[0].delta.content;
+                      const processedMsg = await convertUrlsToCards(botMessageContent);
+                      botDiv.innerHTML = closeMarkdown ? marked.parse(processedMsg) : processedMsg.replace(/\n/g, '<br>');
+                      if(closeMarkdown) hljs.highlightAll();
+                      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+                    }
+                  } catch (e) {
+                    console.error("JSON解析失败:", e, "Line:", line);
+                    logDebug("JSON解析失败: " + e + " in line: " + line.substring(0,50));
+                  }
                 }
               }
-            }
-            processStream();
-          });
-        }
-        processStream();
-      }).catch(err => {
-        clearTimeout(timeoutTimer);
-        botDiv.textContent = "[错误] " + err;
-        logDebug("请求错误: " + err);
-      });
+              processStreamResult();
+            }).catch(streamError => {
+                clearInterval(thinkingInterval);
+                clearTimeout(timeoutTimer);
+                console.error("Stream reading error:", streamError);
+                botDiv.innerHTML = "[错误] 读取响应时发生错误。";
+                logDebug("Stream reading error: " + streamError);
+            });
+          }
+          processStreamResult();
+      } catch(err) {
+          clearInterval(thinkingInterval);
+          clearTimeout(timeoutTimer);
+          botDiv.innerHTML = "[错误] " + err.message;
+          logDebug("请求错误: " + err);
+      }
     }
 
-    document.getElementById("send-btn").addEventListener("click", sendMessage);
-    document.getElementById("clear-btn").addEventListener("click", () => {
-      document.getElementById("messages").innerHTML = "";
-      // 清空调试面板内容
-      document.getElementById("debug-content").innerHTML = "";
-      location.reload(); 
-    });
-    document.getElementById("user-input").addEventListener("keypress", function(event) {
-      if (event.key === "Enter") {
-        event.preventDefault();
-        sendMessage();
+    const sendBtn = document.getElementById("send-btn");
+    if (sendBtn) sendBtn.addEventListener("click", sendMessage);
+
+    const clearBtn = document.getElementById("clear-btn");
+    if (clearBtn) {
+        clearBtn.addEventListener("click", () => {
+          const messagesDiv = document.getElementById("messages");
+          if (messagesDiv) messagesDiv.innerHTML = "";
+          const debugContent = document.getElementById("debug-content");
+          if (debugContent) debugContent.innerHTML = "";
+          contextHistory = "";
+          firstMessage = true;
+          logDebug("聊天记录已清除");
+        });
+    }
+
+    const userInput = document.getElementById("user-input");
+    if (userInput) {
+        userInput.addEventListener("keypress", function(event) {
+          if (event.key === "Enter" && !event.shiftKey) {
+            event.preventDefault();
+            sendMessage();
+          }
+        });
+    }
+
+
+    window.onload = function() {
+      const canvas = document.getElementById('raindrop-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let drops = [];
+      const numDrops = Math.floor(window.innerWidth / 60);
+      const minRadius = 15;
+      const maxRadius = 35;
+      const minSpeed = 0.2;
+      const maxSpeed = 1.2;
+      const baseOpacity = 0.02;
+
+      function resizeCanvas() {
+        if (!canvas) return;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        drops = [];
+        initDrops();
       }
-    });
+
+      function initDrops() {
+        if (!canvas) return;
+        const currentNumDrops = Math.floor(window.innerWidth / 60);
+        for (let i = 0; i < currentNumDrops; i++) {
+          drops.push({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            radius: minRadius + Math.random() * (maxRadius - minRadius),
+            speed: minSpeed + Math.random() * (maxSpeed - minSpeed),
+            opacity: baseOpacity + Math.random() * 0.03,
+            angle: Math.random() * Math.PI * 2,
+            angleSpeed: (Math.random() - 0.5) * 0.008,
+            driftX: (Math.random() - 0.5) * 0.3
+          });
+        }
+      }
+
+      let lastTime = 0;
+      function drawDrops(currentTime) {
+        if (!ctx || !canvas) return;
+        const deltaTime = currentTime - lastTime;
+        lastTime = currentTime;
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < drops.length; i++) {
+          const drop = drops[i];
+
+          ctx.save();
+          ctx.translate(drop.x, drop.y);
+          ctx.rotate(drop.angle);
+
+          const gradient = ctx.createRadialGradient(0, 0, drop.radius * 0.1, 0, 0, drop.radius);
+          gradient.addColorStop(0, `rgba(255, 255, 255, ${drop.opacity * 2})`);
+          gradient.addColorStop(0.5, `rgba(255, 255, 255, ${drop.opacity * 1.2})`);
+          gradient.addColorStop(1, `rgba(255, 255, 255, ${drop.opacity * 0.3})`);
+          
+          ctx.beginPath();
+          ctx.ellipse(0, 0, drop.radius, drop.radius * 0.65, 0, 0, Math.PI * 2);
+          ctx.fillStyle = gradient;
+          ctx.fill();
+          
+          ctx.restore();
+
+          drop.y += drop.speed * (deltaTime / 16.67);
+          drop.x += drop.driftX * (deltaTime / 16.67);
+          drop.angle += drop.angleSpeed * (deltaTime / 16.67);
+
+
+          if (drop.y - drop.radius > canvas.height) {
+            drop.y = -drop.radius;
+            drop.x = Math.random() * canvas.width;
+          } else if (drop.y + drop.radius < 0) {
+             drop.y = canvas.height + drop.radius;
+             drop.x = Math.random() * canvas.width;
+          }
+
+          if (drop.x - drop.radius > canvas.width) {
+            drop.x = -drop.radius;
+          } else if (drop.x + drop.radius < 0) {
+            drop.x = canvas.width + drop.radius;
+          }
+        }
+        requestAnimationFrame(drawDrops);
+      }
+
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+      requestAnimationFrame(drawDrops);
+      
+      if (closeMarkdown && toggleMarkdownBtn && toggleMarkdownBtn.querySelector('span')) {
+        toggleMarkdownBtn.querySelector('span').textContent = "关闭 Markdown";
+      }
+    };
   </script>
 </body>
 </html>
