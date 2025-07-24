@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可塑性记忆工作牌线上制作工具</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 引入Inter字体 */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif; /* 使用Inter字体 */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: flex-start; /* 调整为从顶部开始 */
+            align-items: center;
+            min-height: 100vh; /* 最小高度为视口高度 */
+            background-color: #1a202c; /* 深色背景 */
+            flex-direction: column;
+            padding-top: 20px; /* 顶部留白 */
+            box-sizing: border-box; /* 盒模型调整 */
+        }
+        .container {
+            position: relative;
+            width: 100%; /* 宽度自适应 */
+            max-width: 600px; /* 最大宽度 */
+            height: auto; /* 高度自适应 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 20px; /* 底部留白 */
+        }
+        .bg-image {
+            position: relative;
+            width: 100%; /* 宽度自适应 */
+            padding-top: 66.66%; /* 保持600x400的宽高比 (400/600 * 100%) */
+            background: url('img/bg.jpg') no-repeat center center;
+            background-size: cover;
+            border-radius: 10px; /* 圆角 */
+            overflow: hidden; /* 隐藏溢出内容 */
+        }
+        .person-image {
+            position: absolute;
+            top: 39.25%; /* 157/400 * 100% */
+            left: 66.66%; /* 400/600 * 100% */
+            width: 25%; /* 150/600 * 100% */
+            padding-top: 26.66%; /* 160/600 * 100% (保持150x160的宽高比) */
+            background: url('img/person.jpg') no-repeat center center;
+            background-size: contain;
+            pointer-events: all;
+            cursor: pointer;
+        }
+        .text-input {
+            position: absolute;
+            top: 53.75%; /* 215/400 * 100% */
+            left: 39.16%; /* 235/600 * 100% */
+            transform: translateX(-50%);
+            padding: 5px;
+            font-size: 3.33vw; /* 字体大小随视口宽度缩放 */
+            color: black;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            width: 30%;
+            z-index: 10;
+            font-weight: bold;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif; /* 确保字体一致 */
+        }
+        .text-input2 {
+            position: absolute;
+            top: 80%; /* 320/400 * 100% */
+            left: 39.16%; /* 235/600 * 100% */
+            transform: translateX(-50%);
+            padding: 5px;
+            font-size: 2.5vw; /* 字体大小随视口宽度缩放 */
+            color: black;
+            background: transparent;
+            border: none;
+            border-radius: 5px;
+            width: 30%;
+            z-index: 10;
+            font-weight: bold;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif; /* 确保字体一致 */
+        }
+
+        /* 手机屏幕适配 */
+        @media (max-width: 768px) {
+            body {
+                padding-top: 10px;
+            }
+            .container {
+                margin-bottom: 15px;
+            }
+        }
+
+        /* 当屏幕宽度大于等于600px时，将字体大小固定为原始值 */
+        @media (min-width: 600px) {
+            .text-input {
+                font-size: 20px;
+            }
+            .text-input2 {
+                font-size: 15px;
+            }
+        }
+
+        /* 隐藏原始文件上传按钮，使用自定义按钮 */
+        #image-upload {
+            display: none;
+        }
+
+        /* 消息框样式 */
+        .message-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            display: none; /* 默认隐藏 */
+            text-align: center;
+        }
+        .message-box button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-start min-h-screen p-4">
+    <div class="container bg-gray-800 rounded-xl shadow-lg p-2 md:p-4">
+        <div class="bg-image" id="image-container">
+            <div class="person-image" id="person-container"></div>
+            <input type="text" class="text-input" id="text1" placeholder="输入你的名字">
+            <input type="text" class="text-input2" id="text2" placeholder="输入你的编号">
+        </div>
+    </div>
+    <input type="file" id="image-upload" accept="image/*" class="hidden">
+    
+    <div class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 mt-6">
+        <button id="upload-person-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            上传人物图片
+        </button>
+        <button id="download" class="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-lg shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+            下载修改后的图片
+        </button>
+    </div>
+
+    <!-- 消息框 -->
+    <div id="message-box" class="message-box">
+        <p id="message-content"></p>
+        <button id="message-ok-btn">确定</button>
+    </div>
+
+    <script>
+        // 获取DOM元素
+        const text1 = document.getElementById('text1');
+        const text2 = document.getElementById('text2');
+        const imageContainer = document.getElementById('image-container');
+        const personContainer = document.getElementById('person-container');
+        const imageUpload = document.getElementById('image-upload');
+        const uploadPersonBtn = document.getElementById('upload-person-btn'); // 新增上传按钮
+        const downloadBtn = document.getElementById('download');
+        const messageBox = document.getElementById('message-box');
+        const messageContent = document.getElementById('message-content');
+        const messageOkBtn = document.getElementById('message-ok-btn');
+        
+        // 背景图片对象
+        let bgImage = new Image();
+        bgImage.src = 'img/bg.jpg';
+        // 背景图片加载完成时的回调
+        bgImage.onload = function() {
+            // console.log('背景图片加载完成'); // 日志
+        };
+
+        // 显示消息框函数
+        function showMessageBox(message) {
+            messageContent.textContent = message;
+            messageBox.style.display = 'block';
+        }
+
+        // 隐藏消息框函数
+        messageOkBtn.addEventListener('click', function() {
+            messageBox.style.display = 'none';
+        });
+
+        // 点击人物图片区域或“上传人物图片”按钮时触发文件选择
+        personContainer.addEventListener('click', function() {
+            imageUpload.click();
+        });
+        uploadPersonBtn.addEventListener('click', function() {
+            imageUpload.click();
+        });
+
+        // 文件选择变化事件监听
+        imageUpload.addEventListener('change', function (e) {
+            const reader = new FileReader();
+            reader.onload = function (event) {
+                // 设置人物图片背景
+                personContainer.style.backgroundImage = `url(${event.target.result})`;
+                // console.log('人物图片上传成功'); // 日志
+            };
+            // 读取文件内容为Data URL
+            reader.readAsDataURL(e.target.files[0]);
+        });
+
+        // 下载按钮点击事件监听
+        downloadBtn.addEventListener('click', function () {
+            // 检查是否输入文字
+            if (!text1.value.trim() || !text2.value.trim()) {
+                showMessageBox('请输入名字和编号'); // 使用消息框替代alert
+                // console.warn('名字或编号未填写'); // 日志
+                return;
+            }
+
+            // 检查是否上传了图片
+            const personImageUrl = personContainer.style.backgroundImage.slice(5, -2);
+            if (!personImageUrl || personImageUrl.includes('img/person.jpg')) { // 检查是否是默认图片
+                showMessageBox('请上传人物图片'); // 使用消息框替代alert
+                // console.warn('人物图片未上传'); // 日志
+                return;
+            }
+
+            // 创建canvas元素
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // 设置canvas尺寸，与背景图原始尺寸一致
+            canvas.width = 600;
+            canvas.height = 400;
+
+            // 绘制背景图片
+            ctx.drawImage(bgImage, 0, 0, canvas.width, canvas.height);
+
+            // 绘制第一个文本（名字）
+            ctx.font = '20px "Microsoft YaHei"'; // 字体
+            ctx.fillStyle = 'black'; // 颜色
+            ctx.fillText(text1.value, 145, 240); // 位置
+
+            // 绘制第二个文本（编号）
+            ctx.font = '15px "Microsoft YaHei"'; // 字体
+            ctx.fillStyle = 'black'; // 颜色
+            ctx.fillText(text2.value, 145, 335); // 位置
+
+            // 创建人物图片对象
+            const personImage = new Image();
+            personImage.src = personImageUrl;
+            personImage.onload = function() {
+                // 绘制人物图片
+                ctx.drawImage(personImage, 400, 157, 150, 160); // 位置和尺寸
+
+                // 创建下载链接
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png'); // 将canvas内容转为Data URL
+                link.download = 'work_card.png'; // 设置下载文件名
+                link.click(); // 模拟点击下载
+                // console.log('图片下载成功'); // 日志
+            };
+            personImage.onerror = function() {
+                // console.error('人物图片加载失败'); // 日志
+                showMessageBox('人物图片加载失败，请重试');
+            };
+        });
+    </script>
+</body>
+</html>
