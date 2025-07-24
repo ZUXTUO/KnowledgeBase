@@ -1,0 +1,21 @@
+# 训练
+python3 image_tag_trainer.py --db data.db --epochs 40 --batch_size 32 --lr 1e-4 --val_ratio 0.2 --anomaly_detection_start 20
+
+#增量训练
+python3 image_tag_trainer_add.py --db data.db --epochs 40 --load_model checkpoints/best_model_epoch5.pth
+
+
+# 使用第 15 个 epoch 的模型处理所有图像
+python3 AI_to_Database.py --db data.db --model checkpoints/best_model_epoch3.pth --threshold 0.98
+
+# 仅处理尚未添加标签的图像
+python3 AI_to_Database.py --db data.db --model checkpoints/best_model_epoch3.pth --threshold 0.98 --mode untagged
+
+# 仅处理 100 张用于测试的图像
+python3 AI_to_Database.py --db data.db --model checkpoints/best_model_epoch3.pth --threshold 0.98 --limit 100
+
+
+# 网页查询
+python3 AI_to_Web.py --model checkpoints/best_model_epoch3.pth --db data.db
+
+
