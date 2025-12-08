@@ -102,14 +102,14 @@ HOME_PAGE_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>哔哩哔哩 (゜-゜)つロ 干杯~-bilibili</title>
+    <title> (゜-゜)つロ 干杯~</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background: #f4f5f7; }
         .nav-compact { height: 56px; }
-        .bilibili-pink { color: #fb7299; }
-        .bilibili-blue { background: #00a1d6; }
+        .bblili-pink { color: #fb7299; }
+        .bblili-blue { background: #00a1d6; }
         .search-bar { background: #e3e5e7; border-radius: 8px; }
         .video-card {
             background: white;
@@ -146,7 +146,7 @@ HOME_PAGE_TEMPLATE = """
             backdrop-filter: blur(5px);
         }
         .video-card:hover .play-btn { opacity: 1; }
-        .bilibili-logo-animation {
+        .bblili-logo-animation {
             animation: bounceIn 0.8s ease-out;
         }
         @keyframes bounceIn {
@@ -168,10 +168,10 @@ HOME_PAGE_TEMPLATE = """
         <div class="container mx-auto flex items-center justify-between h-full">
             <div class="flex items-center space-x-4 lg:space-x-6">
                 <a href="/" class="flex items-center space-x-2">
-                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bilibili-logo-animation">
+                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bblili-logo-animation">
                         <span class="text-white text-lg font-bold">B</span>
                     </div>
-                    <span class="text-xl font-semibold bilibili-pink hidden sm:block">bilibili</span>
+                    <span class="text-xl font-semibold bblili-pink hidden sm:block">bblili</span>
                 </a>
             </div>
 
@@ -179,7 +179,7 @@ HOME_PAGE_TEMPLATE = """
                 <form action="/search" method="get" class="flex">
                     <input type="text" name="query" placeholder="搜索视频、UP主或番剧"
                            class="flex-1 px-4 py-2 search-bar text-sm border-0 outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-200">
-                    <button type="submit" class="bilibili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
+                    <button type="submit" class="bblili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
                 </form>
             </div>
 
@@ -231,14 +231,14 @@ UPLOAD_PAGE_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>创作中心 - 哔哩哔哩</title>
+    <title>创作中心</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background: #f4f5f7; }
         .nav-compact { height: 56px; }
-        .bilibili-pink { color: #fb7299; }
-        .bilibili-blue { background: #00a1d6; }
+        .bblili-pink { color: #fb7299; }
+        .bblili-blue { background: #00a1d6; }
         .search-bar { background: #e3e5e7; border-radius: 8px; }
         .form-input { border: 1px solid #e1e5e9; border-radius: 8px; padding: 0.75rem 1rem; }
         .form-input:focus { border-color: #00a1d6; box-shadow: 0 0 0 3px rgba(0,161,214,0.15); outline: none; }
@@ -252,7 +252,7 @@ UPLOAD_PAGE_TEMPLATE = """
             box-shadow: 0 6px 10px rgba(251,114,153,0.3);
             transform: translateY(-2px);
         }
-        .bilibili-logo-animation {
+        .bblili-logo-animation {
             animation: bounceIn 0.8s ease-out;
         }
         @keyframes bounceIn {
@@ -274,10 +274,10 @@ UPLOAD_PAGE_TEMPLATE = """
         <div class="container mx-auto flex items-center justify-between h-full">
             <div class="flex items-center space-x-4 lg:space-x-6">
                 <a href="/" class="flex items-center space-x-2">
-                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bilibili-logo-animation">
+                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bblili-logo-animation">
                         <span class="text-white text-lg font-bold">B</span>
                     </div>
-                    <span class="text-xl font-semibold bilibili-pink hidden sm:block">bilibili</span>
+                    <span class="text-xl font-semibold bblili-pink hidden sm:block">bblili</span>
                 </a>
             </div>
 
@@ -285,7 +285,7 @@ UPLOAD_PAGE_TEMPLATE = """
                 <form action="/search" method="get" class="flex">
                     <input type="text" name="query" placeholder="搜索视频、UP主或番剧"
                            class="flex-1 px-4 py-2 search-bar text-sm border-0 outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-200">
-                    <button type="submit" class="bilibili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
+                    <button type="submit" class="bblili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
                 </form>
             </div>
 
@@ -336,14 +336,14 @@ SEARCH_PAGE_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ query }} - 搜索结果 - 哔哩哔哩</title>
+    <title>{{ query }} - 搜索结果</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background: #f4f5f7; }
         .nav-compact { height: 56px; }
-        .bilibili-pink { color: #fb7299; }
-        .bilibili-blue { background: #00a1d6; }
+        .bblili-pink { color: #fb7299; }
+        .bblili-blue { background: #00a1d6; }
         .search-bar { background: #e3e5e7; border-radius: 8px; }
         .video-card {
             background: white;
@@ -380,7 +380,7 @@ SEARCH_PAGE_TEMPLATE = """
             backdrop-filter: blur(5px);
         }
         .video-card:hover .play-btn { opacity: 1; }
-        .bilibili-logo-animation {
+        .bblili-logo-animation {
             animation: bounceIn 0.8s ease-out;
         }
         @keyframes bounceIn {
@@ -402,10 +402,10 @@ SEARCH_PAGE_TEMPLATE = """
         <div class="container mx-auto flex items-center justify-between h-full">
             <div class="flex items-center space-x-4 lg:space-x-6">
                 <a href="/" class="flex items-center space-x-2">
-                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bilibili-logo-animation">
+                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bblili-logo-animation">
                         <span class="text-white text-lg font-bold">B</span>
                     </div>
-                    <span class="text-xl font-semibold bilibili-pink hidden sm:block">bilibili</span>
+                    <span class="text-xl font-semibold bblili-pink hidden sm:block">bblili</span>
                 </a>
             </div>
 
@@ -413,7 +413,7 @@ SEARCH_PAGE_TEMPLATE = """
                 <form action="/search" method="get" class="flex">
                     <input type="text" name="query" placeholder="搜索视频、UP主或番剧" value="{{ query }}"
                            class="flex-1 px-4 py-2 search-bar text-sm border-0 outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-200">
-                    <button type="submit" class="bilibili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
+                    <button type="submit" class="bblili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
                 </form>
             </div>
 
@@ -466,14 +466,14 @@ VIDEO_PLAY_PAGE_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ video.title }} - 哔哩哔哩</title>
+    <title>{{ video.title }}</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; background: #f4f5f7; }
         .nav-compact { height: 56px; }
-        .bilibili-pink { color: #fb7299; }
-        .bilibili-blue { background: #00a1d6; }
+        .bblili-pink { color: #fb7299; }
+        .bblili-blue { background: #00a1d6; }
         .search-bar { background: #e3e5e7; border-radius: 8px; }
         .video-player { border-radius: 8px; background: #000; }
         .comment-input { border: 1px solid #e1e5e9; border-radius: 8px; padding: 0.75rem 1rem; }
@@ -488,7 +488,7 @@ VIDEO_PLAY_PAGE_TEMPLATE = """
             box-shadow: 0 6px 10px rgba(0,161,214,0.3);
             transform: translateY(-2px);
         }
-        .bilibili-logo-animation {
+        .bblili-logo-animation {
             animation: bounceIn 0.8s ease-out;
         }
         @keyframes bounceIn {
@@ -532,10 +532,10 @@ VIDEO_PLAY_PAGE_TEMPLATE = """
         <div class="container mx-auto flex items-center justify-between h-full">
             <div class="flex items-center space-x-4 lg:space-x-6">
                 <a href="/" class="flex items-center space-x-2">
-                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bilibili-logo-animation">
+                    <div class="w-9 h-9 bg-gradient-to-br from-pink-400 to-blue-400 rounded-full flex items-center justify-center bblili-logo-animation">
                         <span class="text-white text-lg font-bold">B</span>
                     </div>
-                    <span class="text-xl font-semibold bilibili-pink hidden sm:block">bilibili</span>
+                    <span class="text-xl font-semibold bblili-pink hidden sm:block">bblili</span>
                 </a>
             </div>
 
@@ -543,7 +543,7 @@ VIDEO_PLAY_PAGE_TEMPLATE = """
                 <form action="/search" method="get" class="flex">
                     <input type="text" name="query" placeholder="搜索视频、UP主或番剧"
                            class="flex-1 px-4 py-2 search-bar text-sm border-0 outline-none focus:ring-2 focus:ring-blue-300 transition-all duration-200">
-                    <button type="submit" class="bilibili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
+                    <button type="submit" class="bblili-blue text-white px-4 py-2 rounded-r-lg text-sm search-button-hover transition-colors duration-200">搜索</button>
                 </form>
             </div>
 
@@ -643,7 +643,7 @@ VIDEO_PLAY_PAGE_TEMPLATE = """
     {% else %}
     <div class="container mx-auto px-4 py-12 text-center">
         <p class="text-gray-500 text-lg">视频不存在或已被删除。</p>
-        <a href="/" class="mt-4 inline-block bilibili-blue text-white px-6 py-2 rounded-md font-medium hover:bg-blue-600 transition-colors duration-200">返回首页</a>
+        <a href="/" class="mt-4 inline-block bblili-blue text-white px-6 py-2 rounded-md font-medium hover:bg-blue-600 transition-colors duration-200">返回首页</a>
     </div>
     {% endif %}
 </body>
@@ -790,4 +790,4 @@ def delete_video(video_id):
     return redirect(url_for('index'))
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
