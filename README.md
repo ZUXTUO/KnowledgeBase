@@ -1,27 +1,65 @@
-自己的知识库，学习使用<br>
-主要用于存放平时写的一些鸡肋功能，但或许能在某些地方发挥奇效的内容。<br>
-全部都是不成熟的项目，可以自行优化修改。欢迎提交。<br>
-<br><br>
+# 项目工具目录总览
 
-常用工具：
-图像压缩：Caesium Image Compressor：https://saerasoft.com/caesium<br>
-重复图像检索：czkawka_gui：https://github.com/qarmin/czkawka<br>
-图像信息清理：ExifCleaner：https://github.com/szTheory/exifcleaner<br>
-Unity游戏解包工具：AssetRipper：https://github.com/AssetRipper/AssetRipper<br>
-图像信息清除工具：ExifCleaner：https://github.com/szTheory/exifcleaner<br>
+## C#相关工具
+- **Windows端口转发** - 端口转发工具，使用C#和Windows Forms开发
 
-<br><br>
-常用项目：<br>
-视频补帧项目：RIFE：https://github.com/nihui/rife-ncnn-vulkan<br>
-图像超分项目：Real-ESRGAN：https://github.com/xinntao/Real-ESRGAN-ncnn-vulkan<br>
-带GUI的图像超分项目：Real-ESRGAN-GUI：https://github.com/TransparentLC/realesrgan-gui<br>
-精简浏览器内核项目：miniblink49：https://github.com/weolar/miniblink49<br>
-本地网盘工具推荐（java）：https://github.com/KOHGYLW/kiftd<br>
+## FFMPEG相关工具
+- **ffmpeg_PSV视频编码** - PSV视频编码相关脚本
+- **ffmpeg_音频音量自动归一化脚本** - 音频音量自动归一化处理脚本
 
-<br><br>
-AI项目：<br>
-本地大模型RWKV：https://github.com/josStorer/RWKV-Runner<br>
-本地多模态（语音/视频对话，推荐-o 2.6）：https://github.com/OpenBMB/MiniCPM-o<br>
-本地推理QwQ-32B：https://github.com/QwenLM/QwQ<br>
-6G显存也能跑的图生视频：https://github.com/lllyasviel/FramePack.git<br>
-声色克隆：https://github.com/RVC-Boss/GPT-SoVITS<br>
+## Python个人项目
+- **Git提交历史可视化** - Git提交历史可视化工具
+- **人工智能** - 包含多个AI学习项目（图像分类、AI记忆存储、喜好类型图片AI等）
+- **创建1s空音频** - 创建1秒空音频文件的工具
+- **图片文档加密工具V1.0** - 图片文档加密工具
+- **无缝平铺柏林噪音** - 生成无缝平铺柏林噪音的工具
+- **某推热点搜集+发帖** - 自动搜集推特热点并发布
+- **目录比对工具** - 比较两个目录的差异
+- **相册网盘** - 基于Web的相册网盘系统
+- **相册网盘单脚本版** - 相册网盘的单脚本版本
+- **简单模仿B站** - 模仿B站的简单Web应用
+- **简易的7z压缩包修复工具** - 修复损坏的7z压缩包
+- **音频均衡器对比分析V1** - 音频均衡器对比分析工具（版本1）
+- **音频均衡器对比分析V2** - 音频均衡器对比分析工具（版本2）
+
+## Unity3D相关工具
+- **Security.Cryptography.Xml** - .NET安全加密相关组件
+- **U3D以前闲得无聊写的简单加密算法** - 简单加密算法实现
+- **U3D优化工具** - Unity3D项目优化工具
+- **U3D动漫风格渲染PSV可用** - 适用于PSV的动漫风格渲染器
+- **U3D实现X86虚拟机-暂只支持软盘启动** - Unity3D实现的X86虚拟机
+- **U3D时间锁** - Unity3D时间锁定功能
+- **U3D缓存清理工具** - Unity3D缓存清理工具
+- **U3D解包** - Unity3D资源解包工具
+- **U3D设备锁** - Unity3D设备锁定功能
+- **U3D降级工具-PSV移植用** - 用于PSV移植的Unity3D降级工具
+
+## Shell脚本工具
+
+### Ubuntu/bash/sh脚本
+- **将软盘img文件转CDROM的iso文件** - 软盘镜像转光盘ISO工具
+
+### Windows批处理脚本
+- **Bat_2016老旧项目_内存释放** - 内存释放批处理脚本
+- **Bat_2016老旧项目_极力清理器** - 系统清理工具
+- **Bat_Git管理用脚本** - Git操作批处理脚本
+
+## JavaScript油猴脚本
+- **显示github仓库大小的网页插件** - 在GitHub页面显示仓库大小的油猴脚本
+- **网页背景雨滴效果美化** - 为网页添加雨滴背景效果的美化脚本
+
+## 图像处理工具
+- **图像数字水印** - 图像数字水印处理工具
+- **图像格式快速转换+分辨率按比例缩放** - 图像格式转换和分辨率缩放工具
+
+## 简易前端（网站）项目
+- **可塑性记忆工作牌线上制作工具：PlaMemo-WorkCard-MakeTool** - PlaMemo工作牌在线制作工具
+- **直播伪装（PHP）** - 直播伪装系统
+- **简易AI聊天界面** - 简易AI聊天界面
+- **简易SD文生图界面** - Stable Diffusion文生图界面
+- **线上看动漫网页源码（PHP）** - 在线看动漫网站源码
+- **线上看漫画网页源码（PHP）** - 在线看漫画网站源码
+
+## 点云学习相关
+- **hloc** - hloc相关学习资料
+- **vio** - VIO（视觉惯性里程计）相关学习资料
