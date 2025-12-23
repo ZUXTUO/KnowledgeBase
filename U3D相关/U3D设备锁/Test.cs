@@ -6,11 +6,11 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 public class Test : MonoBehaviour
 {
-    public static string name = "";//ÕËºÅ
-    public static string pasd = "";//ÃÜÂë
-    public static string snum = "";//ÖÖ×Ó
-    public static Rect Back, Lindingwindow;//¾ØÕó´óĞ¡
-    public static bool OnWindows = true, OnSign = true;//ÊÇ·ñÏÔÊ¾´°¿Ú
+    public static string name = "";//è´¦å·
+    public static string pasd = "";//å¯†ç 
+    public static string snum = "";//ç§å­
+    public static Rect Back, Lindingwindow;//çŸ©é˜µå¤§å°
+    public static bool OnWindows = true, OnSign = true;//æ˜¯å¦æ˜¾ç¤ºçª—å£
 
     public void OnEnable()
     {
@@ -21,7 +21,7 @@ public class Test : MonoBehaviour
     {
         if (OnWindows)
         {
-            Lindingwindow = GUI.Window(0, Lindingwindow, Window, "");//½âÃÜ½çÃæ
+            Lindingwindow = GUI.Window(0, Lindingwindow, Window, "");//è§£å¯†ç•Œé¢
         }
     }
 
@@ -33,86 +33,86 @@ public class Test : MonoBehaviour
     public static void Window(int ID)
     {
         GUIStyle fontStyle = new GUIStyle();
-        fontStyle.fontSize = 40;//×ÖÌå
+        fontStyle.fontSize = 40;//å­—ä½“
         fontStyle.normal.textColor = new Color(255, 255, 255);
-        GUI.Label(new Rect(50, 120, 1000, 100), "ÕËºÅ:", fontStyle);
-        GUI.Label(new Rect(50, 250, 1000, 100), "ÃÜÂë:", fontStyle);
-        GUI.Label(new Rect(50, 380, 1000, 100), "ÖÖ×Ó:", fontStyle);
+        GUI.Label(new Rect(50, 120, 1000, 100), "è´¦å·:", fontStyle);
+        GUI.Label(new Rect(50, 250, 1000, 100), "å¯†ç :", fontStyle);
+        GUI.Label(new Rect(50, 380, 1000, 100), "ç§å­:", fontStyle);
         name = SystemInfo.deviceUniqueIdentifier;
         name = GUI.TextField(new Rect(170, 120, 1000, 80), name, fontStyle);
         pasd = GUI.TextField(new Rect(170, 250, 1000, 80), pasd, fontStyle);
         snum = GUI.TextField(new Rect(170, 380, 1000, 80), snum, fontStyle);
 
-        GUI.Label(new Rect(100, 490, 1000, 100), "Çë¼ÓÈë·ÛË¿ÈººóÔÙÉêÇë£¬ÕËºÅÎªÎ¨Ò»Éè±¸Âë²»¿É±ä¸ü¡£", fontStyle);
+        GUI.Label(new Rect(100, 490, 1000, 100), "è¯·åŠ å…¥ç²‰ä¸ç¾¤åå†ç”³è¯·ï¼Œè´¦å·ä¸ºå”¯ä¸€è®¾å¤‡ç ä¸å¯å˜æ›´ã€‚", fontStyle);
 
-        if (GUI.Button(new Rect(500f, 600f, 200f, 70f), "ÑéÖ¤µÇÂ¼", fontStyle))
+        if (GUI.Button(new Rect(500f, 600f, 200f, 70f), "éªŒè¯ç™»å½•", fontStyle))
         {
             if (name == Decrypt(pasd, snum))
             {
-                Debug.Log("µÇÂ¼³É¹¦");
+                Debug.Log("ç™»å½•æˆåŠŸ");
                 OnWindows = false;
                 Time.timeScale = 1f;
                 Write();
             }
             else
             {
-                Debug.Log("µÇÂ¼Ê§°Ü");
+                Debug.Log("ç™»å½•å¤±è´¥");
                 OnWindows = true;
                 Time.timeScale = 0f;
             }
         }
-        if (GUI.Button(new Rect(1000f, 600f, 200f, 70f), "·µ»Ø", fontStyle))
+        if (GUI.Button(new Rect(1000f, 600f, 200f, 70f), "è¿”å›", fontStyle))
         {
             OnWindows = false;
             Time.timeScale = 1;
         }
         if (OnSign)
         {
-            if (GUI.Button(new Rect(50f, 600f, 200f, 70f), "Ìá½»ÉêÇë", fontStyle))
+            if (GUI.Button(new Rect(50f, 600f, 200f, 70f), "æäº¤ç”³è¯·", fontStyle))
             {
                 OnSign = false;
                 Encrypt(SystemInfo.deviceUniqueIdentifier);
-                Debug.Log("ÉêÇë²âÊÔµÄÓÃ»§£º" + SystemInfo.deviceUniqueIdentifier + "\nÃÜÔ¿£º" + Temp_Key + "\nÖÖ×Ó£º" + Temp_Graw);
-                string email = "ÓÎÏ·°æ±¾£º" + Application.version + "\n" + "ÉêÇë²âÊÔµÄÓÃ»§£º" + SystemInfo.deviceUniqueIdentifier + "\nÃÜÔ¿£º" + Temp_Key + "\nÖÖ×Ó£º" + Temp_Graw;
-                SendEmailSrc.Send(SendEmailSrc.Mail_Feedback, "²âÊÔÉêÇë", email);
+                Debug.Log("ç”³è¯·æµ‹è¯•çš„ç”¨æˆ·ï¼š" + SystemInfo.deviceUniqueIdentifier + "\nå¯†é’¥ï¼š" + Temp_Key + "\nç§å­ï¼š" + Temp_Graw);
+                string email = "æ¸¸æˆç‰ˆæœ¬ï¼š" + Application.version + "\n" + "ç”³è¯·æµ‹è¯•çš„ç”¨æˆ·ï¼š" + SystemInfo.deviceUniqueIdentifier + "\nå¯†é’¥ï¼š" + Temp_Key + "\nç§å­ï¼š" + Temp_Graw;
+                SendEmailSrc.Send(SendEmailSrc.Mail_Feedback, "æµ‹è¯•ç”³è¯·", email);
             }
         }
-        GUI.DragWindow();//¿ÉÒÔÍÏ×§µÄÒ»¸ö´°¿Ú
+        GUI.DragWindow();//å¯ä»¥æ‹–æ‹½çš„ä¸€ä¸ªçª—å£
     }
 
     public static string Key_file, Graw_file;
 
     /// <summary>
-    /// ÍâÖÃµØÖ·    Key
+    /// å¤–ç½®åœ°å€    Key
     /// </summary>
     public static string Key_filePathStatic()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WSA_10_0
         Key_file = Application.dataPath + "/Save/Key";//PC
 #elif UNITY_ANDROID
-        Key_file = Application.persistentDataPath + "/Key";//°²×¿ÊÖ»ú
+        Key_file = Application.persistentDataPath + "/Key";//å®‰å“æ‰‹æœº
 #elif UNITY_IOS
-        Key_file = Application.persistentDataPath + "/Key";//Æ»¹ûÊÖ»ú
+        Key_file = Application.persistentDataPath + "/Key";//è‹¹æœæ‰‹æœº
 # endif
         return Key_file;
     }
     /// <summary>
-    /// ÍâÖÃµØÖ·    Graw
+    /// å¤–ç½®åœ°å€    Graw
     /// </summary>
     public static string Graw_filePathStatic()
     {
 #if UNITY_EDITOR || UNITY_STANDALONE || UNITY_WSA_10_0
         Graw_file = Application.dataPath + "/Save/Graw";//PC
 #elif UNITY_ANDROID
-        Graw_file = Application.persistentDataPath + "/Graw";//°²×¿ÊÖ»ú
+        Graw_file = Application.persistentDataPath + "/Graw";//å®‰å“æ‰‹æœº
 #elif UNITY_IOS
-        Graw_file = Application.persistentDataPath + "/Graw";//Æ»¹ûÊÖ»ú
+        Graw_file = Application.persistentDataPath + "/Graw";//è‹¹æœæ‰‹æœº
 # endif
         return Graw_file;
     }
 
     /// <summary>
-    /// ¶ÁÈ¡Key-²»ÏÔÊ¾´°¿Ú
+    /// è¯»å–Key-ä¸æ˜¾ç¤ºçª—å£
     /// </summary>
     public static void Read_NoWindows()
     {
@@ -126,12 +126,12 @@ public class Test : MonoBehaviour
             string Graw_str = Graw_streamReader.ReadToEnd();
             if (SystemInfo.deviceUniqueIdentifier == Decrypt(Key_str, Graw_str))
             {
-                //ÕâÀïÌí¼ÓÍ¨¹ıÑéÖ¤ºóµÄÂß¼­
+                //è¿™é‡Œæ·»åŠ é€šè¿‡éªŒè¯åçš„é€»è¾‘
             }
         }
     }
     /// <summary>
-    /// ¶ÁÈ¡Key-ÏÔÊ¾´°¿Ú
+    /// è¯»å–Key-æ˜¾ç¤ºçª—å£
     /// </summary>
     public static void Read()
     {
@@ -139,7 +139,7 @@ public class Test : MonoBehaviour
         FileInfo Graw_file = new FileInfo(Graw_filePathStatic());
         if (!Key_file.Exists & !Graw_file.Exists)
         {
-            OnWindows = true;//²»´æÔÚ´æµµ
+            OnWindows = true;//ä¸å­˜åœ¨å­˜æ¡£
             Time.timeScale = 0;
             MainWindows();
         }
@@ -149,24 +149,24 @@ public class Test : MonoBehaviour
             StreamReader Graw_streamReader = new StreamReader(Graw_filePathStatic());
             string Key_str = Key_streamReader.ReadToEnd();
             string Graw_str = Graw_streamReader.ReadToEnd();
-            Debug.Log("×ÛºÏÃÜÂë£º" + Key_str + "  " + Graw_str);
+            Debug.Log("ç»¼åˆå¯†ç ï¼š" + Key_str + "  " + Graw_str);
             if (SystemInfo.deviceUniqueIdentifier == Decrypt(Key_str, Graw_str))
             {
-                //ÕâÀïÌí¼ÓÍ¨¹ıÑéÖ¤ºóµÄÂß¼­
-                Debug.Log("Æ¥Åä");
+                //è¿™é‡Œæ·»åŠ é€šè¿‡éªŒè¯åçš„é€»è¾‘
+                Debug.Log("åŒ¹é…");
                 OnWindows = false;
                 Time.timeScale = 1;
             }
             else
             {
-                Debug.Log("²»Æ¥Åä");
+                Debug.Log("ä¸åŒ¹é…");
                 MainWindows();
                 Time.timeScale = 0;
             }
         }
     }
     /// <summary>
-    /// ÃÜÔ¿Ğ´Èë
+    /// å¯†é’¥å†™å…¥
     /// </summary>
     public static void Write()
     {
@@ -178,7 +178,7 @@ public class Test : MonoBehaviour
         Graw_sw.Write(snum);
         Graw_sw.Close();
         Graw_sw.Dispose();
-        //ÕâÀïÌí¼ÓÍ¨¹ıÑéÖ¤ºóµÄÂß¼­
+        //è¿™é‡Œæ·»åŠ é€šè¿‡éªŒè¯åçš„é€»è¾‘
     }
 
 
@@ -192,7 +192,7 @@ public class Test : MonoBehaviour
 
     public static string Temp_Key, Temp_Graw;
     /// <summary>
-    /// ¼ÓÃÜ
+    /// åŠ å¯†
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
@@ -229,7 +229,7 @@ public class Test : MonoBehaviour
             {
                 seed[i] = UnityEngine.Random.Range(0, abecedario.Length);
             }
-            //×Ö·û×ªÎÄ×Ö
+            //å­—ç¬¦è½¬æ–‡å­—
             System.Text.StringBuilder TxtToNum = new System.Text.StringBuilder(chars[i].ToString().Length);
             foreach (char c in chars[i].ToString())
                 TxtToNum.Append((c ^ 2).ToString("D5"));
@@ -261,7 +261,7 @@ public class Test : MonoBehaviour
     }
 
     /// <summary>
-    /// ½âÃÜ
+    /// è§£å¯†
     /// </summary>
     /// <param name="input"></param>
     /// <returns></returns>
@@ -299,7 +299,7 @@ public class Test : MonoBehaviour
         for (int i = 0; i < ids.Count; i++)
         {
             //Debug.Log(ids[i]);
-            //Êı×Ö×ª×Ö·û´®
+            //æ•°å­—è½¬å­—ç¬¦ä¸²
             System.Text.StringBuilder TxtToNum = new System.Text.StringBuilder(ids[i].ToString().Length);
             int val = int.Parse(ids[i].ToString()) ^ 2;
             TxtToNum.Append((char)val);
@@ -314,16 +314,16 @@ public class Test : MonoBehaviour
     public static List<string> CDE(string strs, string startStr, string endStr)
     {
         List<string> result = new List<string>();
-        //»ñÈ¡Ö¸¶¨×Ö·ûÁ½¸ö×Ö·ûÖĞ¼äµÄ×Ö·û
+        //è·å–æŒ‡å®šå­—ç¬¦ä¸¤ä¸ªå­—ç¬¦ä¸­é—´çš„å­—ç¬¦
         string regex = "(?<=(" + startStr + "))[.\\s\\S]*?(?=(" + endStr + "))";
         Regex rg = new Regex(regex);
         if (string.IsNullOrEmpty(strs))
             return null;
-        //ÑéÖ¤strsÀïµÄÄÚÈİÊÇ²»ÊÇÖ¸¶¨×Ö·ûÁ½¸ö×Ö·ûÖĞ¼äµÄ×Ö·û
+        //éªŒè¯strsé‡Œçš„å†…å®¹æ˜¯ä¸æ˜¯æŒ‡å®šå­—ç¬¦ä¸¤ä¸ªå­—ç¬¦ä¸­é—´çš„å­—ç¬¦
         bool isMatch = Regex.IsMatch(strs, regex);
         if (!isMatch)
             return null;
-        //ÕÒµ½Æ¥ÅäµÄ¼¯ºÏ£¬¼´matchColÄ¿Ç°´æÔÚµÄÄÚÈİ¼´ÎªÊ«´ÊÄÚÈİ
+        //æ‰¾åˆ°åŒ¹é…çš„é›†åˆï¼Œå³matchColç›®å‰å­˜åœ¨çš„å†…å®¹å³ä¸ºè¯—è¯å†…å®¹
         MatchCollection matchCol = Regex.Matches(strs, regex);
         if (matchCol.Count > 0)
         {

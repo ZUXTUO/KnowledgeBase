@@ -1,4 +1,4 @@
-﻿namespace PortForwarder
+namespace PortForwarder
 {
     partial class DeletePortForward
     {

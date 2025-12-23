@@ -12,17 +12,17 @@ public class TimeLock : MonoBehaviour
     {
         DontDestroyOnLoad(gameObject);
 
-        // ÉèÖÃµ½ÆÚÊ±¼ä
-        expirationTime = new DateTime(2025, 5, 13);//Ê±¼äËøÉÏËøÈÕÆÚ
+        // è®¾ç½®åˆ°æœŸæ—¶é—´
+        expirationTime = new DateTime(2025, 5, 13);//æ—¶é—´é”ä¸Šé”æ—¥æœŸ
 
-        // ´æ´¢³õÊ¼µÄµ½ÆÚÊ±¼ä£¬Èç¹ûÉĞÎ´´æ´¢
+        // å­˜å‚¨åˆå§‹çš„åˆ°æœŸæ—¶é—´ï¼Œå¦‚æœå°šæœªå­˜å‚¨
         if (!PlayerPrefs.HasKey(ExpirationKey))
         {
-            PlayerPrefs.SetString(ExpirationKey, expirationTime.ToString("O")); // ISO 8601 ¸ñÊ½
+            PlayerPrefs.SetString(ExpirationKey, expirationTime.ToString("O")); // ISO 8601 æ ¼å¼
             PlayerPrefs.Save();
         }
 
-        // Æô¶¯Ğ­³Ì
+        // å¯åŠ¨åç¨‹
         StartCoroutine(CheckExpirationRoutine());
     }
 
@@ -31,37 +31,37 @@ public class TimeLock : MonoBehaviour
         while (true)
         {
             CheckExpiration();
-            yield return new WaitForSeconds(300); // Ã¿5·ÖÖÓ¼ì²âÒ»´Î
+            yield return new WaitForSeconds(300); // æ¯5åˆ†é’Ÿæ£€æµ‹ä¸€æ¬¡
         }
     }
 
     private void CheckExpiration()
     {
-        // »ñÈ¡µ±Ç°Ê±¼ä
+        // è·å–å½“å‰æ—¶é—´
         DateTime currentTime = DateTime.Now;
 
-        // ¼ì²éÊÇ·ñÊÖ¶¯ĞŞ¸ÄÁËÏµÍ³Ê±¼ä
+        // æ£€æŸ¥æ˜¯å¦æ‰‹åŠ¨ä¿®æ”¹äº†ç³»ç»Ÿæ—¶é—´
         if (PlayerPrefs.HasKey(LastCheckTimeKey))
         {
             DateTime lastCheckTime = DateTime.Parse(PlayerPrefs.GetString(LastCheckTimeKey));
             if (currentTime < lastCheckTime)
             {
-                Debug.LogError("¼ì²âµ½ÏµÍ³Ê±¼ä±»ĞŞ¸Ä£¬Ç¿ÖÆÍË³öÓ¦ÓÃ¡£");
+                Debug.LogError("æ£€æµ‹åˆ°ç³»ç»Ÿæ—¶é—´è¢«ä¿®æ”¹ï¼Œå¼ºåˆ¶é€€å‡ºåº”ç”¨ã€‚");
                 Application.Quit();
             }
         }
 
-        // ¸üĞÂ×îºó¼ì²éÊ±¼ä
+        // æ›´æ–°æœ€åæ£€æŸ¥æ—¶é—´
         PlayerPrefs.SetString(LastCheckTimeKey, currentTime.ToString("O"));
         PlayerPrefs.Save();
 
-        // »ñÈ¡´æ´¢µÄµ½ÆÚÊ±¼ä
+        // è·å–å­˜å‚¨çš„åˆ°æœŸæ—¶é—´
         DateTime storedExpirationTime = DateTime.Parse(PlayerPrefs.GetString(ExpirationKey));
 
-        // ¼ì²éµ±Ç°Ê±¼äÊÇ·ñ³¬¹ı´æ´¢µÄµ½ÆÚÊ±¼ä
+        // æ£€æŸ¥å½“å‰æ—¶é—´æ˜¯å¦è¶…è¿‡å­˜å‚¨çš„åˆ°æœŸæ—¶é—´
         if (currentTime > storedExpirationTime)
         {
-            Debug.LogError("Ó¦ÓÃÒÑ¹ıÆÚ£¬Ç¿ÖÆÍË³öÓ¦ÓÃ¡£");
+            Debug.LogError("åº”ç”¨å·²è¿‡æœŸï¼Œå¼ºåˆ¶é€€å‡ºåº”ç”¨ã€‚");
             Application.Quit();
         }
     }

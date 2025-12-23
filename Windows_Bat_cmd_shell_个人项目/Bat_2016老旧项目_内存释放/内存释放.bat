@@ -1,7 +1,7 @@
 @echo off
 mode con cols=40 lines=10
-title 内存加速器
-echo 本程序挂着就行
+title 鍐呭瓨鍔犻�熷櫒
+echo 鏈▼搴忔寕鐫�灏辫
 :a
 empty *>nul
 empty %%~a>nul

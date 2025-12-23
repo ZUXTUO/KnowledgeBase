@@ -1,16 +1,16 @@
 chcp 936
 @echo off
-echo »¶Ó­Ê¹ÓÃ°ÂË¹Ëþ¿ËÀ¬»øÇåÀíÆ÷
+echo æ¬¢è¿Žä½¿ç”¨å¥¥æ–¯å¡”å…‹åžƒåœ¾æ¸…ç†å™¨
 echo. & pause 
-echo ÇëÑ¡ÔñÒªÖ´ÐÐµÄ²Ù×÷£¨1-ÇåÀíÀ¬»ø£¬2-ÇåÀíºÛ¼££¬3-ÍË³ö£© 
+echo è¯·é€‰æ‹©è¦æ‰§è¡Œçš„æ“ä½œï¼ˆ1-æ¸…ç†åžƒåœ¾ï¼Œ2-æ¸…ç†ç—•è¿¹ï¼Œ3-é€€å‡ºï¼‰ 
 set choice= 
-set /p choice=ÇëÑ¡Ôñ£¨1/2/3£©°´»Ø³µÖ´ÐÐ£º 
+set /p choice=è¯·é€‰æ‹©ï¼ˆ1/2/3ï¼‰æŒ‰å›žè½¦æ‰§è¡Œï¼š 
 if /i '%choice%'=='1' goto a 
 if /i '%choice%'=='2' goto b 
 if /i '%choice%'=='3' goto end 
 
 :a
-echo ÕýÔÚÇå³ýÏµÍ³À¬»ø£¬ÇëÉÔµÈ......
+echo æ­£åœ¨æ¸…é™¤ç³»ç»Ÿåžƒåœ¾ï¼Œè¯·ç¨ç­‰......
 color 4a
 del /f /s /q A:\360SoftMgrGame
 del /f /s /q B:\360SoftMgrGame
@@ -64,32 +64,32 @@ del /f /s /q W:\360Downloads
 del /f /s /q X:\360Downloads
 del /f /s /q Y:\360Downloads
 del /f /s /q Z:\360Downloads
-del /f /s /q A:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q B:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q C:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q D:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q E:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q F:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q G:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q H:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q I:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q J:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q K:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q L:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q M:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q N:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q O:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q P:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q Q:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q R:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q S:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q T:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q U:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q V:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q W:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q X:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q Y:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
-del /f /s /q Z:\360°²È«ä¯ÀÀÆ÷ÏÂÔØ\*.exe
+del /f /s /q A:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q B:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q C:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q D:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q E:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q F:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q G:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q H:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q I:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q J:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q K:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q L:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q M:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q N:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q O:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q P:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q Q:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q R:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q S:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q T:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q U:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q V:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q W:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q X:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q Y:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
+del /f /s /q Z:\360å®‰å…¨æµè§ˆå™¨ä¸‹è½½\*.exe
 del /f /s /q C:\Inteler\igfxem.exe
 del /f /s /q %systemdrive%\*.tmp
 del /f /s /q %systemdrive%\*._mp
@@ -162,10 +162,10 @@ del /f /q %userprofile%\recent\*.*
 del /f /s /q "%userprofile%\Local Settings\Temporary Internet Files\*.*" 
 del /f /s /q "%userprofile%\Local Settings\Temp\*.*" 
 del /f /s /q "%userprofile%\recent\*.*" 
-echo Çå³ýÏµÍ³À¬»øÍê³É!
+echo æ¸…é™¤ç³»ç»Ÿåžƒåœ¾å®Œæˆ!
 
 :b
-echo ÕýÔÚÇå³ýÏµÍ³ºÛ¼££¬ÇëÉÔµÈ......
+echo æ­£åœ¨æ¸…é™¤ç³»ç»Ÿç—•è¿¹ï¼Œè¯·ç¨ç­‰......
 color 4a
 rd /s /q %systemdrive%\"System Volume Information" && md %systemdrive%\"System Volume Information"
 del /f /s /q %windir%\Prefetch\*.* 
@@ -245,33 +245,33 @@ reg delete "HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\StreamMRU" /
 @echo off&setlocal enabledelayedexpansion
 for /f "delims=\" %%i in ('fsutil fsinfo drives^|find ""') do (
 set drive_=%%i
-fsutil fsinfo drivetype !drive_:~0,2!|find "¹Ì¶¨">nul && del /a /f /q /s !drive_:~0,2!\Thumbs.db
+fsutil fsinfo drivetype !drive_:~0,2!|find "å›ºå®š">nul && del /a /f /q /s !drive_:~0,2!\Thumbs.db
 )
-echo Çå³ýÏµÍ³ºÛ¼£Íê³É!
+echo æ¸…é™¤ç³»ç»Ÿç—•è¿¹å®Œæˆ!
 color 2f
-echo ©³©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©·
-echo ©§  ©³©·      ©³©·          ©§
-echo ©§©³©¿©ß©¥©¥©¥©¿©ß©·        ©§
-echo ©§©§               ©§       ©§
-echo ©§©§     ©¥        ©§       ©§
-echo ©§©§  ©×©¿ ©»©×    ©§       ©§
-echo ©§©§               ©§       ©§
-echo ©§©§    ©ß         ©§       ©§
-echo ©§©§               ©§       ©§
-echo ©§©»©¥©·       ©³©¥©¿       ©§
-echo ©§    ©§       ©§           ©§   
-echo ©§    ©§       ©§           ©§
-echo ©§    ©§       ©»©¥©¥©¥©·   ©§
-echo ©§    ©§ÇåÀíÍê³É£¡     ©Ç©· ©§ 
-echo ©§    ©§               ©³©¿ ©§
-echo ©§    ©»©·©·©³©¥©×©·©³©¿    ©§
-echo ©§      ©§©Ï©Ï  ©§©Ï©Ï      ©§
-echo ©§      ©»©ß©¿  ©»©ß©¿      ©§
-echo ©»©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¥©¿
+echo â”â”â”â”â”â”â”â”â”â”â”â”â”â”â”“
+echo â”ƒ  â”â”“      â”â”“          â”ƒ
+echo â”ƒâ”â”›â”»â”â”â”â”›â”»â”“        â”ƒ
+echo â”ƒâ”ƒ               â”ƒ       â”ƒ
+echo â”ƒâ”ƒ     â”        â”ƒ       â”ƒ
+echo â”ƒâ”ƒ  â”³â”› â”—â”³    â”ƒ       â”ƒ
+echo â”ƒâ”ƒ               â”ƒ       â”ƒ
+echo â”ƒâ”ƒ    â”»         â”ƒ       â”ƒ
+echo â”ƒâ”ƒ               â”ƒ       â”ƒ
+echo â”ƒâ”—â”â”“       â”â”â”›       â”ƒ
+echo â”ƒ    â”ƒ       â”ƒ           â”ƒ   
+echo â”ƒ    â”ƒ       â”ƒ           â”ƒ
+echo â”ƒ    â”ƒ       â”—â”â”â”â”“   â”ƒ
+echo â”ƒ    â”ƒæ¸…ç†å®Œæˆï¼     â”£â”“ â”ƒ 
+echo â”ƒ    â”ƒ               â”â”› â”ƒ
+echo â”ƒ    â”—â”“â”“â”â”â”³â”“â”â”›    â”ƒ
+echo â”ƒ      â”ƒâ”«â”«  â”ƒâ”«â”«      â”ƒ
+echo â”ƒ      â”—â”»â”›  â”—â”»â”›      â”ƒ
+echo â”—â”â”â”â”â”â”â”â”â”â”â”â”â”â”›
 echo. & pause
-echo ÇëÑ¡ÔñÒªÖ´ÐÐµÄ²Ù×÷£¨1-ÇåÀíÀ¬»ø£¬2-ÇåÀíºÛ¼££¬3-ÍË³ö£© 
+echo è¯·é€‰æ‹©è¦æ‰§è¡Œçš„æ“ä½œï¼ˆ1-æ¸…ç†åžƒåœ¾ï¼Œ2-æ¸…ç†ç—•è¿¹ï¼Œ3-é€€å‡ºï¼‰ 
 set choice= 
-set /p choice=ÇëÑ¡Ôñ£¨1/2/3£©°´»Ø³µÖ´ÐÐ£º 
+set /p choice=è¯·é€‰æ‹©ï¼ˆ1/2/3ï¼‰æŒ‰å›žè½¦æ‰§è¡Œï¼š 
 if /i '%choice%'=='1' goto a 
 if /i '%choice%'=='2' goto b 
 if /i '%choice%'=='3' goto end 

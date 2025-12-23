@@ -9,28 +9,28 @@ public static class EnableEnterPlayModeOnLoad
 
     static EnableEnterPlayModeOnLoad()
     {
-        // Èç¹ûÒÑ¾­ÉèÖÃ¹ı£¬¾Í²»ÔÙÖ´ĞĞ
+        // å¦‚æœå·²ç»è®¾ç½®è¿‡ï¼Œå°±ä¸å†æ‰§è¡Œ
         if (EditorPrefs.GetBool(PrefKey, false))
             return;
 
         EnableEnterPlayModeSettings();
 
-        // ±ê¼ÇÒÑÖ´ĞĞ¹ı
+        // æ ‡è®°å·²æ‰§è¡Œè¿‡
         EditorPrefs.SetBool(PrefKey, true);
     }
 
     private static void EnableEnterPlayModeSettings()
     {
 #if UNITY_2019_3_OR_NEWER
-        // ´ò¿ª Enter Play Mode Settings
+        // æ‰“å¼€ Enter Play Mode Settings
         var settings = EditorSettings.enterPlayModeOptionsEnabled;
         if (!settings)
         {
             EditorSettings.enterPlayModeOptionsEnabled = true;
-            // ¿É¸ù¾İĞèÒª¶¨ÖÆÑ¡Ïî£¨Èç¹Ø±Õ Domain Reload£©
+            // å¯æ ¹æ®éœ€è¦å®šåˆ¶é€‰é¡¹ï¼ˆå¦‚å…³é—­ Domain Reloadï¼‰
             // EditorSettings.enterPlayModeOptions = EnterPlayModeOptions.DisableDomainReload | EnterPlayModeOptions.DisableSceneReload;
 
-            Debug.Log("×Ô¶¯ÆôÓÃÁË Enter Play Mode Settings¡£");
+            Debug.Log("è‡ªåŠ¨å¯ç”¨äº† Enter Play Mode Settingsã€‚");
         }
 #endif
     }
